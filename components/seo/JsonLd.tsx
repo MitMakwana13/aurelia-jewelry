@@ -4,8 +4,8 @@ interface OrganizationJsonLdProps {
 }
 
 export function OrganizationJsonLd({
-  name = "Radharani Gemstone",
-  url = "https://radharanigemstone.com",
+  name = "Radha Rani High Jewelry",
+  url = "https://radharani-jewelry.com",
 }: OrganizationJsonLdProps) {
   const data = {
     "@context": "https://schema.org",
@@ -13,18 +13,18 @@ export function OrganizationJsonLd({
     name,
     url,
     description:
-      "Radharani Gemstone — Exquisite gemstones, diamonds and bespoke jewelry. Divine Energy, Timeless Luxury. Based in India.",
+      "Radha Rani High Jewelry — Exquisite diamonds, emeralds and bespoke masterpieces. The Culture of Craft. Based in India.",
     logo: `${url}/logo.png`,
     image: `${url}/logo.png`,
     telephone: "+91-99999-99999",
-    email: "info@radharanigemstone.com",
+    email: "concierge@radharani-jewelry.com",
     address: {
       "@type": "PostalAddress",
       addressCountry: "IN",
     },
-    priceRange: "₹₹₹",
+    priceRange: "₹₹₹₹",
     currenciesAccepted: "INR",
-    paymentAccepted: "UPI, Bank Transfer, Credit Card, Debit Card",
+    paymentAccepted: "Wire Transfer, Bank Transfer, Credit Card",
     openingHours: "Mo-Sa 10:00-19:00",
     sameAs: [
       "https://www.instagram.com/radharanigemstone",
@@ -67,7 +67,7 @@ export function ProductJsonLd({
     sku,
     brand: {
       "@type": "Brand",
-      name: "Radharani Gemstone",
+      name: "Radha Rani High Jewelry",
     },
     offers: {
       "@type": "Offer",
@@ -77,7 +77,7 @@ export function ProductJsonLd({
       url,
       seller: {
         "@type": "Organization",
-        name: "Radharani Gemstone",
+        name: "Radha Rani High Jewelry",
       },
     },
   };

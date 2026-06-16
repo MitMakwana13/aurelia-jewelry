@@ -1,9 +1,8 @@
 export const dynamic = "force-dynamic";
 import type { MetadataRoute } from "next";
 import { prisma } from "@/lib/prisma";
-
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://radharanigemstone.com";
+  const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://radharani-jewelry.com";
 
   const products = await prisma.product.findMany({
     select: { handle: true, updatedAt: true },

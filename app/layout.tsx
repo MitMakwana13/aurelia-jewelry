@@ -20,29 +20,29 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: {
-    default: "Radharani Gemstone — Divine Energy, Timeless Luxury",
-    template: "%s · Radharani Gemstone",
+    default: "Radha Rani High Jewelry — The Culture of Craft",
+    template: "%s · Radha Rani",
   },
   description:
-    "Radharani Gemstone — Exquisite ethically sourced gemstones, diamonds and bespoke jewelry crafted in India. Divine Energy, Timeless Luxury.",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://radharanigemstone.com"),
+    "Radha Rani High Jewelry — Exquisite, ethically sourced diamonds, emeralds, and bespoke masterpieces crafted in India. A heritage of pure intention and timeless luxury.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://radharani-jewelry.com"),
   keywords: [
-    "gemstones India", "diamonds India", "custom jewelry India", "Radharani Gemstone",
-    "birthstones", "ruby", "emerald", "sapphire", "diamond jewelry", "bespoke jewelry",
-    "gemstone shop India", "natural gemstones",
+    "High Jewelry India", "bespoke jewelry India", "Radha Rani High Jewelry",
+    "heritage jewelry", "kundan emerald", "diamond masterpieces", "custom luxury jewelry",
+    "bridal jewelry", "haute joaillerie India", "fine jewelry",
   ],
-  authors: [{ name: "Radharani Gemstone" }],
+  authors: [{ name: "Radha Rani High Jewelry" }],
   openGraph: {
-    title: "Radharani Gemstone — Divine Energy, Timeless Luxury",
-    description: "Exquisite gemstones, diamonds and bespoke jewelry crafted in India.",
+    title: "Radha Rani High Jewelry — The Culture of Craft",
+    description: "Exquisite diamonds and bespoke masterpieces crafted in India.",
     type: "website",
     locale: "en_IN",
-    siteName: "Radharani Gemstone",
+    siteName: "Radha Rani",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Radharani Gemstone",
-    description: "Divine Energy, Timeless Luxury. Gemstones & Diamonds.",
+    title: "Radha Rani High Jewelry",
+    description: "The Culture of Craft. High Jewelry Masterpieces.",
   },
   robots: {
     index: true,
