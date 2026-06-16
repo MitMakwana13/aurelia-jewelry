@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import type { Product, ProductVariant } from "@/lib/commerce/types";
 import { useCart } from "@/lib/store/cart-store";
+import { InquiryModal } from "@/components/inquiry/InquiryModal";
 import { formatMoney } from "@/lib/utils/format";
 import { PlusIcon, MinusIcon, HeartIcon, ChevronDownIcon } from "@/components/ui/Icons";
 
