@@ -3,90 +3,117 @@
 import Link from "next/link";
 import { useState } from "react";
 import type { Product } from "@/lib/commerce/types";
-import { formatPriceRange, formatMoney } from "@/lib/utils/format";
-import { useCart } from "@/lib/store/cart-store";
+import { formatMoney } from "@/lib/utils/format";
 import { HeartIcon } from "@/components/ui/Icons";
+import { InquiryModal } from "@/components/inquiry/InquiryModal";
 
 export function ProductCard({ product }: { product: Product }) {
   const [hovered, setHovered] = useState(false);
-  const addItem = useCart((s) => s.addItem);
+  const [inquiryOpen, setInquiryOpen] = useState(false);
   const second = product.images[1] ?? product.images[0];
 
+  const inferType = () => {
+    const cat = product.categorySlug?.toLowerCase() ?? "";
+    if (cat.includes("diamond") || product.tags?.includes("diamond")) return "DIAMOND" as const;
+    if (cat.includes("gemstone") || cat.includes("gem")) return "GEMSTONE" as const;
+    return "GENERAL" as const;
+  };
+
   return (
-    <article
-      className="group relative"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
-      <Link href={`/products/${product.handle}`} className="block">
-        <div className="relative aspect-[4/5] overflow-hidden bg-cream-warm">
-          <img
-            src={product.images[0].url}
-            alt={product.images[0].alt}
-            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
-              hovered && product.images[1] ? "opacity-0" : "opacity-100"
-            }`}
-            loading="lazy"
-          />
-          {product.images[1] && (
+    <>
+      <article
+        className="group relative flex flex-col transition-all duration-700 ease-out-smooth"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+      >
+        <Link href={`/products/${product.handle}`} className="block relative bg-cream-warm">
+          <div className="relative aspect-[4/5] overflow-hidden">
             <img
-              src={second.url}
-              alt={second.alt}
-              className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${
-                hovered ? "opacity-100" : "opacity-0"
+              src={product.images[0].url}
+              alt={product.images[0].alt}
+              className={`absolute inset-0 h-full w-full object-cover transition-all duration-[1.5s] ease-out-smooth ${
+                hovered && product.images[1] ? "scale-105 opacity-0" : "scale-100 opacity-100"
               }`}
               loading="lazy"
             />
-          )}
+            {product.images[1] && (
+              <img
+                src={second.url}
+                alt={second.alt}
+                className={`absolute inset-0 h-full w-full object-cover transition-all duration-[1.5s] ease-out-smooth ${
+                  hovered ? "scale-100 opacity-100" : "scale-105 opacity-0"
+                }`}
+                loading="lazy"
+              />
+            )}
 
-          {product.newArrival && (
-            <span className="absolute left-3 top-3 bg-cream-light px-2 py-1 text-[10px] uppercase tracking-[0.18em]">
-              New
-            </span>
-          )}
-          {product.bestseller && !product.newArrival && (
-            <span className="absolute left-3 top-3 bg-ink px-2 py-1 text-[10px] uppercase tracking-[0.18em] text-cream">
-              Bestseller
-            </span>
-          )}
+            {/* Subtle Gradient Overlay on Hover for Button Readability */}
+            <div className={`absolute inset-0 bg-gradient-to-t from-ink/30 via-transparent to-transparent transition-opacity duration-1000 ${hovered ? "opacity-100" : "opacity-0"}`} />
 
-          <button
-            aria-label="Add to wishlist"
-            onClick={(e) => {
-              e.preventDefault();
-            }}
-            className="absolute right-3 top-3 inline-flex h-8 w-8 items-center justify-center bg-cream-light/90 opacity-0 transition group-hover:opacity-100 hover:bg-cream-light"
-          >
-            <HeartIcon width={16} height={16} />
-          </button>
+            {/* Tags */}
+            <div className="absolute left-4 top-4 flex flex-col gap-2">
+              {product.newArrival && (
+                <span className="bg-white/90 backdrop-blur-sm px-3 py-1.5 text-[8px] uppercase tracking-[0.25em] text-ink shadow-sm">
+                  Bespoke
+                </span>
+              )}
+              {product.bestseller && !product.newArrival && (
+                <span className="bg-[#053624]/90 backdrop-blur-sm px-3 py-1.5 text-[8px] uppercase tracking-[0.25em] text-cream shadow-sm">
+                  Masterpiece
+                </span>
+              )}
+            </div>
 
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              addItem(product, product.variants[0]);
-            }}
-            className="absolute inset-x-3 bottom-3 translate-y-2 bg-ink py-3 text-[11px] uppercase tracking-[0.2em] text-cream opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-ink-soft"
-          >
-            Quick Add
-          </button>
-        </div>
-      </Link>
+            {/* Wishlist */}
+            <button
+              aria-label="Add to wishlist"
+              onClick={(e) => { e.preventDefault(); }}
+              className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-white/50 backdrop-blur-md opacity-0 transition-all duration-500 hover:bg-white group-hover:opacity-100"
+            >
+              <HeartIcon width={14} height={14} />
+            </button>
 
-      <div className="mt-4 flex items-start justify-between gap-3">
-        <div>
-          <Link href={`/products/${product.handle}`} className="text-sm hover:underline">
-            {product.title}
+            {/* Inquiry Button */}
+            <div className="absolute inset-x-4 bottom-4 translate-y-4 opacity-0 transition-all duration-700 ease-out-smooth group-hover:translate-y-0 group-hover:opacity-100">
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setInquiryOpen(true);
+                }}
+                className="w-full bg-white/90 backdrop-blur-md border border-ink/10 py-3.5 text-[10px] uppercase tracking-[0.25em] text-ink hover:bg-ink hover:text-white transition-colors duration-500 shadow-lg"
+              >
+                Inquire
+              </button>
+            </div>
+          </div>
+        </Link>
+
+        {/* Details Below Image */}
+        <div className="mt-6 text-center px-2">
+          <Link href={`/products/${product.handle}`} className="block">
+            <h3 className="font-serif text-xl md:text-2xl text-ink leading-tight transition-colors hover:text-[#053624]">
+              {product.title}
+            </h3>
           </Link>
-          <p className="mt-1 text-xs text-ink-muted">
-            {product.metals.length === 1 ? product.metals[0] : `${product.metals.length} metals`}
-          </p>
+          <div className="mt-3 flex items-center justify-center gap-3 text-[10px] uppercase tracking-[0.2em] text-ink/50">
+            <span>{product.metals.length === 1 ? product.metals[0] : `${product.metals.length} Metals`}</span>
+            <span className="w-1 h-1 rounded-full bg-ink/20" />
+            <span>
+              {product.priceRange.min.amount === product.priceRange.max.amount
+                ? formatMoney({ ...product.priceRange.min, currency: "INR" })
+                : formatMoney({ ...product.priceRange.min, currency: "INR" })}
+            </span>
+          </div>
         </div>
-        <p className="text-sm">
-          {product.priceRange.min.amount === product.priceRange.max.amount
-            ? formatMoney(product.priceRange.min)
-            : `From ${formatMoney(product.priceRange.min)}`}
-        </p>
-      </div>
-    </article>
+      </article>
+
+      <InquiryModal
+        isOpen={inquiryOpen}
+        onClose={() => setInquiryOpen(false)}
+        productId={product.id}
+        productName={product.title}
+        defaultType={inferType()}
+      />
+    </>
   );
 }

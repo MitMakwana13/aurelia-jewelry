@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { footerNav } from "@/data/navigation";
 import { ArrowRightIcon, InstagramIcon, TiktokIcon, PinterestIcon } from "@/components/ui/Icons";
+import { Logo } from "@/components/ui/Logo";
 
 export function Footer() {
   const [email, setEmail] = useState("");
@@ -20,43 +21,54 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-ink text-cream mt-24">
-      <div className="container-x py-20">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-4">
-            <p className="font-serif text-3xl">Join the Circle.</p>
-            <p className="mt-3 max-w-md text-sm text-cream/70">
-              Receive 10% off your first order, early access to new arrivals, and exclusive
-              member benefits.
-            </p>
-            <form onSubmit={handleSubmit} className="mt-6 flex max-w-md items-center border-b border-cream/30 focus-within:border-cream">
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email address"
-                className="flex-1 bg-transparent py-3 text-sm placeholder:text-cream/50 outline-none"
-              />
-              <button type="submit" aria-label="Subscribe" className="p-2 hover:opacity-70 transition">
-                <ArrowRightIcon />
-              </button>
-            </form>
-            {submitted && <p className="mt-2 text-xs text-cream/70">Welcome — check your inbox.</p>}
+    <footer className="bg-ink text-cream border-t border-cream/5">
+      <div className="container-x py-24 lg:py-32">
+        <div className="grid grid-cols-1 gap-16 lg:grid-cols-12">
+          
+          {/* Brand Column */}
+          <div className="lg:col-span-4 flex flex-col justify-between">
+            <div>
+              <div className="mb-10 w-max">
+                <Logo variant="dark" />
+              </div>
+              <p className="max-w-xs text-[11px] leading-relaxed tracking-wider text-cream/60 uppercase">
+                Ethically sourced gemstones and diamonds crafted into timeless bespoke pieces.
+              </p>
+            </div>
+            
+            {/* Newsletter */}
+            <div className="mt-16">
+              <p className="text-[10px] uppercase tracking-[0.25em] text-cream/40 mb-4">The Concierge Newsletter</p>
+              <form onSubmit={handleSubmit} className="flex items-center border-b border-cream/20 pb-2 focus-within:border-cream/80 transition-colors">
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Email address"
+                  className="flex-1 bg-transparent text-[11px] uppercase tracking-widest placeholder:text-cream/30 outline-none"
+                />
+                <button type="submit" aria-label="Subscribe" className="p-1 text-cream/50 hover:text-cream transition-colors">
+                  <ArrowRightIcon width={14} height={14} />
+                </button>
+              </form>
+              {submitted && <p className="mt-3 text-[10px] uppercase tracking-widest text-cream/50">Welcome to the inner circle.</p>}
+            </div>
           </div>
 
-          <div className="lg:col-span-8 grid grid-cols-2 gap-8 sm:grid-cols-3 md:grid-cols-5">
+          {/* Links Index */}
+          <div className="lg:col-span-7 lg:col-start-6 grid grid-cols-2 gap-y-12 sm:grid-cols-3">
             {Object.values(footerNav).map((col) => (
               <div key={col.heading}>
-                <p className="text-[11px] uppercase tracking-[0.22em] text-cream/60 mb-4">
+                <p className="text-[10px] uppercase tracking-[0.3em] text-cream/30 mb-6">
                   {col.heading}
                 </p>
-                <ul className="space-y-2.5">
-                  {col.links.map((link) => (
-                    <li key={link.href}>
+                <ul className="space-y-4">
+                  {col.links.map((link, index) => (
+                    <li key={`${link.href}-${index}`}>
                       <Link
                         href={link.href}
-                        className="text-sm text-cream/85 hover:text-cream transition-colors"
+                        className="text-[10px] uppercase tracking-[0.15em] text-cream/70 hover:text-white transition-colors"
                       >
                         {link.label}
                       </Link>
@@ -68,23 +80,17 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col items-start justify-between gap-6 border-t border-cream/15 pt-8 md:flex-row md:items-center">
-          <div className="flex items-center gap-5 text-cream/80">
-            <a href="#" aria-label="Instagram" className="hover:text-cream"><InstagramIcon /></a>
-            <a href="#" aria-label="TikTok" className="hover:text-cream"><TiktokIcon /></a>
-            <a href="#" aria-label="Pinterest" className="hover:text-cream"><PinterestIcon /></a>
+        {/* Deep Footer */}
+        <div className="mt-24 flex flex-col items-start justify-between gap-8 border-t border-cream/10 pt-8 md:flex-row md:items-center">
+          <div className="flex items-center gap-6 text-cream/50">
+            <a href="#" aria-label="Instagram" className="hover:text-cream transition-colors"><InstagramIcon width={16} height={16} /></a>
+            <a href="#" aria-label="Pinterest" className="hover:text-cream transition-colors"><PinterestIcon width={16} height={16} /></a>
           </div>
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-cream/60">
-            <select className="bg-transparent border border-cream/30 px-3 py-1.5 text-cream/80" defaultValue="us">
-              <option value="us">United States — USD $</option>
-              <option value="ca">Canada — CAD $</option>
-              <option value="uk">United Kingdom — GBP £</option>
-              <option value="eu">Europe — EUR €</option>
-            </select>
-            <Link href="/help/faq">Privacy</Link>
-            <Link href="/help/faq">Terms</Link>
-            <Link href="/help/faq">Accessibility</Link>
-            <span>© {new Date().getFullYear()} Aurelia Fine Jewelry</span>
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-4 text-[9px] uppercase tracking-[0.2em] text-cream/40">
+            <Link href="/help/faq" className="hover:text-cream transition-colors">Privacy</Link>
+            <Link href="/help/faq" className="hover:text-cream transition-colors">Terms</Link>
+            <Link href="/help/faq" className="hover:text-cream transition-colors">Accessibility</Link>
+            <span>© {new Date().getFullYear()} RADHA RANI HIGH JEWELRY</span>
           </div>
         </div>
       </div>

@@ -20,29 +20,28 @@ export function TrendingCarousel({ products, title = "Trending Now", viewAllHref
     const step = card ? card.offsetWidth + 16 : el.clientWidth * 0.6;
     el.scrollBy({ left: step * dir, behavior: "smooth" });
   };
-
   return (
-    <section className="py-20">
+    <section className="py-24 lg:py-32 bg-cream">
       <div className="container-x flex items-end justify-between">
         <div>
-          <p className="eyebrow">Customer Favorites</p>
-          <h2 className="mt-2 font-serif text-3xl md:text-4xl">{title}</h2>
+          <p className="eyebrow tracking-[0.3em]">Signature Collection</p>
+          <h2 className="mt-4 font-serif text-4xl md:text-5xl font-light tracking-tight">{title}</h2>
         </div>
-        <div className="flex items-center gap-3">
-          <Link href={viewAllHref} className="hidden md:inline-block text-xs uppercase tracking-[0.2em] link-underline">
+        <div className="flex items-center gap-4">
+          <Link href={viewAllHref} className="hidden md:inline-block text-[10px] uppercase tracking-[0.25em] link-underline">
             View All
           </Link>
           <button
             onClick={() => scrollBy(-1)}
             aria-label="Scroll left"
-            className="border border-border p-2 hover:bg-ink hover:text-cream hover:border-ink transition"
+            className="border border-ink/20 p-3 hover:bg-[#053624] hover:text-cream hover:border-[#053624] transition-colors duration-300 rounded-full"
           >
             <ArrowLeftIcon width={16} height={16} />
           </button>
           <button
             onClick={() => scrollBy(1)}
             aria-label="Scroll right"
-            className="border border-border p-2 hover:bg-ink hover:text-cream hover:border-ink transition"
+            className="border border-ink/20 p-3 hover:bg-[#053624] hover:text-cream hover:border-[#053624] transition-colors duration-300 rounded-full"
           >
             <ArrowRightIcon width={16} height={16} />
           </button>
@@ -51,10 +50,10 @@ export function TrendingCarousel({ products, title = "Trending Now", viewAllHref
 
       <div
         ref={scroller}
-        className="hide-scrollbar mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 md:px-8 lg:px-12"
+        className="hide-scrollbar mt-12 flex snap-x snap-mandatory gap-8 md:gap-12 overflow-x-auto px-5 md:px-8 lg:px-12 pb-12"
       >
         {products.map((p) => (
-          <div key={p.handle} data-card className="w-[68vw] flex-shrink-0 snap-start sm:w-[40vw] md:w-[28vw] lg:w-[22vw]">
+          <div key={p.handle} data-card className="w-[85vw] flex-shrink-0 snap-start sm:w-[45vw] md:w-[32vw] lg:w-[28vw]">
             <ProductCard product={p} />
           </div>
         ))}

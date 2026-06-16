@@ -58,10 +58,14 @@ export default async function ProductPage({
         />
       </div>
 
-      <section className="container-x py-10">
-        <div className="grid gap-10 lg:grid-cols-2">
-          <ProductGallery images={product.images} />
-          <ProductDetails product={product} />
+      <section className="container-x py-10 lg:py-20">
+        <div className="grid gap-12 lg:grid-cols-12 items-start">
+          <div className="lg:col-span-7">
+            <ProductGallery images={product.images} />
+          </div>
+          <div className="lg:col-span-5 lg:sticky lg:top-28">
+            <ProductDetails product={product} />
+          </div>
         </div>
       </section>
 

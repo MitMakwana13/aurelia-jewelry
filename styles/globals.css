@@ -29,7 +29,7 @@
   }
 
   ::selection {
-    background: #1a1a1a;
+    background: #053624;
     color: #f6f3ee;
   }
 }
@@ -44,19 +44,19 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-none bg-ink px-7 py-3.5 text-xs uppercase tracking-[0.15em] text-cream transition-colors duration-300 hover:bg-ink-soft disabled:opacity-50;
+    @apply inline-flex items-center justify-center gap-2 rounded-none bg-gold text-white px-7 py-3.5 text-xs uppercase tracking-[0.18em] transition-all duration-300 hover:bg-gold-dark hover:shadow-lg disabled:opacity-50;
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 rounded-none border border-ink bg-transparent px-7 py-3.5 text-xs uppercase tracking-[0.15em] text-ink transition-colors duration-300 hover:bg-ink hover:text-cream;
+    @apply inline-flex items-center justify-center gap-2 rounded-none border border-gold bg-transparent px-7 py-3.5 text-xs uppercase tracking-[0.18em] text-gold-dark transition-colors duration-300 hover:bg-gold hover:text-white;
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 px-3 py-2 text-xs uppercase tracking-[0.15em] text-ink transition-opacity hover:opacity-60;
+    @apply inline-flex items-center justify-center gap-2 px-3 py-2 text-xs uppercase tracking-[0.15em] text-gold-dark transition-opacity hover:opacity-60;
   }
 
   .input-base {
-    @apply w-full rounded-none border-0 border-b border-border bg-transparent px-0 py-3 text-sm text-ink placeholder:text-ink-muted focus:border-ink focus:outline-none focus:ring-0;
+    @apply w-full rounded-none border-0 border-b border-gold/30 bg-transparent px-0 py-3 text-sm text-ink placeholder:text-ink-muted focus:border-gold focus:outline-none focus:ring-0 transition-colors;
   }
 
   .eyebrow {

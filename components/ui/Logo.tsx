@@ -1,0 +1,77 @@
+import Link from "next/link";
+
+interface LogoProps {
+  variant?: "light" | "dark";
+  className?: string;
+}
+
+/**
+ * Radharani Gemstone — ultra-premium typographic logo component.
+ *
+ * Uses a refined gold metallic gradient on the brand name and mark to match
+ * the luxury aesthetic requested. Crisp at any resolution.
+ */
+export function Logo({ variant = "light", className = "" }: LogoProps) {
+  // Ultra-chic monochromatic/platinum gradient for the structural logo
+  const primaryColor = variant === "dark" ? "#f6f3ee" : "#1a1a1a";
+  const secondaryColor = variant === "dark" ? "rgba(246,243,238,0.5)" : "rgba(26,26,26,0.5)";
+
+  return (
+    <Link
+      href="/"
+      aria-label="Radha Rani — Home"
+      className={`group inline-flex flex-col items-center select-none ${className}`}
+    >
+      {/* Avant-Garde Geometric Mark (Restored) */}
+      <div className="mb-4 transition-transform duration-[1.5s] ease-out-smooth group-hover:scale-110">
+        <svg width="40" height="24" viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Symmetrical minimalist gemstone/architecture lines */}
+          <path d="M20 0 L10 12 L20 24 L30 12 Z" stroke={primaryColor} strokeWidth="1" strokeLinejoin="round" />
+          <path d="M0 12 L10 12" stroke={primaryColor} strokeWidth="1" opacity="0.4" />
+          <path d="M30 12 L40 12" stroke={primaryColor} strokeWidth="1" opacity="0.4" />
+          <path d="M20 0 L20 24" stroke={primaryColor} strokeWidth="1" opacity="0.4" />
+        </svg>
+      </div>
+
+      {/* Brand name — Classic Heritage Serif */}
+      <span
+        style={{
+          fontFamily: '"Cormorant Garamond", Georgia, serif',
+          fontWeight: 400,
+          fontSize: "1.8rem",
+          letterSpacing: "0.08em",
+          color: primaryColor,
+          lineHeight: 1,
+          display: "block",
+          whiteSpace: "nowrap",
+          textTransform: "uppercase",
+          transition: "opacity 0.5s ease",
+        }}
+        className="group-hover:opacity-70"
+      >
+        RADHA RANI
+      </span>
+
+      {/* New Refined Tagline */}
+      <span
+        style={{
+          fontFamily: '"Inter", sans-serif',
+          fontWeight: 300,
+          fontSize: "0.5rem",
+          letterSpacing: "0.6em",
+          color: secondaryColor,
+          lineHeight: 1,
+          display: "block",
+          marginTop: "12px",
+          marginLeft: "0.6em", // visual centering for wide tracking
+          whiteSpace: "nowrap",
+          textTransform: "uppercase",
+          transition: "color 0.5s ease",
+        }}
+        className={variant === "light" ? "group-hover:text-ink" : "group-hover:text-white"}
+      >
+        High Jewelry
+      </span>
+    </Link>
+  );
+}

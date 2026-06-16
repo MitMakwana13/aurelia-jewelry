@@ -1,68 +1,90 @@
-import Link from "next/link";
+"use client";
 
-const tiles = [
+import Link from "next/link";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+
+const CATEGORIES = [
   {
-    label: "Rings",
+    title: "High Jewelry Rings",
     href: "/shop/rings",
-    image: "https://images.unsplash.com/photo-1603974372039-adc49044b6bd?auto=format&fit=crop&w=900&q=80",
-    aspect: "aspect-[4/5]",
-    span: "lg:row-span-2",
+    image:
+      "https://images.unsplash.com/photo-1605100804763-247f67b6548e?auto=format&fit=crop&w=800&q=80",
+    color: "bg-ink",
+    textColor: "text-cream",
   },
   {
-    label: "Birthstones",
-    href: "/collections/birthstones",
-    image: "https://images.unsplash.com/photo-1589128777073-263566ae5e4d?auto=format&fit=crop&w=900&q=80",
-    aspect: "aspect-square",
+    title: "Bespoke Necklaces",
+    href: "/shop/necklaces",
+    image:
+      "https://images.unsplash.com/photo-1599643477877-530e5d3e8d69?auto=format&fit=crop&w=800&q=80",
+    color: "bg-cream-warm",
+    textColor: "text-ink",
   },
   {
-    label: "Solid Gold",
-    href: "/collections/solid-gold",
-    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=80",
-    aspect: "aspect-square",
-  },
-  {
-    label: "Hoops",
-    href: "/shop?tag=hoops",
-    image: "https://images.unsplash.com/photo-1535556116002-6281ff3e9f36?auto=format&fit=crop&w=900&q=80",
-    aspect: "aspect-square",
-  },
-  {
-    label: "Sterling Silver",
-    href: "/collections/sterling-silver",
-    image: "https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?auto=format&fit=crop&w=900&q=80",
-    aspect: "aspect-square",
+    title: "Masterpiece Earrings",
+    href: "/shop/earrings",
+    image:
+      "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80",
+    color: "bg-cream-light",
+    textColor: "text-ink",
   },
 ];
 
 export function CategoryGrid() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  // Asymmetrical parallax: Left/Right move up slower, Center moves up faster
+  const yOuter = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
+  const yInner = useTransform(scrollYProgress, [0, 1], ["0%", "-25%"]);
+
   return (
-    <section className="container-x py-20">
-      <div className="flex items-end justify-between">
-        <h2 className="font-serif text-3xl md:text-4xl">Shop by Category</h2>
-        <Link href="/shop" className="text-xs uppercase tracking-[0.2em] link-underline">View All</Link>
+    <section ref={containerRef} className="container-x py-32 lg:py-48 overflow-hidden bg-cream">
+      <div className="mb-32 text-center">
+        <h2 className="font-serif text-4xl md:text-6xl text-ink font-light tracking-tight">The Exhibition</h2>
+        <p className="mt-6 text-[10px] tracking-[0.3em] uppercase text-ink/40">Curated Masterpieces</p>
       </div>
 
-      <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4 lg:grid-rows-2">
-        {tiles.map((tile, i) => (
-          <Link
-            key={tile.label}
-            href={tile.href}
-            className={`group relative block overflow-hidden bg-cream-warm ${tile.aspect} ${
-              i === 0 ? "col-span-2 lg:col-span-2 lg:row-span-2 lg:aspect-auto" : ""
-            }`}
-          >
-            <img
-              src={tile.image}
-              alt={tile.label}
-              className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink/40 via-transparent to-transparent" />
-            <span className="absolute bottom-5 left-5 font-serif text-2xl text-cream md:text-3xl">
-              {tile.label}
-            </span>
-          </Link>
-        ))}
+      {/* Museum-style vast negative space */}
+      <div className="grid gap-12 md:gap-24 md:grid-cols-3 items-start px-4 md:px-12">
+        {CATEGORIES.map((cat, i) => {
+          const isCenter = i === 1;
+          const yTransform = isCenter ? yInner : yOuter;
+          const marginTop = isCenter ? "mt-24 md:mt-48" : "mt-0";
+
+          return (
+            <motion.div key={cat.title} style={{ y: yTransform }} className={marginTop}>
+              <Link
+                href={cat.href}
+                className="group relative block overflow-hidden bg-cream-warm aspect-[3/4] md:aspect-[4/5]"
+              >
+                {/* Cartier-style minimalist inner frame on hover */}
+                <div className="absolute inset-4 md:inset-6 border border-[#053624]/0 transition-colors duration-1000 ease-out-smooth group-hover:border-[#053624]/30 z-20 pointer-events-none" />
+
+                {/* Image Scale on Hover */}
+                <img
+                  src={cat.image}
+                  alt={cat.title}
+                  className="absolute inset-0 h-full w-full object-cover opacity-90 mix-blend-multiply transition-transform duration-[3s] ease-out-smooth group-hover:scale-[1.03]"
+                />
+
+                {/* Content Fade In */}
+                <div className="absolute inset-0 flex flex-col items-center justify-end p-10 text-center opacity-0 translate-y-4 transition-all duration-1000 ease-out-smooth group-hover:opacity-100 group-hover:translate-y-0 z-30">
+                  <h3 className="font-serif text-3xl text-[#053624]">
+                    {cat.title}
+                  </h3>
+                  <span className="mt-4 inline-block border-b border-[#053624]/40 pb-1 text-[9px] uppercase tracking-[0.25em] text-[#053624]/80 transition-colors hover:text-[#053624] hover:border-[#053624]">
+                    Discover
+                  </span>
+                </div>
+              </Link>
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   );

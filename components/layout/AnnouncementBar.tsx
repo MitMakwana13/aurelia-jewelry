@@ -4,9 +4,9 @@ import { useState } from "react";
 import { CloseIcon } from "@/components/ui/Icons";
 
 const messages = [
-  "Complimentary shipping on orders over $150",
-  "The Stacking Event — up to 25% off when you spend $250+",
-  "Free engraving on signets & bands — limited time",
+  "Complimentary shipping on orders over ₹5,000",
+  "Festival Special — up to 25% off on all diamond pieces",
+  "Free customization consultation — Book your appointment today",
 ];
 
 export function AnnouncementBar() {

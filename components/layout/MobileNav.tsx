@@ -6,6 +6,7 @@ import { useState } from "react";
 import { mainNav } from "@/data/navigation";
 import { useUI } from "@/lib/store/ui-store";
 import { CloseIcon, ChevronRightIcon, ArrowLeftIcon } from "@/components/ui/Icons";
+import { Logo } from "@/components/ui/Logo";
 
 export function MobileNav() {
   const { mobileNavOpen, closeMobileNav } = useUI();
@@ -29,7 +30,9 @@ export function MobileNav() {
                 <ArrowLeftIcon width={16} height={16} /> Back
               </button>
             ) : (
-              <span className="font-serif text-2xl tracking-tight">Aurelia</span>
+              <div className="scale-75 origin-left">
+                <Logo variant="dark" />
+              </div>
             )}
             <button aria-label="Close menu" onClick={close}>
               <CloseIcon />

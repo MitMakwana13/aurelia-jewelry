@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { Inter, Cormorant_Garamond } from "next/font/google";
 import "@/styles/globals.css";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { MobileNav } from "@/components/layout/MobileNav";
 import { SearchOverlay } from "@/components/layout/SearchOverlay";
+import { CustomCursor } from "@/components/ui/CustomCursor";
+import { Preloader } from "@/components/ui/Preloader";
+import { StorefrontLayout } from "@/components/layout/StorefrontLayout";
+import { Providers } from "@/components/Providers";
+import { OrganizationJsonLd } from "@/components/seo/JsonLd";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
 const cormorant = Cormorant_Garamond({
@@ -18,30 +20,58 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: {
-    default: "Aurelia — Fine Jewelry",
-    template: "%s · Aurelia",
+    default: "Radharani Gemstone — Divine Energy, Timeless Luxury",
+    template: "%s · Radharani Gemstone",
   },
   description:
-    "Aurelia crafts fine, everyday jewelry in solid 14k gold and recycled sterling silver. Designed to be worn — and never taken off.",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+    "Radharani Gemstone — Exquisite ethically sourced gemstones, diamonds and bespoke jewelry crafted in India. Divine Energy, Timeless Luxury.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://radharanigemstone.com"),
+  keywords: [
+    "gemstones India", "diamonds India", "custom jewelry India", "Radharani Gemstone",
+    "birthstones", "ruby", "emerald", "sapphire", "diamond jewelry", "bespoke jewelry",
+    "gemstone shop India", "natural gemstones",
+  ],
+  authors: [{ name: "Radharani Gemstone" }],
   openGraph: {
-    title: "Aurelia — Fine Jewelry",
-    description: "Fine, everyday jewelry. Solid 14k gold. Recycled sterling silver.",
+    title: "Radharani Gemstone — Divine Energy, Timeless Luxury",
+    description: "Exquisite gemstones, diamonds and bespoke jewelry crafted in India.",
     type: "website",
+    locale: "en_IN",
+    siteName: "Radharani Gemstone",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Radharani Gemstone",
+    description: "Divine Energy, Timeless Luxury. Gemstones & Diamonds.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
+    <html lang="en-IN" className={`${inter.variable} ${cormorant.variable}`}>
       <body>
-        <AnnouncementBar />
-        <Header />
-        <main id="main">{children}</main>
-        <Footer />
-        <CartDrawer />
-        <MobileNav />
-        <SearchOverlay />
+        <OrganizationJsonLd />
+        <Preloader />
+        <Providers>
+          <CustomCursor />
+          <StorefrontLayout>
+            {children}
+          </StorefrontLayout>
+          <CartDrawer />
+          <MobileNav />
+          <SearchOverlay />
+        </Providers>
       </body>
     </html>
   );

@@ -393,7 +393,8 @@ const seeds: Seed[] = [
 ];
 
 function toProduct(seed: Seed): Product {
-  const variants = makeVariants(seed.basePrice, seed.metals, seed.sizes);
+  const LUXURY_MULTIPLIER = 1200; // Convert to realistic high-jewelry INR prices
+  const variants = makeVariants(seed.basePrice * LUXURY_MULTIPLIER, seed.metals, seed.sizes);
   const prices = variants.map((v) => v.price.amount);
   return {
     id: seed.handle,
@@ -406,8 +407,8 @@ function toProduct(seed: Seed): Product {
     metals: seed.metals,
     sizes: seed.sizes,
     priceRange: {
-      min: { amount: Math.min(...prices), currency: USD },
-      max: { amount: Math.max(...prices), currency: USD },
+      min: { amount: Math.min(...prices), currency: "INR" },
+      max: { amount: Math.max(...prices), currency: "INR" },
     },
     images: seed.images.map((i) => img(i.id, i.alt)),
     variants,

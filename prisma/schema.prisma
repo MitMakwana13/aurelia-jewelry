@@ -58,8 +58,40 @@ model Order {
   currency        String   @default("INR")
   status          String   @default("CREATED") // CREATED, PAID, SHIPPED, DELIVERED
   shiprocketOrderId String?
-  customerDetails Json?    // Name, email, phone, shipping address
-  items           Json     // Array of { variantId: string, quantity: number, price: number }
+  customerDetails Json?
+  items           Json
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
+}
+
+model Inquiry {
+  id          String   @id @default(uuid())
+  name        String
+  email       String
+  phone       String
+  type        String   @default("GENERAL") // GENERAL, GEMSTONE, DIAMOND, CUSTOM_JEWELRY
+  productId   String?
+  productName String?
+  budget      String?
+  message     String
+  status      String   @default("NEW") // NEW, CONTACTED, QUOTED, CLOSED
+  notes       String?  // Admin internal notes
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model CustomRequest {
+  id          String   @id @default(uuid())
+  name        String
+  email       String
+  phone       String
+  jewelryType String   // Ring, Necklace, Earrings, etc.
+  metal       String?
+  gemstone    String?
+  description String
+  budget      String?
+  occasion    String?
+  status      String   @default("NEW")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }

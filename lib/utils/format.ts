@@ -1,9 +1,9 @@
 import type { Money } from "@/lib/commerce/types";
 
 export function formatMoney(money: Money): string {
-  return new Intl.NumberFormat("en-US", {
+  return new Intl.NumberFormat("en-IN", {
     style: "currency",
-    currency: money.currency,
+    currency: "INR",
     maximumFractionDigits: money.amount % 1 === 0 ? 0 : 2,
   }).format(money.amount);
 }

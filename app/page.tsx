@@ -4,6 +4,7 @@ import { CollectionSpotlight } from "@/components/home/CollectionSpotlight";
 import { TrendingCarousel } from "@/components/home/TrendingCarousel";
 import { ServicesStrip } from "@/components/home/ServicesStrip";
 import { SustainabilityBlock } from "@/components/home/SustainabilityBlock";
+import { Marquee } from "@/components/ui/Marquee";
 import { commerce } from "@/lib/commerce";
 
 export default async function HomePage() {
@@ -14,13 +15,14 @@ export default async function HomePage() {
   return (
     <>
       <Hero />
+      <Marquee />
       <CategoryGrid />
       <CollectionSpotlight />
-      <TrendingCarousel products={trending} title="Trending Now" viewAllHref="/shop" />
+      <TrendingCarousel products={trending} title="The Masterpieces" viewAllHref="/shop" />
       {newArrivals.length > 0 && (
         <TrendingCarousel
           products={newArrivals}
-          title="Just In"
+          title="Haute Joaillerie"
           viewAllHref="/shop?filter=new"
         />
       )}
