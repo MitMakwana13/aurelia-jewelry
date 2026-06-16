@@ -1,0 +1,65 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  role      String   @default("USER") // USER or ADMIN
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Product {
+  id              String   @id @default(uuid())
+  handle          String   @unique
+  title           String
+  description     String
+  categorySlug    String
+  collectionSlugs String[]
+  tags            String[]
+  metals          String[]
+  sizes           String[]
+  basePrice       Float
+  images          Json     // Array of { id: string, alt: string }
+  featured        Boolean  @default(false)
+  trending        Boolean  @default(false)
+  newArrival      Boolean  @default(false)
+  bestseller      Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  variants        Variant[]
+}
+
+model Variant {
+  id        String   @id @default(uuid())
+  productId String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  title     String
+  metal     String
+  size      String?
+  price     Float
+  currency  String   @default("INR")
+  available Boolean  @default(true)
+  sku       String
+}
+
+model Order {
+  id              String   @id @default(uuid())
+  razorpayOrderId String   @unique
+  razorpayPaymentId String?
+  amount          Float
+  currency        String   @default("INR")
+  status          String   @default("CREATED") // CREATED, PAID, SHIPPED, DELIVERED
+  shiprocketOrderId String?
+  customerDetails Json?    // Name, email, phone, shipping address
+  items           Json     // Array of { variantId: string, quantity: number, price: number }
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}

@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: 246 243 238;
+    --ink: 26 26 26;
+    --border: 229 224 216;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-cream text-ink font-sans;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif font-normal tracking-tight;
+  }
+
+  button {
+    @apply select-none;
+  }
+
+  ::selection {
+    background: #1a1a1a;
+    color: #f6f3ee;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto max-w-8xl px-5 md:px-8 lg:px-12;
+  }
+
+  .link-underline {
+    @apply relative after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:origin-right after:scale-x-0 after:bg-current after:transition-transform after:duration-300 after:ease-out-smooth hover:after:origin-left hover:after:scale-x-100;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-none bg-ink px-7 py-3.5 text-xs uppercase tracking-[0.15em] text-cream transition-colors duration-300 hover:bg-ink-soft disabled:opacity-50;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-none border border-ink bg-transparent px-7 py-3.5 text-xs uppercase tracking-[0.15em] text-ink transition-colors duration-300 hover:bg-ink hover:text-cream;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 px-3 py-2 text-xs uppercase tracking-[0.15em] text-ink transition-opacity hover:opacity-60;
+  }
+
+  .input-base {
+    @apply w-full rounded-none border-0 border-b border-border bg-transparent px-0 py-3 text-sm text-ink placeholder:text-ink-muted focus:border-ink focus:outline-none focus:ring-0;
+  }
+
+  .eyebrow {
+    @apply text-[11px] uppercase tracking-[0.22em] text-ink-muted;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar { display: none; }
+  .hide-scrollbar { scrollbar-width: none; }
+}
