@@ -10,7 +10,7 @@ const slides = [
   {
     title: "The Culture of\nCraft.",
     subtitle: "Heritage Collection — Masterpieces crafted in India.",
-    image: "https://images.unsplash.com/photo-1599643477877-530e5d3e8d69?auto=format&fit=crop&w=2400&q=90",
+    image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=2400&q=90",
   },
   {
     title: "Bespoke\nExcellence.",
@@ -20,7 +20,7 @@ const slides = [
   {
     title: "Timeless\nElegance.",
     subtitle: "Jewelry tailored to your unique vision.",
-    image: "https://images.unsplash.com/photo-1605100804763-247f67b6548e?auto=format&fit=crop&w=2400&q=90",
+    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=2400&q=90",
   },
 ];
 
