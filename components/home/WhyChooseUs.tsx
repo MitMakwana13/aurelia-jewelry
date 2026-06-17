@@ -6,7 +6,7 @@ const reasons = [
   {
     icon: "✦",
     title: "Certified Authentic Stones",
-    desc: "Every gemstone comes with a verified certificate from recognised gem labs — GIA, IGI, or GGL. No compromises, no shortcuts.",
+    desc: "Every gemstone comes with a verified certificate from recognised gem labs — GIA or IGI. No compromises, no shortcuts.",
   },
   {
     icon: "🔬",
@@ -64,9 +64,9 @@ export function WhyChooseUs() {
             transition={{ duration: 1, delay: 0.2 }}
             className="text-sm leading-loose text-cream/60 lg:max-w-md"
           >
-            Trust is the foundation of every gem transaction. We've built ours over 
-            years of sourcing directly from mines and delivering masterpieces that 
-            exceed expectation — every single time.
+            Trust is the foundation of every gem transaction. As an exclusive modern atelier, 
+            we dedicate uncompromising attention to every bespoke commission, ensuring your 
+            vision is brought to life with certified GIA & IGI stones.
           </motion.p>
         </div>
 

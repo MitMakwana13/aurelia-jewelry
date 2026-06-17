@@ -21,7 +21,7 @@ const testimonials = [
     color: "#1A3A6B",
   },
   {
-    quote: "Three generations of my family now wear Radha Rani pieces. The craftsmanship is museum-grade, the service is white-glove. There is simply no comparison.",
+    quote: "I brought them a highly complex bespoke design. With just a 50% advance, they sourced a GIA certified emerald and delivered a masterpiece within weeks.",
     name: "Sunita Birla",
     title: "Philanthropist & Collector",
     location: "Kolkata",
