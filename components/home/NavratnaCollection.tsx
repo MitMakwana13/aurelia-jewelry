@@ -9,6 +9,7 @@ const navratna = [
     planetName: "Sun",
     stone: "Ruby",
     hindi: "माणिक्य",
+    gujarati: "માણિક",
     transliteration: "Manik",
     color: "#9B1B30",
     bg: "#FFF5F6",
@@ -20,6 +21,7 @@ const navratna = [
     planetName: "Moon",
     stone: "Pearl",
     hindi: "मोती",
+    gujarati: "મોતી",
     transliteration: "Moti",
     color: "#7C8FA6",
     bg: "#F5F8FF",
@@ -31,6 +33,7 @@ const navratna = [
     planetName: "Mars",
     stone: "Red Coral",
     hindi: "मूँगा",
+    gujarati: "મૂંગો",
     transliteration: "Moonga",
     color: "#C0392B",
     bg: "#FFF5F5",
@@ -42,6 +45,7 @@ const navratna = [
     planetName: "Mercury",
     stone: "Emerald",
     hindi: "पन्ना",
+    gujarati: "પન્ના",
     transliteration: "Panna",
     color: "#053624",
     bg: "#F2FAF5",
@@ -53,6 +57,7 @@ const navratna = [
     planetName: "Jupiter",
     stone: "Yellow Sapphire",
     hindi: "पुखराज",
+    gujarati: "પોખરાજ",
     transliteration: "Pukhraj",
     color: "#B8860B",
     bg: "#FFFBF0",
@@ -64,6 +69,7 @@ const navratna = [
     planetName: "Venus",
     stone: "Diamond",
     hindi: "हीरा",
+    gujarati: "હીરો",
     transliteration: "Heera",
     color: "#4A5568",
     bg: "#F7F9FC",
@@ -75,6 +81,7 @@ const navratna = [
     planetName: "Saturn",
     stone: "Blue Sapphire",
     hindi: "नीलम",
+    gujarati: "નીલમ",
     transliteration: "Neelam",
     color: "#1A3A6B",
     bg: "#F0F4FF",
@@ -86,6 +93,7 @@ const navratna = [
     planetName: "Rahu",
     stone: "Hessonite Garnet",
     hindi: "गोमेद",
+    gujarati: "ગોમેદ",
     transliteration: "Gomed",
     color: "#6B3A1A",
     bg: "#FFF8F5",
@@ -97,6 +105,7 @@ const navratna = [
     planetName: "Ketu",
     stone: "Cat's Eye",
     hindi: "लहसुनिया",
+    gujarati: "લહસુનીયા",
     transliteration: "Lehsunia",
     color: "#4A3728",
     bg: "#FAF5EE",
@@ -179,7 +188,7 @@ export function NavratnaCollection() {
                         {gem.stone}
                       </h3>
                       <p className="mt-1 text-[11px] uppercase tracking-[0.22em]" style={{ color: gem.color }}>
-                        {gem.transliteration} &nbsp;·&nbsp; <span className="font-sans normal-case tracking-normal text-ink/50">{gem.hindi}</span>
+                        {gem.transliteration} &nbsp;·&nbsp; <span className="font-sans normal-case tracking-normal text-ink/50">{gem.hindi} / {gem.gujarati}</span>
                       </p>
                     </div>
                     <span className="text-[9px] uppercase tracking-[0.2em] text-[#053624] opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1.5">
