@@ -75,7 +75,7 @@ export function Preloader() {
               transition={{ duration: 1, ease: [0.76, 0, 0.24, 1], delay: 0.5 }}
               className="text-[9px] uppercase tracking-[0.6em] text-ink/60"
             >
-              High Jewelry
+              Heritage Collection
             </motion.p>
           </div>
           

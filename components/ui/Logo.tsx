@@ -72,6 +72,26 @@ export function Logo({ variant = "light", className = "" }: LogoProps) {
       >
         High Jewelry
       </span>
+
+      {/* Heritage Collection sub-tagline */}
+      <span
+        style={{
+          fontFamily: '"Inter", sans-serif',
+          fontWeight: 300,
+          fontSize: "0.42rem",
+          letterSpacing: "0.5em",
+          color: secondaryColor,
+          lineHeight: 1,
+          display: "block",
+          marginTop: "5px",
+          marginLeft: "0.5em",
+          whiteSpace: "nowrap",
+          textTransform: "uppercase",
+          opacity: 0.6,
+        }}
+      >
+        The Heritage Collection
+      </span>
     </Link>
   );
 }
