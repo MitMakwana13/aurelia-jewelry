@@ -108,8 +108,27 @@ export function ProductDetails({ product }: { product: Product }) {
             </button>
           </div>
 
+          {/* Trust Badges */}
+          <div className="flex items-center gap-6 py-4 border-y border-ink/5 mt-6">
+            <div className="flex items-center gap-2">
+              <span className="text-xl">🔬</span>
+              <div className="flex flex-col">
+                <span className="text-[9px] uppercase tracking-widest text-ink/80 font-medium">GIA / IGI Certified</span>
+                <span className="text-[8px] text-ink/40">100% Authentic</span>
+              </div>
+            </div>
+            <div className="w-[1px] h-8 bg-ink/10"></div>
+            <div className="flex items-center gap-2">
+              <span className="text-xl">🤝</span>
+              <div className="flex flex-col">
+                <span className="text-[9px] uppercase tracking-widest text-ink/80 font-medium">50% Advance</span>
+                <span className="text-[8px] text-ink/40">Bespoke Guarantee</span>
+              </div>
+            </div>
+          </div>
+
           <p className="text-[10px] uppercase tracking-[0.1em] text-ink/40 text-center leading-relaxed">
-            All inquiries responded to within 24 hours. <br/> 50% advance required to confirm bespoke orders.
+            All inquiries responded to within 24 hours.
           </p>
         </div>
 

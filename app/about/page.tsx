@@ -1,100 +1,74 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import Link from "next/link";
-import { Breadcrumbs } from "@/components/plp/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Our Story",
-  description: "The story behind Aurelia — fine jewelry, made differently.",
+  title: "The Atelier",
+  description: "Discover Radha Rani Heritage Collection. A modern atelier dedicated to uncompromising craftsmanship, bespoke design, and certified Indian high jewelry.",
 };
 
 export default function AboutPage() {
   return (
-    <>
-      <section className="relative aspect-[16/8] w-full bg-cream-warm">
-        <img
-          src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=1800&q=85"
-          alt=""
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-ink/30" />
-        <div className="container-x relative flex h-full items-end pb-12 text-cream">
-          <div className="max-w-2xl">
-            <p className="eyebrow text-cream/80">Our Story</p>
-            <h1 className="mt-2 font-serif text-5xl md:text-7xl leading-[1.05]">
-              Fine jewelry,<br /> made differently.
-            </h1>
-          </div>
-        </div>
-      </section>
-
-      <div className="container-x py-16">
-        <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Our Story" }]} />
-
-        <div className="mt-12 grid gap-12 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <p className="eyebrow">Founded 2015</p>
-            <h2 className="mt-3 font-serif text-3xl md:text-4xl leading-tight">
-              We believe fine jewelry should be worn — not saved for special occasions.
-            </h2>
-          </div>
-          <div className="lg:col-span-7 space-y-6 text-base leading-relaxed text-ink-soft">
-            <p>
-              Aurelia began with a simple frustration: traditional fine jewelry was too expensive,
-              too occasional, and too often tied to outdated rituals. We set out to make pieces
-              women buy for themselves — for everyday, for joy, for the way they want to live now.
-            </p>
-            <p>
-              That meant rethinking the supply chain. We work directly with our makers, removing
-              middlemen, and pricing pieces at a fair multiple over cost. It also meant rethinking
-              materials: solid 14k gold, recycled silver, ethically sourced stones, and full
-              traceability — published openly in our annual Impact Report.
-            </p>
-            <p>
-              A decade in, Aurelia is worn by millions, available in 14 stores across North America
-              and the UK, and still run by the same small team that started it.
-            </p>
-          </div>
+    <div className="pt-32 pb-24 min-h-screen bg-cream overflow-hidden">
+      <div className="container-x">
+        {/* Hero Section */}
+        <div className="text-center max-w-4xl mx-auto mb-24">
+          <p className="eyebrow tracking-[0.3em] text-[#053624]/70 mb-4">Our Story</p>
+          <h1 className="font-serif text-5xl md:text-7xl text-ink tracking-tight leading-[1.1] mb-8">
+            The modern benchmark for Indian <em className="italic font-light">High Jewelry</em>.
+          </h1>
+          <p className="text-base md:text-lg text-ink/70 leading-relaxed max-w-2xl mx-auto">
+            Radha Rani was established with a singular, uncompromising vision: to elevate bespoke jewelry from a simple transaction to an exclusive, highly personalized art form. We are an independent modern atelier serving discerning clients worldwide.
+          </p>
         </div>
 
-        <div className="mt-24 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            { stat: "10", label: "Years of craft" },
-            { stat: "14", label: "Stores worldwide" },
-            { stat: "1.2M+", label: "Customers" },
-            { stat: "100%", label: "Recycled metals" },
-          ].map((s) => (
-            <div key={s.label} className="border-t border-border pt-6">
-              <p className="font-serif text-5xl">{s.stat}</p>
-              <p className="mt-2 text-xs uppercase tracking-[0.18em] text-ink-muted">{s.label}</p>
-            </div>
-          ))}
+        {/* Feature Image */}
+        <div className="aspect-video w-full bg-cream-warm mb-32 relative">
+          <img 
+            src="https://images.unsplash.com/photo-1599643478524-fb524b0d0f72?auto=format&fit=crop&w=2000&q=80" 
+            alt="Radha Rani Atelier Craftsmanship" 
+            className="w-full h-full object-cover mix-blend-multiply opacity-80"
+          />
         </div>
 
-        <div className="mt-24 grid gap-8 lg:grid-cols-2">
-          <Link href="/sustainability" className="group block">
-            <div className="aspect-[4/3] overflow-hidden bg-cream-warm">
-              <img
-                src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1200&q=80"
-                alt=""
-                className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-              />
-            </div>
-            <h3 className="mt-5 font-serif text-2xl">Sustainability</h3>
-            <p className="mt-2 text-sm text-ink-soft">Read the 2026 Impact Report.</p>
-          </Link>
-          <Link href="/stores" className="group block">
-            <div className="aspect-[4/3] overflow-hidden bg-cream-warm">
-              <img
-                src="https://images.unsplash.com/photo-1559563458-527698bf5295?auto=format&fit=crop&w=1200&q=80"
-                alt=""
-                className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-              />
-            </div>
-            <h3 className="mt-5 font-serif text-2xl">Visit Us</h3>
-            <p className="mt-2 text-sm text-ink-soft">Find an Aurelia store near you.</p>
+        {/* Three Pillars */}
+        <div className="grid md:grid-cols-3 gap-16 md:gap-12 mb-32">
+          <div>
+            <span className="block text-4xl mb-6">🔍</span>
+            <h3 className="font-serif text-2xl text-ink mb-4">Uncompromising Sourcing</h3>
+            <p className="text-sm text-ink/60 leading-relaxed">
+              We bypass traditional middlemen to source stones directly from trusted mines and lapidaries. From unheated Sri Lankan Pukhraj to Zambian Emeralds, every stone we acquire is sent to GIA or IGI for rigorous certification before it ever reaches our design desk.
+            </p>
+          </div>
+          <div>
+            <span className="block text-4xl mb-6">✋</span>
+            <h3 className="font-serif text-2xl text-ink mb-4">Master Craftsmanship</h3>
+            <p className="text-sm text-ink/60 leading-relaxed">
+              Mass production destroys the soul of jewelry. Every piece that leaves our atelier is forged by master artisans using traditional Indian techniques—like intricate Jadau and Meenakari—fused with modern, micro-pavé precision. 
+            </p>
+          </div>
+          <div>
+            <span className="block text-4xl mb-6">🏛️</span>
+            <h3 className="font-serif text-2xl text-ink mb-4">The Bespoke Experience</h3>
+            <p className="text-sm text-ink/60 leading-relaxed">
+              We do not just sell jewelry; we execute commissions. Operating strictly on a 50% advance model, we dedicate our full attention to a limited number of clients per month, ensuring your vision is realized flawlessly.
+            </p>
+          </div>
+        </div>
+
+        {/* Closing CTA */}
+        <div className="bg-[#053624] text-cream p-12 md:p-24 text-center">
+          <h2 className="font-serif text-3xl md:text-5xl mb-6">Ready to create your masterpiece?</h2>
+          <p className="text-sm text-cream/70 mb-10 max-w-xl mx-auto leading-relaxed">
+            Whether you are looking for an astrological Navratna ring or a complete bridal trousseau, our concierge is ready to assist you.
+          </p>
+          <Link 
+            href="/custom"
+            className="inline-block bg-cream text-ink px-12 py-4 text-[10px] uppercase tracking-[0.2em] hover:bg-cream/90 transition-colors"
+          >
+            Request Consultation
           </Link>
         </div>
       </div>
-    </>
+    </div>
   );
 }
