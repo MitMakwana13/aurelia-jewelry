@@ -5,15 +5,13 @@ import { mainNav } from "@/data/navigation";
 import { useCart } from "@/lib/store/cart-store";
 import { useUI } from "@/lib/store/ui-store";
 import { MegaMenu } from "./MegaMenu";
-import { SearchIcon, UserIcon, BagIcon, MenuIcon } from "@/components/ui/Icons";
+import { SearchIcon, MenuIcon } from "@/components/ui/Icons";
 import { Logo } from "@/components/ui/Logo";
 import { LiveMetalPrices } from "@/components/ui/LiveMetalPrices";
 
 export function Header() {
   const [hovered, setHovered] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
-  const itemCount = useCart((s) => s.lineItems.reduce((n, li) => n + li.quantity, 0));
-  const openCart = useCart((s) => s.openDrawer);
   const { openSearch, openMobileNav } = useUI();
 
   useEffect(() => {
@@ -97,23 +95,8 @@ export function Header() {
             <button aria-label="Search" onClick={openSearch} className="hidden lg:inline-flex hover:opacity-60 transition">
               <SearchIcon />
             </button>
-            <a href="/account" aria-label="Account" className="hidden lg:inline-flex hover:opacity-60 transition">
-              <UserIcon />
-            </a>
             <button aria-label="Search" onClick={openSearch} className="lg:hidden hover:opacity-60 transition">
               <SearchIcon />
-            </button>
-            <button
-              aria-label={`Cart, ${itemCount} item${itemCount === 1 ? "" : "s"}`}
-              onClick={openCart}
-              className="relative hover:opacity-60 transition"
-            >
-              <BagIcon />
-              {itemCount > 0 && (
-                <span className="absolute -right-2 -top-1 inline-flex h-4 min-w-[16px] items-center justify-center rounded-full px-1 text-[9px] bg-ink text-cream">
-                  {itemCount}
-                </span>
-              )}
             </button>
           </div>
         </div>
