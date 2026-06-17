@@ -54,7 +54,7 @@ export default function CustomJewelryPage() {
             <h2 className="font-serif text-3xl mb-3">Begin a Commission</h2>
             <p className="text-sm text-ink/60">Fill out the details below to request a private consultation.</p>
           </div>
-          <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+          <form className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
                 <label className="text-[10px] uppercase tracking-widest text-ink/60">First Name</label>
