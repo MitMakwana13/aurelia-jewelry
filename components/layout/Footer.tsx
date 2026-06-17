@@ -90,7 +90,7 @@ export function Footer() {
             <Link href="/help/faq" className="hover:text-cream transition-colors">Privacy</Link>
             <Link href="/help/faq" className="hover:text-cream transition-colors">Terms</Link>
             <Link href="/help/faq" className="hover:text-cream transition-colors">Accessibility</Link>
-            <span>© {new Date().getFullYear()} RADHA RANI HIGH JEWELRY</span>
+            <span>© {new Date().getFullYear()} RADHA RANI HERITAGE COLLECTION</span>
           </div>
         </div>
       </div>

@@ -20,20 +20,20 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: {
-    default: "Radha Rani High Jewelry — The Culture of Craft",
+    default: "Radha Rani Heritage Collection — The Culture of Craft",
     template: "%s · Radha Rani",
   },
   description:
-    "Radha Rani High Jewelry — Exquisite, ethically sourced diamonds, emeralds, and bespoke masterpieces crafted in India. A heritage of pure intention and timeless luxury.",
+    "Radha Rani Heritage Collection — Exquisite, ethically sourced diamonds, emeralds, and bespoke masterpieces crafted in India. A heritage of pure intention and timeless luxury.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://radharani-jewelry.com"),
   keywords: [
-    "High Jewelry India", "bespoke jewelry India", "Radha Rani High Jewelry",
+    "Heritage Collection India", "bespoke jewelry India", "Radha Rani Heritage Collection",
     "heritage jewelry", "kundan emerald", "diamond masterpieces", "custom luxury jewelry",
     "bridal jewelry", "haute joaillerie India", "fine jewelry",
   ],
-  authors: [{ name: "Radha Rani High Jewelry" }],
+  authors: [{ name: "Radha Rani Heritage Collection" }],
   openGraph: {
-    title: "Radha Rani High Jewelry — The Culture of Craft",
+    title: "Radha Rani Heritage Collection — The Culture of Craft",
     description: "Exquisite diamonds and bespoke masterpieces crafted in India.",
     type: "website",
     locale: "en_IN",
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Radha Rani High Jewelry",
-    description: "The Culture of Craft. High Jewelry Masterpieces.",
+    title: "Radha Rani Heritage Collection",
+    description: "The Culture of Craft. Heritage Collection Masterpieces.",
   },
   robots: {
     index: true,

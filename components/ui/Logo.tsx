@@ -52,7 +52,7 @@ export function Logo({ variant = "light", className = "" }: LogoProps) {
         RADHA RANI
       </span>
 
-      {/* Refined Tagline */}
+      {/* New Refined Tagline */}
       <span
         style={{
           fontFamily: '"Inter", sans-serif',
