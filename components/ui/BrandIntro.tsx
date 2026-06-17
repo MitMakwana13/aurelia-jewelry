@@ -40,15 +40,15 @@ const frames = [
 
 // The 9 Navratna gems
 const navratna = [
-  { stone: "Ruby", hindi: "माणेक", color: "#9B1B30" },
-  { stone: "Pearl", hindi: "मोती", color: "#E2DFD8" },
-  { stone: "Red Coral", hindi: "मूँगो", color: "#C0392B" },
-  { stone: "Emerald", hindi: "पन्ना", color: "#053624" },
-  { stone: "Yellow Sapphire", hindi: "पोखराज", color: "#B8860B" },
-  { stone: "Diamond", hindi: "हीरो", color: "#E5E7EB" },
-  { stone: "Blue Sapphire", hindi: "नीलम", color: "#1A3A6B" },
-  { stone: "Hessonite", hindi: "गोमेट", color: "#8B4513" },
-  { stone: "Cat's Eye", hindi: "लहसुनीया", color: "#4A3728" },
+  { stone: "Ruby", regional: "માણેક", color: "#9B1B30" },
+  { stone: "Pearl", regional: "મોતી", color: "#E2DFD8" },
+  { stone: "Red Coral", regional: "મૂંગો", color: "#C0392B" },
+  { stone: "Emerald", regional: "પન્ના", color: "#053624" },
+  { stone: "Yellow Sapphire", regional: "પોખરાજ", color: "#B8860B" },
+  { stone: "Diamond", regional: "હીરો", color: "#E5E7EB" },
+  { stone: "Blue Sapphire", regional: "નીલમ", color: "#1A3A6B" },
+  { stone: "Hessonite", regional: "ગોમેદ", color: "#8B4513" },
+  { stone: "Cat's Eye", regional: "લહસુનિયા", color: "#4A3728" },
 ];
 
 export function BrandIntro({ onComplete }: { onComplete: () => void }) {
@@ -63,17 +63,17 @@ export function BrandIntro({ onComplete }: { onComplete: () => void }) {
   }, []);
 
   useEffect(() => {
-    // Show each frame for 0.8s
+    // Show each frame for 1.2s for better readability
     const frameInterval = setInterval(() => {
       setFrameIndex((prev) => {
         if (prev >= frames.length - 1) {
           clearInterval(frameInterval);
-          setTimeout(() => setPhase("navratna"), 400);
+          setTimeout(() => setPhase("navratna"), 600);
           return prev;
         }
         return prev + 1;
       });
-    }, 800);
+    }, 1200);
 
     return () => clearInterval(frameInterval);
   }, []);
@@ -209,7 +209,7 @@ export function BrandIntro({ onComplete }: { onComplete: () => void }) {
                     <p className="text-[8px] md:text-[10px] uppercase tracking-[0.2em] text-white/80 text-center leading-tight mt-2">
                       {gem.stone}
                     </p>
-                    <p className="text-[10px] md:text-[12px] text-[#B8860B] font-sans">{gem.hindi}</p>
+                    <p className="text-[10px] md:text-[12px] text-[#B8860B] font-sans">{gem.regional}</p>
                     <p className="text-[8px] text-white/30 uppercase tracking-[0.1em] mt-1">{i + 1}</p>
                   </motion.div>
                 ))}
