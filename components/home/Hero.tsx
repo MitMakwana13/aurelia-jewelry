@@ -9,31 +9,37 @@ const frames = [
   {
     title: "Born Deep\nWithin the Earth",
     subtitle: "Million years of natural creation and energy.",
-    image: "https://images.unsplash.com/photo-1446776877081-d282a0f896e2?auto=format&fit=crop&w=2400&q=90",
+    // Dark crystal/geological cave formation
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=2400&q=90",
   },
   {
     title: "Hidden Deep.\nPure by Nature.",
     subtitle: "Formed under extreme pressure and time.",
-    image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=2400&q=90",
+    // Raw rough gemstones / mineral veins in rock
+    image: "https://images.unsplash.com/photo-1601887389937-0b02a26b4b3b?auto=format&fit=crop&w=2400&q=90",
   },
   {
     title: "Discovered\nWith Care",
     subtitle: "Responsibly mined from the finest global sources.",
-    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=2400&q=90",
+    // Hands carefully handling rough gem/mining
+    image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=2400&q=90",
   },
   {
     title: "From Raw\nto Remarkable",
     subtitle: "Every gem begins as a rough promise.",
-    image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=2400&q=90",
+    // Collection of rough / raw gemstones
+    image: "https://images.unsplash.com/photo-1563203369-26f2e4a5ccf7?auto=format&fit=crop&w=2400&q=90",
   },
   {
     title: "Crafted to\nPerfection",
     subtitle: "Expert hands. Precision cut. Perfect symmetry.",
+    // Jeweler / craftsman working with gemstone
     image: "https://images.unsplash.com/photo-1599643478524-fb524b0d0f72?auto=format&fit=crop&w=2400&q=90",
   },
   {
     title: "The Culture\nof Craft.",
     subtitle: "Radha Rani Heritage Collection — Crafted in India.",
+    // Brilliant polished gemstone / finished jewel
     image: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=2400&q=90",
   },
 ];

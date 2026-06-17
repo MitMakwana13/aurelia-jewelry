@@ -8,25 +8,25 @@ const frames = [
   {
     title: "BORN DEEP\nWITHIN THE EARTH",
     subtitle: "Million years of natural creation and energy.",
-    image: "https://images.unsplash.com/photo-1446776877081-d282a0f896e2?auto=format&fit=crop&w=1400&q=90",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1400&q=90",
     col: "lg:col-span-4",
   },
   {
     title: "HIDDEN DEEP.\nPURE BY NATURE.",
     subtitle: "Formed under extreme pressure and time.",
-    image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1400&q=90",
+    image: "https://images.unsplash.com/photo-1601887389937-0b02a26b4b3b?auto=format&fit=crop&w=1400&q=90",
     col: "lg:col-span-4",
   },
   {
     title: "DISCOVERED\nWITH CARE",
     subtitle: "Responsibly mined from the finest global sources.",
-    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1400&q=90",
+    image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=1400&q=90",
     col: "lg:col-span-4",
   },
   {
     title: "FROM RAW\nTO REMARKABLE",
     subtitle: "Every gem begins as a rough promise.",
-    image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1400&q=90",
+    image: "https://images.unsplash.com/photo-1563203369-26f2e4a5ccf7?auto=format&fit=crop&w=1400&q=90",
     col: "lg:col-span-4",
   },
   {
