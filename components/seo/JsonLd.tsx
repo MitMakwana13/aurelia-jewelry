@@ -4,7 +4,7 @@ interface OrganizationJsonLdProps {
 }
 
 export function OrganizationJsonLd({
-  name = "Radha Rani",
+  name = "Radha Rani High Jewelry",
   url = "https://radharani-jewelry.com",
 }: OrganizationJsonLdProps) {
   const data = {
@@ -13,7 +13,7 @@ export function OrganizationJsonLd({
     name,
     url,
     description:
-      "Radha Rani — Exquisite gemstones, diamonds and bespoke masterpieces. The Heritage Collection. Based in India.",
+      "Radha Rani High Jewelry — Exquisite diamonds, emeralds and bespoke masterpieces. The Culture of Craft. Based in India.",
     logo: `${url}/logo.png`,
     image: `${url}/logo.png`,
     telephone: "+91-99999-99999",
@@ -67,7 +67,7 @@ export function ProductJsonLd({
     sku,
     brand: {
       "@type": "Brand",
-      name: "Radha Rani",
+      name: "Radha Rani High Jewelry",
     },
     offers: {
       "@type": "Offer",
@@ -77,7 +77,7 @@ export function ProductJsonLd({
       url,
       seller: {
         "@type": "Organization",
-        name: "Radha Rani",
+        name: "Radha Rani High Jewelry",
       },
     },
   };

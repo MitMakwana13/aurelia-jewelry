@@ -1,131 +1,119 @@
 "use client";
 
 import Link from "next/link";
-import { useRef, useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRightIcon } from "@/components/ui/Icons";
 
-// High-end luxury jewelry visuals (models + masterpieces)
-const slides = [
-  {
-    title: "The Culture of\nCraft.",
-    subtitle: "Heritage Collection — Masterpieces crafted in India.",
-    image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=2400&q=90",
-  },
-  {
-    title: "Bespoke\nExcellence.",
-    subtitle: "Ethically sourced gemstones. Perfectly cut diamonds.",
-    image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=2400&q=90",
-  },
-  {
-    title: "Timeless\nElegance.",
-    subtitle: "Jewelry tailored to your unique vision.",
-    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=2400&q=90",
-  },
-];
-
-const SLIDE_DURATION = 5000;
-
 export function Hero() {
-  const [current, setCurrent] = useState(0);
+  const containerRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % slides.length);
-    }, SLIDE_DURATION);
-    return () => clearInterval(timer);
-  }, []);
+  // Extreme parallax effect: background moves down half as fast as you scroll
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  // Fades out text as you scroll past
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section className="relative w-full h-[100vh] min-h-[700px] overflow-hidden bg-[#0A0A0A]">
-      {/* ── Background Slideshow ── */}
-      <AnimatePresence mode="sync">
-        <motion.div
-          key={current}
-          initial={{ opacity: 0, scale: 1.05 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
-          className="absolute inset-0"
-        >
-          <img
-            src={slides[current].image}
-            alt="Hero Background"
-            className="h-full w-full object-cover"
-            loading="eager"
-          />
-          {/* Subtle vignette and dark gradient for text legibility */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/60" />
-        </motion.div>
-      </AnimatePresence>
+    <section ref={containerRef} className="relative w-full h-[100vh] min-h-[700px] overflow-hidden bg-cream">
+      
+      {/* Parallax Background - Bright Classic Aesthetic */}
+      <motion.div style={{ y }} className="absolute inset-0 h-[120%] -top-[10%] w-full bg-cream-warm">
+        <img
+          src="https://images.unsplash.com/photo-1599643478524-fb524b0d0f72?auto=format&fit=crop&w=2800&q=90" // Deep emerald macro
+          alt="Radha Rani — Haute Joaillerie"
+          className="h-full w-full object-cover opacity-70 mix-blend-multiply"
+        />
+        {/* Subtle light gradient for text readability, no dark heavy vignettes */}
+        <div className="absolute inset-0 bg-gradient-to-t from-cream via-cream/40 to-transparent" />
+      </motion.div>
 
-      {/* ── Main Typography & CTAs (Fixed in center) ── */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center z-20 px-6 pt-20">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={`text-${current}`}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-col items-center"
+      {/* Interactive Content Layer */}
+      <motion.div 
+        style={{ opacity, y: textY }}
+        className="relative h-full container-x flex flex-col items-center justify-center text-center z-10"
+      >
+        
+        {/* Animated Eyebrow */}
+        <div className="overflow-hidden mb-8">
+          <motion.p 
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            transition={{ duration: 1, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
+            className="text-[10px] uppercase tracking-[0.4em] text-ink/60"
           >
-            {/* Eyebrow */}
-            <p className="text-[10px] uppercase tracking-[0.4em] text-white/60 mb-6 md:mb-8">
-              Radha Rani
-            </p>
+            The Heritage Collection
+          </motion.p>
+        </div>
 
-            {/* Headline */}
-            <h1 className="font-serif text-5xl sm:text-6xl md:text-[6.5rem] lg:text-[7.5rem] leading-[0.9] text-white tracking-tight whitespace-pre-line">
-              {slides[current].title}
-            </h1>
+        {/* Theatrical Masked Headline */}
+        <div className="overflow-hidden">
+          <motion.h1 
+            initial={{ y: "110%", rotate: 2 }}
+            animate={{ y: 0, rotate: 0 }}
+            transition={{ duration: 1.5, ease: [0.76, 0, 0.24, 1], delay: 0.4 }}
+            className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[7.5rem] leading-[0.9] text-ink tracking-tight"
+          >
+            The Culture of <br />
+            <em className="italic text-ink/70 font-light pr-4">Craft.</em>
+          </motion.h1>
+        </div>
 
-            {/* Subtitle */}
-            <p className="mt-8 max-w-md text-xs md:text-sm text-white/70 leading-loose tracking-[0.05em]">
-              {slides[current].subtitle}
-            </p>
-          </motion.div>
-        </AnimatePresence>
-
-        {/* CTAs (Always visible) */}
-        <motion.div
+        {/* Subtitle */}
+        <motion.p 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          className="mt-14 flex flex-col sm:flex-row items-center gap-8"
+          transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: 1 }}
+          className="mt-12 max-w-lg text-xs md:text-[13px] text-ink/70 leading-loose tracking-[0.05em]"
         >
-          <Link
-            href="/shop/gemstones"
-            className="group relative overflow-hidden bg-[#053624] text-cream px-12 py-4 text-[10px] uppercase tracking-[0.25em] transition-transform hover:scale-105 duration-500"
-          >
+          Discover ethically sourced gemstones and brilliant diamonds. 
+          Bespoke jewelry tailored to your vision, starting at just 50% advance.
+        </motion.p>
+
+        {/* Actions */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5, delay: 1.5 }}
+          className="mt-16 flex flex-col sm:flex-row items-center gap-8"
+        >
+          {/* Signature Emerald CTA */}
+          <Link href="/shop/gemstones" className="group relative overflow-hidden bg-[#053624] text-cream px-14 py-5 text-[10px] uppercase tracking-[0.25em] transition-transform hover:scale-105 duration-500">
             <span className="relative z-10">Explore Collection</span>
-            <div className="absolute inset-0 bg-white/10 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500" />
+            <div className="absolute inset-0 bg-ink translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-out-smooth" />
           </Link>
           <Link
             href="/custom"
-            className="group flex items-center gap-3 text-[10px] uppercase tracking-[0.25em] text-white/80 hover:text-white transition-colors duration-300"
+            className="group flex items-center gap-3 text-[10px] uppercase tracking-[0.25em] text-ink/70 hover:text-[#053624] transition-colors duration-300"
           >
-            Bespoke Inquiry
+            Bespoke Inquiry 
             <span className="group-hover:translate-x-2 transition-transform duration-500">
               <ArrowRightIcon width={14} height={14} />
             </span>
           </Link>
         </motion.div>
-      </div>
+      </motion.div>
 
-      {/* ── Dot navigation ── */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex gap-4">
-        {slides.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setCurrent(i)}
-            aria-label={`Go to slide ${i + 1}`}
-            className={`h-0.5 transition-all duration-500 ${
-              i === current ? "w-8 bg-white" : "w-4 bg-white/30 hover:bg-white/50"
-            }`}
-          />
-        ))}
-      </div>
+      {/* Decorative scroll indicator */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2, delay: 2.5 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 z-20"
+      >
+        <span className="text-[8px] uppercase tracking-[0.4em] text-ink/40">Scroll</span>
+        <motion.div 
+          animate={{ height: ["0%", "100%", "0%"], top: ["0%", "0%", "100%"] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+          className="relative w-[1px] h-16 bg-ink/20 overflow-hidden"
+        >
+          <motion.div className="absolute top-0 left-0 w-full bg-ink h-full" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
