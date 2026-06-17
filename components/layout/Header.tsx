@@ -27,25 +27,20 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-700 ease-in-out ${
         scrolled 
-          ? "bg-cream/95 backdrop-blur-md shadow-[0_1px_0_0_rgba(0,0,0,0.05)] pb-2" 
-          : "bg-transparent pb-4"
+          ? "bg-cream/95 backdrop-blur-md shadow-sm py-3" 
+          : "bg-gradient-to-b from-black/60 to-transparent py-6"
       }`}
       onMouseLeave={() => setHovered(null)}
     >
-      {/* Live Market Price Ticker */}
-      <div className={`transition-all duration-500 overflow-hidden ${scrolled ? "h-0 opacity-0" : "h-auto opacity-100"}`}>
-        <LiveMetalPrices />
-      </div>
-
       {/* 3-column grid: left-nav | logo | right-actions */}
-      <div className={`container-x grid grid-cols-3 items-center transition-all duration-500 ${scrolled ? "pt-2" : "pt-4"}`}>
+      <div className="container-x grid grid-cols-3 items-center">
 
         {/* ── Col 1: Left nav (desktop) + Mobile trigger ── */}
         <div className="flex items-center gap-6">
           {/* Mobile */}
-          <button aria-label="Open menu" onClick={openMobileNav} className="lg:hidden p-1 -ml-1 transition-colors text-ink">
+          <button aria-label="Open menu" onClick={openMobileNav} className={`lg:hidden p-1 -ml-1 transition-colors ${scrolled ? "text-ink" : "text-white"}`}>
             <MenuIcon />
           </button>
           {/* Desktop: first 3 nav items */}
@@ -54,12 +49,16 @@ export function Header() {
               <div key={item.label} onMouseEnter={() => setHovered(item.label)} className="relative py-2">
                 <a
                   href={item.href}
-                  className="text-[10px] uppercase tracking-[0.2em] transition-colors whitespace-nowrap text-ink hover:text-ink/60"
+                  className={`text-[9px] font-medium uppercase tracking-[0.25em] transition-colors whitespace-nowrap ${
+                    scrolled ? "text-ink hover:text-ink/60" : "text-white/90 hover:text-white"
+                  }`}
                 >
                   {item.label}
                 </a>
                 {/* Micro-interaction underline */}
-                <div className={`absolute bottom-0 left-0 h-[1px] bg-ink transition-all duration-500 ease-out-smooth ${
+                <div className={`absolute bottom-0 left-0 h-[1px] transition-all duration-500 ease-out-smooth ${
+                  scrolled ? "bg-ink" : "bg-white"
+                } ${
                   hovered === item.label ? "w-full opacity-100" : "w-0 opacity-0"
                 }`} />
               </div>
@@ -68,8 +67,8 @@ export function Header() {
         </div>
 
         {/* ── Col 2: Logo — perfectly centered ── */}
-        <div className="flex justify-center transition-transform duration-500">
-          <Logo variant="light" className={scrolled ? "scale-[0.85]" : "scale-100"} />
+        <div className="flex justify-center transition-transform duration-700 ease-out-smooth">
+          <Logo variant={scrolled ? "light" : "dark"} className={scrolled ? "scale-[0.80]" : "scale-100"} />
         </div>
 
         {/* ── Col 3: Right nav + icons ── */}
@@ -80,12 +79,16 @@ export function Header() {
               <div key={item.label} onMouseEnter={() => setHovered(item.label)} className="relative py-2">
                 <a
                   href={item.href}
-                  className="text-[10px] uppercase tracking-[0.2em] transition-colors whitespace-nowrap text-ink hover:text-ink/60"
+                  className={`text-[9px] font-medium uppercase tracking-[0.25em] transition-colors whitespace-nowrap ${
+                    scrolled ? "text-ink hover:text-ink/60" : "text-white/90 hover:text-white"
+                  }`}
                 >
                   {item.label}
                 </a>
                 {/* Micro-interaction underline */}
-                <div className={`absolute bottom-0 left-0 h-[1px] bg-ink transition-all duration-500 ease-out-smooth ${
+                <div className={`absolute bottom-0 left-0 h-[1px] transition-all duration-500 ease-out-smooth ${
+                  scrolled ? "bg-ink" : "bg-white"
+                } ${
                   hovered === item.label ? "w-full opacity-100" : "w-0 opacity-0"
                 }`} />
               </div>
@@ -93,7 +96,7 @@ export function Header() {
           </nav>
 
           {/* Icons */}
-          <div className="flex items-center gap-4 transition-colors text-ink">
+          <div className={`flex items-center gap-5 transition-colors ${scrolled ? "text-ink" : "text-white"}`}>
             <button aria-label="Search" onClick={openSearch} className="hidden lg:inline-flex hover:opacity-60 transition">
               <SearchIcon />
             </button>
@@ -110,7 +113,9 @@ export function Header() {
             >
               <BagIcon />
               {itemCount > 0 && (
-                <span className="absolute -right-2 -top-1 inline-flex h-4 min-w-[16px] items-center justify-center rounded-full px-1 text-[9px] bg-ink text-cream">
+                <span className={`absolute -right-2 -top-1 inline-flex h-4 min-w-[16px] items-center justify-center rounded-full px-1 text-[9px] ${
+                  scrolled ? "bg-ink text-cream" : "bg-white text-ink"
+                }`}>
                   {itemCount}
                 </span>
               )}
