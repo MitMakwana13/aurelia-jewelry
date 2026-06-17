@@ -9,32 +9,38 @@ const frames = [
   {
     title: "BORN DEEP\nWITHIN THE EARTH",
     subtitle: "Million years of natural creation and energy.",
-    image: "https://images.unsplash.com/photo-1578301978018-3005759f48f7?auto=format&fit=crop&w=1400&q=90",
+    // Earth from space, glowing horizon
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=90",
   },
   {
     title: "HIDDEN DEEP.\nPURE BY NATURE.",
     subtitle: "Formed under extreme pressure and time.",
-    image: "https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?auto=format&fit=crop&w=1400&q=90",
+    // Glowing crystal / cave
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=1400&q=90",
   },
   {
     title: "DISCOVERED\nWITH CARE",
     subtitle: "Responsibly mined from the finest global sources.",
-    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1400&q=90",
+    // Hand holding rough gem
+    image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=1400&q=90",
   },
   {
     title: "FROM RAW\nTO REMARKABLE",
     subtitle: "Every gem begins as a rough promise.",
-    image: "https://images.unsplash.com/photo-1622398925373-3f91b1e275f5?auto=format&fit=crop&w=1400&q=90",
+    // Colorful raw rough gems
+    image: "https://images.unsplash.com/photo-1563203369-26f2e4a5ccf7?auto=format&fit=crop&w=1400&q=90",
   },
   {
     title: "CRAFTED TO\nPERFECTION",
     subtitle: "Expert hands. Precision cut. Perfect symmetry.",
+    // Jeweler working / cutting
     image: "https://images.unsplash.com/photo-1599643478524-fb524b0d0f72?auto=format&fit=crop&w=1400&q=90",
   },
   {
     title: "POLISHED TO\nPERFECTION",
     subtitle: "Brilliance revealed. Beauty eternal.",
-    image: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=1400&q=90",
+    // Polished sapphire / fine jewel
+    image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1400&q=90",
   },
 ];
 
