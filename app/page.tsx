@@ -4,7 +4,6 @@ import { CollectionSpotlight } from "@/components/home/CollectionSpotlight";
 import { TrendingCarousel } from "@/components/home/TrendingCarousel";
 import { ServicesStrip } from "@/components/home/ServicesStrip";
 import { NavratnaCollection } from "@/components/home/NavratnaCollection";
-import { GemJourneyAnimation } from "@/components/home/GemJourneyAnimation";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { CustomerStories } from "@/components/home/CustomerStories";
 import { KnowledgeHub } from "@/components/home/KnowledgeHub";
@@ -18,25 +17,35 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* 1. Hero — The Culture of Craft */}
+      {/* 1. Hero — Cinematic animated video (Born Deep → The Culture of Craft) */}
       <Hero />
 
-      {/* 2. Brand marquee ticker */}
+      {/* 2. Brand marquee — brief scrolling introduction */}
       <Marquee />
 
-      {/* 3. Category grid — Gemstones, Diamonds, Jewelry */}
+      {/* 3. Category grid — Gemstones, Diamonds, Jewelry intro */}
       <CategoryGrid />
+
+      {/* ── YOUR FOUR SECTIONS ─────────────────────────────── */}
 
       {/* 4. Navratna Collection — The Nine Cosmic Energies */}
       <NavratnaCollection />
 
-      {/* 5. Cinematic gem journey animation */}
-      <GemJourneyAnimation />
+      {/* 5. Why Choose Us */}
+      <WhyChooseUs />
 
-      {/* 6. Heritage Collection spotlight */}
+      {/* 6. Customer Stories */}
+      <CustomerStories />
+
+      {/* 7. Gemstone Knowledge Hub */}
+      <KnowledgeHub />
+
+      {/* ── PRODUCT SECTIONS ────────────────────────────────── */}
+
+      {/* 8. Heritage Collection spotlight */}
       <CollectionSpotlight />
 
-      {/* 7. Signature product carousel */}
+      {/* 9. Signature product carousel */}
       <TrendingCarousel products={trending} title="The Masterpieces" viewAllHref="/shop" />
 
       {newArrivals.length > 0 && (
@@ -47,16 +56,7 @@ export default async function HomePage() {
         />
       )}
 
-      {/* 8. Why Choose Us — emerald backdrop */}
-      <WhyChooseUs />
-
-      {/* 9. Customer Stories testimonials */}
-      <CustomerStories />
-
-      {/* 10. Gemstone Knowledge Hub */}
-      <KnowledgeHub />
-
-      {/* 11. White-glove services */}
+      {/* 10. White-glove concierge services */}
       <ServicesStrip />
     </>
   );

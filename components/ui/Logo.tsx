@@ -52,43 +52,23 @@ export function Logo({ variant = "light", className = "" }: LogoProps) {
         RADHA RANI
       </span>
 
-      {/* New Refined Tagline */}
+      {/* Heritage Collection tagline */}
       <span
         style={{
           fontFamily: '"Inter", sans-serif',
           fontWeight: 300,
-          fontSize: "0.5rem",
-          letterSpacing: "0.6em",
+          fontSize: "0.48rem",
+          letterSpacing: "0.55em",
           color: secondaryColor,
           lineHeight: 1,
           display: "block",
-          marginTop: "12px",
-          marginLeft: "0.6em", // visual centering for wide tracking
+          marginTop: "10px",
+          marginLeft: "0.55em",
           whiteSpace: "nowrap",
           textTransform: "uppercase",
           transition: "color 0.5s ease",
         }}
         className={variant === "light" ? "group-hover:text-ink" : "group-hover:text-white"}
-      >
-        High Jewelry
-      </span>
-
-      {/* Heritage Collection sub-tagline */}
-      <span
-        style={{
-          fontFamily: '"Inter", sans-serif',
-          fontWeight: 300,
-          fontSize: "0.42rem",
-          letterSpacing: "0.5em",
-          color: secondaryColor,
-          lineHeight: 1,
-          display: "block",
-          marginTop: "5px",
-          marginLeft: "0.5em",
-          whiteSpace: "nowrap",
-          textTransform: "uppercase",
-          opacity: 0.6,
-        }}
       >
         The Heritage Collection
       </span>
