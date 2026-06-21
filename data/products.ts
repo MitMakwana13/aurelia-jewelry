@@ -34,7 +34,7 @@ function makeVariants(base: number, metals: string[], sizes?: string[]) {
         id: metal.toLowerCase().replace(/\s+/g, "-"),
         title: metal,
         metal,
-        price: { amount: metalPrice, currency: USD },
+        price: { amount: metalPrice, currency: INR },
         available: true,
         sku: `${metal.slice(0, 3).toUpperCase()}`,
       });
