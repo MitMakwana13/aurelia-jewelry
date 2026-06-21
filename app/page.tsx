@@ -2,8 +2,10 @@ import { Hero } from "@/components/home/Hero";
 import { CategoryGrid } from "@/components/home/CategoryGrid";
 import { CollectionSpotlight } from "@/components/home/CollectionSpotlight";
 import { TrendingCarousel } from "@/components/home/TrendingCarousel";
-import { ServicesStrip } from "@/components/home/ServicesStrip";
-import { SustainabilityBlock } from "@/components/home/SustainabilityBlock";
+import { NavratnaCollection } from "@/components/home/NavratnaCollection";
+import { WhyChooseUs } from "@/components/home/WhyChooseUs";
+import { LegacyOfGemstones } from "@/components/home/LegacyOfGemstones";
+import { GemstoneKnowledgeHub } from "@/components/home/GemstoneKnowledgeHub";
 import { Marquee } from "@/components/ui/Marquee";
 import { commerce } from "@/lib/commerce";
 
@@ -16,9 +18,12 @@ export default async function HomePage() {
     <>
       <Hero />
       <Marquee />
+      <NavratnaCollection />
+      <WhyChooseUs />
       <CategoryGrid />
       <CollectionSpotlight />
       <TrendingCarousel products={trending} title="The Masterpieces" viewAllHref="/shop" />
+      <LegacyOfGemstones />
       {newArrivals.length > 0 && (
         <TrendingCarousel
           products={newArrivals}
@@ -26,8 +31,7 @@ export default async function HomePage() {
           viewAllHref="/shop?filter=new"
         />
       )}
-      <ServicesStrip />
-      <SustainabilityBlock />
+      <GemstoneKnowledgeHub />
     </>
   );
 }
