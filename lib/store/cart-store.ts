@@ -75,7 +75,7 @@ export function getCartTotals(lineItems: LineItem[]) {
     0
   );
   const itemCount = lineItems.reduce((sum, li) => sum + li.quantity, 0);
-  const currency = lineItems[0]?.price.currency ?? "USD";
+  const currency = lineItems[0]?.price.currency ?? "INR";
   return {
     subtotal: { amount: subtotalAmount, currency },
     itemCount,

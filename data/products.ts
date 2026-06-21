@@ -1,6 +1,6 @@
 import type { Product } from "@/lib/commerce/types";
 
-const USD = "USD";
+const INR = "INR";
 const img = (id: string, alt: string) => ({
   url: `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1200&q=80`,
   alt,
@@ -24,7 +24,7 @@ function makeVariants(base: number, metals: string[], sizes?: string[]) {
           title: `${metal} / ${size}`,
           metal,
           size,
-          price: { amount: metalPrice, currency: USD },
+          price: { amount: metalPrice, currency: INR },
           available: true,
           sku: `${metal.slice(0, 3).toUpperCase()}-${size}`,
         });
