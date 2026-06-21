@@ -1,6 +1,5 @@
 import { Hero } from "@/components/home/Hero";
 import { CategoryGrid } from "@/components/home/CategoryGrid";
-import { CollectionSpotlight } from "@/components/home/CollectionSpotlight";
 import { TrendingCarousel } from "@/components/home/TrendingCarousel";
 import { NavratnaCollection } from "@/components/home/NavratnaCollection";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
@@ -22,7 +21,6 @@ export default async function HomePage() {
       <NavratnaCollection />
       <WhyChooseUs />
       <CategoryGrid />
-      <CollectionSpotlight />
       <TrendingCarousel products={trending} title="The Masterpieces" viewAllHref="/shop" />
       <LegacyOfGemstones />
       {newArrivals.length > 0 && (

@@ -24,8 +24,7 @@ export function TrendingCarousel({ products, title = "Trending Now", viewAllHref
     <section className="py-24 lg:py-32 bg-cream">
       <div className="container-x flex items-end justify-between">
         <div>
-          <p className="eyebrow tracking-[0.3em]">Signature Collection</p>
-          <h2 className="mt-4 font-serif text-4xl md:text-5xl font-light tracking-tight">{title}</h2>
+          <h2 className="font-serif text-4xl md:text-5xl font-light tracking-tight">{title}</h2>
         </div>
         <div className="flex items-center gap-4">
           <Link href={viewAllHref} className="hidden md:inline-block text-[10px] uppercase tracking-[0.25em] link-underline">
