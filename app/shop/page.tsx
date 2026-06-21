@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import { commerce } from "@/lib/commerce";
+import { FilterSidebar } from "@/components/plp/FilterSidebar";
+import { SortDropdown } from "@/components/plp/SortDropdown";
 import { ProductGrid } from "@/components/plp/ProductGrid";
+import { Breadcrumbs } from "@/components/plp/Breadcrumbs";
+import { filterAndSort } from "@/lib/utils/filter-products";
 
 export const metadata: Metadata = {
-  title: "The Masterpieces",
-  description: "Explore the Radha Rani Heritage Collection. Exceptional GIA/IGI certified high jewelry.",
+  title: "All Jewelry",
+  description: "Shop all fine jewelry — rings, necklaces, earrings, and bracelets.",
 };
 
 export default async function ShopPage({
@@ -13,37 +17,26 @@ export default async function ShopPage({
   searchParams: Promise<Record<string, string | undefined>>;
 }) {
   const params = await searchParams;
-  const products = await commerce.getProducts();
+  const all = await commerce.getProducts();
+  const products = filterAndSort(all, params);
 
   return (
-    <div className="pt-32 pb-24 min-h-screen bg-cream">
-      <div className="container-x">
-        <header className="mb-20 text-center max-w-3xl mx-auto">
-          <p className="eyebrow tracking-[0.3em] text-[#053624]/70 mb-4">The Collection</p>
-          <h1 className="font-serif text-4xl md:text-6xl text-ink tracking-tight mb-6">
-            Masterpieces
-          </h1>
-          <p className="text-sm text-ink/60 leading-relaxed">
-            A curated exhibition of our most exceptional works. Each piece represents hundreds of hours of 
-            master craftsmanship and features strictly unheated, GIA/IGI certified gemstones.
-          </p>
-        </header>
-
-        <div className="max-w-7xl mx-auto">
-          <ProductGrid products={products} />
+    <div className="container-x py-8 lg:py-12">
+      <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "All Jewelry" }]} />
+      <div className="mt-6 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
+        <div>
+          <h1 className="font-serif text-4xl md:text-5xl">All Jewelry</h1>
+          <p className="mt-2 text-sm text-ink-muted">{products.length} pieces</p>
         </div>
-        
-        <div className="mt-32 text-center border-t border-ink/5 pt-16">
-          <p className="font-serif text-2xl text-ink mb-4">Seeking something specific?</p>
-          <p className="text-sm text-ink/60 mb-8 max-w-md mx-auto">
-            Our private concierge is available to source specific gemstones or begin a fully bespoke commission.
-          </p>
-          <a 
-            href="/custom"
-            className="inline-block bg-[#053624] text-cream px-10 py-4 text-[10px] uppercase tracking-[0.2em] hover:bg-ink transition-colors"
-          >
-            Request Consultation
-          </a>
+        <SortDropdown />
+      </div>
+
+      <div className="mt-10 grid gap-10 lg:grid-cols-12">
+        <div className="lg:col-span-3">
+          <FilterSidebar />
+        </div>
+        <div className="lg:col-span-9">
+          <ProductGrid products={products} />
         </div>
       </div>
     </div>
