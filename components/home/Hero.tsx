@@ -46,7 +46,7 @@ export function Hero() {
             transition={{ duration: 1, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
             className="text-[10px] uppercase tracking-[0.4em] text-ink/60"
           >
-            Bespoke Atelier
+            The Heritage Collection
           </motion.p>
         </div>
 

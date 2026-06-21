@@ -4,100 +4,174 @@ export type NavItem = { label: string; href: string; columns?: NavColumn[]; feat
 
 export const mainNav: NavItem[] = [
   {
-    label: "High Jewelry",
-    href: "/shop/jewelry",
-    columns: [
-      {
-        heading: "The Heritage Collection",
-        links: [
-          { label: "View All Masterpieces", href: "/shop/jewelry" },
-          { label: "Bridal Trousseau", href: "/shop/jewelry?filter=bridal" },
-          { label: "Kundan & Polki", href: "/shop/jewelry?filter=kundan" },
-          { label: "Diamond Solitaires", href: "/shop/jewelry?filter=diamond" },
-        ],
-      },
-      {
-        heading: "By Category",
-        links: [
-          { label: "Necklaces & Chokers", href: "/shop/jewelry?category=necklaces" },
-          { label: "Rings", href: "/shop/jewelry?category=rings" },
-          { label: "Bangles & Bracelets", href: "/shop/jewelry?category=bracelets" },
-          { label: "Earrings", href: "/shop/jewelry?category=earrings" },
-        ],
-      },
-    ],
-  },
-  {
-    label: "Astrological Gems",
+    label: "Gemstones",
     href: "/shop/gemstones",
     columns: [
       {
-        heading: "The Navratna",
+        heading: "Shop by Type",
         links: [
-          { label: "Yellow Sapphire (Pukhraj)", href: "/shop/gemstones?type=pukhraj" },
-          { label: "Blue Sapphire (Neelam)", href: "/shop/gemstones?type=neelam" },
-          { label: "Ruby (Manik)", href: "/shop/gemstones?type=manik" },
-          { label: "Emerald (Panna)", href: "/shop/gemstones?type=panna" },
-          { label: "View All 9 Cosmic Stones", href: "/shop/gemstones" },
+          { label: "All Gemstones", href: "/shop/gemstones" },
+          { label: "Ruby", href: "/shop/gemstones?type=ruby" },
+          { label: "Emerald", href: "/shop/gemstones?type=emerald" },
+          { label: "Sapphire", href: "/shop/gemstones?type=sapphire" },
+          { label: "Amethyst", href: "/shop/gemstones?type=amethyst" },
+          { label: "Pearl", href: "/shop/gemstones?type=pearl" },
         ],
       },
       {
-        heading: "Certifications",
+        heading: "Shop by Cut",
         links: [
-          { label: "GIA Certified", href: "/shop/gemstones?cert=gia" },
-          { label: "IGI Certified", href: "/shop/gemstones?cert=igi" },
-          { label: "Unheated & Untreated", href: "/shop/gemstones?filter=unheated" },
+          { label: "Round Cut", href: "/shop/gemstones?cut=round" },
+          { label: "Oval Cut", href: "/shop/gemstones?cut=oval" },
+          { label: "Emerald Cut", href: "/shop/gemstones?cut=emerald-cut" },
+          { label: "Pear Cut", href: "/shop/gemstones?cut=pear" },
+          { label: "Cushion Cut", href: "/shop/gemstones?cut=cushion" },
+        ],
+      },
+      {
+        heading: "Collections",
+        links: [
+          { label: "Birthstones", href: "/collections/birthstones" },
+          { label: "Rare & Precious", href: "/collections/rare" },
+          { label: "New Arrivals", href: "/shop?filter=new" },
         ],
       },
     ],
   },
   {
-    label: "Bespoke Commissions",
+    label: "Diamonds",
+    href: "/shop/diamonds",
+    columns: [
+      {
+        heading: "Shop by Shape",
+        links: [
+          { label: "All Diamonds", href: "/shop/diamonds" },
+          { label: "Round Brilliant", href: "/shop/diamonds?shape=round" },
+          { label: "Princess Cut", href: "/shop/diamonds?shape=princess" },
+          { label: "Cushion Cut", href: "/shop/diamonds?shape=cushion" },
+          { label: "Marquise", href: "/shop/diamonds?shape=marquise" },
+          { label: "Pear Shape", href: "/shop/diamonds?shape=pear" },
+        ],
+      },
+      {
+        heading: "By Quality",
+        links: [
+          { label: "IF / FL (Flawless)", href: "/shop/diamonds?clarity=fl" },
+          { label: "VVS1 / VVS2", href: "/shop/diamonds?clarity=vvs" },
+          { label: "VS1 / VS2", href: "/shop/diamonds?clarity=vs" },
+          { label: "Solitaires", href: "/shop/diamonds?type=solitaire" },
+        ],
+      },
+    ],
+  },
+  {
+    label: "Jewelry",
+    href: "/shop/jewelry",
+    columns: [
+      {
+        heading: "Shop by Category",
+        links: [
+          { label: "All Jewelry", href: "/shop/jewelry" },
+          { label: "Rings", href: "/shop/jewelry/rings" },
+          { label: "Necklaces", href: "/shop/jewelry/necklaces" },
+          { label: "Earrings", href: "/shop/jewelry/earrings" },
+          { label: "Bracelets", href: "/shop/jewelry/bracelets" },
+          { label: "Bangles", href: "/shop/jewelry/bangles" },
+        ],
+      },
+      {
+        heading: "By Metal",
+        links: [
+          { label: "Gold", href: "/shop/jewelry?metal=gold" },
+          { label: "Rose Gold", href: "/shop/jewelry?metal=rose-gold" },
+          { label: "Silver", href: "/shop/jewelry?metal=silver" },
+          { label: "Platinum", href: "/shop/jewelry?metal=platinum" },
+        ],
+      },
+      {
+        heading: "Coming Soon",
+        links: [
+          { label: "Bridal Collection", href: "/shop/jewelry" },
+          { label: "Festive Specials", href: "/shop/jewelry" },
+        ],
+      },
+    ],
+  },
+  {
+    label: "Custom",
     href: "/custom",
   },
   {
-    label: "Knowledge Hub",
-    href: "/knowledge",
+    label: "Collections",
+    href: "/collections",
+    columns: [
+      {
+        heading: "Featured",
+        links: [
+          { label: "Birthstones", href: "/collections/birthstones" },
+          { label: "Solitaires", href: "/collections/solitaire" },
+          { label: "Wedding", href: "/collections/wedding" },
+          { label: "Everyday Wear", href: "/collections/everyday" },
+        ],
+      },
+      {
+        heading: "By Occasion",
+        links: [
+          { label: "Gifting", href: "/collections/gifting" },
+          { label: "Festivals", href: "/collections/festivals" },
+        ],
+      },
+    ],
   },
   {
-    label: "The Atelier",
+    label: "About",
     href: "/about",
   },
 ];
 
 export const footerNav = {
-  atelier: {
-    heading: "The Atelier",
+  help: {
+    heading: "Help",
     links: [
-      { label: "Our Story", href: "/about" },
-      { label: "Bespoke Process", href: "/custom" },
-      { label: "Gem Certifications", href: "/knowledge/certifications" },
-      { label: "Careers", href: "/about" },
+      { label: "FAQs", href: "/help/faq" },
+      { label: "Shipping", href: "/help/shipping" },
+      { label: "Returns & Exchanges", href: "/help/returns" },
+      { label: "Ring Sizing", href: "/help/sizing" },
+      { label: "Care Guide", href: "/help/care" },
+      { label: "Contact Us", href: "/help/faq" },
     ],
   },
   services: {
-    heading: "Client Services",
+    heading: "Services",
     links: [
-      { label: "Request Consultation", href: "/custom" },
-      { label: "Shipping & Insurance", href: "/help/shipping" },
-      { label: "Returns Policy", href: "/help/returns" },
-      { label: "Care & Maintenance", href: "/help/care" },
+      { label: "Custom Jewelry", href: "/custom" },
+      { label: "Book Consultation", href: "/stores" },
+      { label: "Gem Certification", href: "/about" },
+      { label: "Free Cleaning", href: "/stores" },
     ],
   },
-  knowledge: {
-    heading: "Knowledge",
+  resources: {
+    heading: "Resources",
     links: [
-      { label: "Zodiac Gemstones", href: "/knowledge/gemstones-by-zodiac" },
-      { label: "Identifying Unheated Gems", href: "/knowledge/identifying-original-gemstones" },
-      { label: "Diamond 4Cs", href: "/knowledge/diamonds" },
+      { label: "Gem Guide", href: "/about" },
+      { label: "Diamond 4Cs", href: "/help/care" },
+      { label: "Gift Cards", href: "/collections/gifting" },
     ],
   },
-  contact: {
-    heading: "Contact",
+  company: {
+    heading: "Company",
     links: [
-      { label: "WhatsApp Concierge", href: "#" },
-      { label: "Email Us", href: "mailto:concierge@radharani-jewelry.com" },
-      { label: "Book Showroom Appointment", href: "/custom" },
+      { label: "Our Story", href: "/about" },
+      { label: "Sustainability", href: "/sustainability" },
+      { label: "Craftsmanship", href: "/about" },
+      { label: "Careers", href: "/about" },
+    ],
+  },
+  membership: {
+    heading: "Membership",
+    links: [
+      { label: "Join the Circle", href: "/account" },
+      { label: "Member Benefits", href: "/account" },
     ],
   },
 };

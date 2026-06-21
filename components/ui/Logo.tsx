@@ -70,7 +70,7 @@ export function Logo({ variant = "light", className = "" }: LogoProps) {
         }}
         className={variant === "light" ? "group-hover:text-ink" : "group-hover:text-white"}
       >
-        Heritage Collection
+        High Jewelry
       </span>
     </Link>
   );
