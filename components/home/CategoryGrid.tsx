@@ -6,7 +6,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 const CATEGORIES = [
   {
-    title: "High Jewelry Rings",
+    title: "Heritage Collection Rings",
     href: "/shop/rings",
     image:
       "https://images.unsplash.com/photo-1605100804763-247f67b6548e?auto=format&fit=crop&w=800&q=80",
