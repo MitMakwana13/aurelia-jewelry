@@ -12,7 +12,6 @@ import { commerce } from "@/lib/commerce";
 export default async function HomePage() {
   const all = await commerce.getProducts();
   const trending = all.filter((p) => p.trending);
-  const newArrivals = all.filter((p) => p.newArrival);
 
   return (
     <>
@@ -23,13 +22,7 @@ export default async function HomePage() {
       <CategoryGrid />
       <TrendingCarousel products={trending} title="The Masterpieces" viewAllHref="/shop" />
       <LegacyOfGemstones />
-      {newArrivals.length > 0 && (
-        <TrendingCarousel
-          products={newArrivals}
-          title="Haute Joaillerie"
-          viewAllHref="/shop?filter=new"
-        />
-      )}
+
       <ZodiacGemstones />
       <GemstoneKnowledgeHub />
     </>
