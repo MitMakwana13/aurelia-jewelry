@@ -59,9 +59,10 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: 1 }}
-          className="mt-12 max-w-lg text-xs md:text-[14px] text-ink/70 leading-loose tracking-[0.05em] font-serif italic"
+          className="mt-12 max-w-lg text-xs md:text-[13px] text-ink/70 leading-loose tracking-[0.05em]"
         >
-          &quot;Machines don&apos;t make mistakes. That&apos;s why they can&apos;t make masterpieces.&quot;
+          Discover ethically sourced gemstones and brilliant diamonds.
+          Bespoke jewelry tailored to your vision, crafted with centuries of heritage.
         </motion.p>
 
         {/* Actions */}

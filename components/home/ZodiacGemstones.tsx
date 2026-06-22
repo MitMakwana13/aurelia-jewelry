@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRightIcon } from "@/components/ui/Icons";
 
 const zodiacData = [
@@ -43,14 +44,24 @@ export function ZodiacGemstones() {
               key={zodiac.sign}
               className="group flex flex-col md:flex-row items-start md:items-center justify-between py-8 md:py-10 border-b border-ink/10 hover:bg-ink/[0.02] transition-colors px-4 -mx-4"
             >
-              {/* Left: Zodiac */}
-              <div className="w-full md:w-1/3 mb-4 md:mb-0">
-                <h3 className="font-serif text-3xl md:text-4xl text-ink group-hover:text-[#053624] transition-colors mb-2">
-                  {zodiac.sign}
-                </h3>
-                <p className="text-[10px] uppercase tracking-[0.25em] text-ink/40">
-                  {zodiac.hindi}
-                </p>
+              {/* Left: Zodiac & Image */}
+              <div className="w-full md:w-1/3 mb-4 md:mb-0 flex items-center gap-6">
+                <div className="relative w-16 h-16 md:w-20 md:h-20 shrink-0 overflow-hidden rounded-full border border-ink/10 shadow-sm bg-white">
+                  <Image
+                    src={`/zodiacs/${zodiac.sign.toLowerCase()}.png`}
+                    alt={`${zodiac.sign} symbol`}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <h3 className="font-serif text-3xl md:text-4xl text-ink group-hover:text-[#053624] transition-colors mb-2">
+                    {zodiac.sign}
+                  </h3>
+                  <p className="text-[10px] uppercase tracking-[0.25em] text-ink/40">
+                    {zodiac.hindi}
+                  </p>
+                </div>
               </div>
 
               {/* Middle: Ruling Planet (Hidden on mobile for cleaner look) */}
