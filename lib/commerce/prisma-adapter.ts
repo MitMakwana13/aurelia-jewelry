@@ -48,26 +48,38 @@ function mapProduct(p: any): Product {
 
 export const prismaAdapter: CommerceAdapter = {
   async getProducts(opts = {}) {
-    const where: any = {};
-    if (opts.category) where.categorySlug = opts.category;
-    if (opts.collection) where.collectionSlugs = { has: opts.collection };
+    try {
+      const where: any = {};
+      if (opts.category) where.categorySlug = opts.category;
+      if (opts.collection) where.collectionSlugs = { has: opts.collection };
 
-    const products = await prisma.product.findMany({
-      where,
-      include: { variants: true },
-      take: opts.limit,
-      orderBy: { createdAt: "desc" },
-    });
+      const products = await prisma.product.findMany({
+        where,
+        include: { variants: true },
+        take: opts.limit,
+        orderBy: { createdAt: "desc" },
+      });
 
-    return products.map(mapProduct);
+      return products.map(mapProduct);
+    } catch (error) {
+      console.error("Prisma getProducts error:", error);
+      const { mockAdapter } = await import("./mock-adapter");
+      return mockAdapter.getProducts(opts);
+    }
   },
 
   async getProduct(handle) {
-    const product = await prisma.product.findUnique({
-      where: { handle },
-      include: { variants: true },
-    });
-    return product ? mapProduct(product) : null;
+    try {
+      const product = await prisma.product.findUnique({
+        where: { handle },
+        include: { variants: true },
+      });
+      return product ? mapProduct(product) : null;
+    } catch (error) {
+      console.error("Prisma getProduct error:", error);
+      const { mockAdapter } = await import("./mock-adapter");
+      return mockAdapter.getProduct(handle);
+    }
   },
 
   async getCategories() {
@@ -90,17 +102,23 @@ export const prismaAdapter: CommerceAdapter = {
     const q = query.toLowerCase().trim();
     if (!q) return [];
     
-    // Simple ilike search
-    const products = await prisma.product.findMany({
-      where: {
-        OR: [
-          { title: { contains: q, mode: "insensitive" } },
-          { description: { contains: q, mode: "insensitive" } },
-        ],
-      },
-      include: { variants: true },
-    });
+    try {
+      // Simple ilike search
+      const products = await prisma.product.findMany({
+        where: {
+          OR: [
+            { title: { contains: q, mode: "insensitive" } },
+            { description: { contains: q, mode: "insensitive" } },
+          ],
+        },
+        include: { variants: true },
+      });
 
-    return products.map(mapProduct);
+      return products.map(mapProduct);
+    } catch (error) {
+      console.error("Prisma searchProducts error:", error);
+      const { mockAdapter } = await import("./mock-adapter");
+      return mockAdapter.searchProducts(query);
+    }
   },
 };
