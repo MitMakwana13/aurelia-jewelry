@@ -50,19 +50,30 @@ export function Hero() {
             className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[7.5rem] leading-[0.9] text-ink tracking-tight"
           >
             The Culture of <br />
-            <em className="italic text-ink/70 font-light pr-4">Craft.</em>
+            <em className="italic text-ink/70 font-light pr-4 relative inline-block">
+              Craft.
+              {/* Hand-drawn scribble underline */}
+              <svg 
+                className="absolute -bottom-4 left-0 w-[120%] h-auto text-gold-dark opacity-60 pointer-events-none" 
+                viewBox="0 0 200 30" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M5 20C45 10 90 25 140 15C160 11 180 18 195 22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" style={{strokeDasharray: "200", strokeDashoffset: "0"}}/>
+                <path d="M15 25C65 15 110 20 160 25" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
+              </svg>
+            </em>
           </motion.h1>
         </div>
 
-        {/* Subtitle */}
+        {/* Subtitle - Now a handwritten note */}
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: 1 }}
-          className="mt-12 max-w-lg text-xs md:text-[13px] text-ink/70 leading-loose tracking-[0.05em]"
+          className="mt-16 max-w-sm text-2xl md:text-3xl font-hand text-ink/80 leading-snug -rotate-2"
         >
-          Discover ethically sourced gemstones and brilliant diamonds.
-          Bespoke jewelry tailored to your vision, crafted with centuries of heritage.
+          Machines don't make mistakes. That's why they can't make masterpieces.
         </motion.p>
 
         {/* Actions */}
