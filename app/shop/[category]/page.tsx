@@ -20,7 +20,17 @@ export async function generateMetadata({
   const { category } = await params;
   const cat = await commerce.getCategory(category);
   if (!cat) return { title: "Not Found" };
-  return { title: cat.name, description: cat.description };
+  return { 
+    title: `${cat.name} | Radha Rani Gemstone Maison`, 
+    description: cat.description,
+    keywords: [
+      `Buy ${cat.name} India`,
+      `${cat.name} Gemstones online`,
+      `Authentic ${cat.name}`,
+      `Astrological ${cat.name}`,
+      "Luxury Custom Jewelry"
+    ]
+  };
 }
 
 export default async function CategoryPage({

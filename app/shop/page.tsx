@@ -7,8 +7,12 @@ import { Breadcrumbs } from "@/components/plp/Breadcrumbs";
 import { filterAndSort } from "@/lib/utils/filter-products";
 
 export const metadata: Metadata = {
-  title: "All Jewelry",
-  description: "Shop all fine jewelry — rings, necklaces, earrings, and bracelets.",
+  title: "All Luxury Gemstones & Jewelry",
+  description: "Shop authentic, ethically sourced Vedic gemstones, custom diamond rings, and premium heritage jewelry at Radha Rani Gemstone Maison.",
+  keywords: [
+    "Shop Vedic Gemstones", "Buy Precious Stones Online", "Custom Diamond Jewelry",
+    "Radha Rani Shop", "Luxury Jewelry Collection", "Authentic Astrological Rings"
+  ],
 };
 
 export default async function ShopPage({

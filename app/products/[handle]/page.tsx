@@ -20,8 +20,16 @@ export async function generateMetadata({
   const product = await commerce.getProduct(handle);
   if (!product) return { title: "Not Found" };
   return {
-    title: product.title,
+    title: `${product.title} | Radha Rani Gemstone Maison`,
     description: product.description,
+    keywords: [
+      product.title,
+      `Buy ${product.title}`,
+      `Authentic ${product.categorySlug}`,
+      ...product.tags,
+      "Luxury Custom Jewelry",
+      "Vedic Gemstones India"
+    ],
     openGraph: {
       title: product.title,
       description: product.description,

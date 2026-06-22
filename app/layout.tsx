@@ -27,9 +27,11 @@ export const metadata: Metadata = {
     "Radha Rani Heritage Collection — Exquisite, ethically sourced diamonds, emeralds, and bespoke masterpieces crafted in India. A heritage of pure intention and timeless luxury.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://radharani-jewelry.com"),
   keywords: [
-    "Heritage Collection India", "bespoke jewelry India", "Radha Rani Heritage Collection",
-    "heritage jewelry", "kundan emerald", "diamond masterpieces", "custom luxury jewelry",
-    "bridal jewelry", "haute joaillerie India", "fine jewelry",
+    "Buy Natural Gemstones Online India", "Astrological Gemstones India", "Vedic Astrology Gemstones",
+    "Certified Neelam Stone", "Certified Pukhraj Stone", "Natural Unheated Gemstones",
+    "Bespoke Jewelry India", "Luxury Custom Jewelry Design", "Ethically Sourced Diamonds",
+    "Radha Rani Gemstones", "Premium Gemstone Maison India", "Custom Diamond Rings",
+    "Bridal Jewelry", "High-End Gemstones", "Heritage Jewelry India"
   ],
   authors: [{ name: "Radha Rani Heritage Collection" }],
   openGraph: {
