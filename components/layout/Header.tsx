@@ -27,10 +27,10 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
+      className={`sticky top-0 inset-x-0 z-50 transition-all duration-500 ${
         scrolled 
           ? "bg-cream/95 backdrop-blur-md shadow-[0_1px_0_0_rgba(0,0,0,0.05)] pb-2" 
-          : "bg-transparent pb-4"
+          : "bg-cream pb-4"
       }`}
       onMouseLeave={() => setHovered(null)}
     >
