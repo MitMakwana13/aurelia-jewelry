@@ -2,6 +2,33 @@ import type { Category } from "@/lib/commerce/types";
 
 export const categories: Category[] = [
   {
+    slug: "gemstones",
+    name: "Gemstones",
+    description: "Ethically sourced, astrologically aligned natural gemstones.",
+    heroImage: {
+      url: "/stories/blue-sapphire-legend.png",
+      alt: "A brilliant blue sapphire",
+    },
+  },
+  {
+    slug: "diamonds",
+    name: "Diamonds",
+    description: "Flawless, masterfully cut diamonds for the perfect moment.",
+    heroImage: {
+      url: "https://images.unsplash.com/photo-1599643478524-fb524b0d0f72?auto=format&fit=crop&w=1600&q=80",
+      alt: "Sparkling diamond jewelry",
+    },
+  },
+  {
+    slug: "jewelry",
+    name: "Fine Jewelry",
+    description: "Our complete collection of handcrafted fine jewelry.",
+    heroImage: {
+      url: "/hero-clean.png",
+      alt: "Fine jewelry collection",
+    },
+  },
+  {
     slug: "rings",
     name: "Rings",
     description: "Stacking bands, signets, and statement rings crafted in solid gold and sterling silver.",
