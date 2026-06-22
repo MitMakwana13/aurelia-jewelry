@@ -14,11 +14,11 @@ const ACCORDION = [
   },
   {
     title: "Materials & Care",
-    body: "Crafted from solid 14k gold or recycled 925 sterling silver. Avoid contact with perfume, lotion, and chlorine. Polish with a soft cloth — bring it into any Aurelia store for complimentary professional cleaning.",
+    body: "Crafted from solid 14k gold or recycled 925 sterling silver. Avoid contact with perfume, lotion, and chlorine. Polish with a soft cloth. Bring it to any Radha Rani boutique for complimentary professional cleaning.",
   },
   {
     title: "Shipping & Returns",
-    body: "Complimentary carbon-neutral shipping on orders over $150. 30-day free returns and exchanges. Final-sale pieces are clearly marked at checkout.",
+    body: "Complimentary carbon-neutral shipping on orders over ₹15,000. 30-day free returns and exchanges. Final-sale pieces are clearly marked at checkout.",
   },
 ];
 

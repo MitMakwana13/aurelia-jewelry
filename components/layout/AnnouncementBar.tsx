@@ -5,8 +5,8 @@ import { CloseIcon } from "@/components/ui/Icons";
 
 const messages = [
   "Complimentary shipping on orders over ₹5,000",
-  "Festival Special — up to 25% off on all diamond pieces",
-  "Free customization consultation — Book your appointment today",
+  "Festival Special: up to 25% off on all diamond pieces",
+  "Free customization consultation. Book your appointment today",
 ];
 
 export function AnnouncementBar() {

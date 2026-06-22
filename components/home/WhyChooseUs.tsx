@@ -6,23 +6,23 @@ import { motion, useInView } from "framer-motion";
 const features = [
   {
     title: "Certified Authentic",
-    description: "Every gemstone is ethically sourced and guaranteed natural, accompanied by an absolute certificate of origin.",
+    description: "Every gemstone is ethically sourced, guaranteed natural, and accompanied by a certificate of origin.",
   },
   {
-    title: "Lab-Tested Quality",
-    description: "Rigorously analyzed by the world's leading gemological laboratories for purity, treatment, and structural integrity.",
+    title: "Lab-Tested",
+    description: "Rigorously analyzed by leading gemological laboratories for purity and integrity.",
   },
   {
-    title: "Expert Gem Consultation",
-    description: "Our master gemologists offer bespoke cosmic and aesthetic guidance tailored to your unique legacy.",
+    title: "Expert Consultation",
+    description: "Master gemologists offer bespoke guidance tailored to your specific requirements.",
   },
   {
-    title: "Luxury Packaging",
-    description: "Delivered in handcrafted heritage presentation boxes, ensuring the unboxing experience matches the masterpiece within.",
+    title: "Heritage Packaging",
+    description: "Delivered in handcrafted presentation boxes.",
   },
   {
-    title: "Worldwide Shipping",
-    description: "Fully insured, secure, and discreet global delivery directly via our trusted concierge logistics.",
+    title: "Global Logistics",
+    description: "Fully insured, secure, and discreet worldwide delivery.",
   },
 ];
 

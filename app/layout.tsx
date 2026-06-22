@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Cormorant_Garamond, Caveat } from "next/font/google";
+import { Inter, Cormorant_Garamond } from "next/font/google";
 import "@/styles/globals.css";
 import { CartDrawer } from "@/components/cart/CartDrawer";
 import { MobileNav } from "@/components/layout/MobileNav";
@@ -15,11 +15,6 @@ const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   variable: "--font-serif",
-  display: "swap",
-});
-const caveat = Caveat({
-  subsets: ["latin"],
-  variable: "--font-hand",
   display: "swap",
 });
 
@@ -64,7 +59,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-IN" className={`${inter.variable} ${cormorant.variable} ${caveat.variable}`}>
+    <html lang="en-IN" className={`${inter.variable} ${cormorant.variable}`}>
       <body>
         <OrganizationJsonLd />
         <Preloader />

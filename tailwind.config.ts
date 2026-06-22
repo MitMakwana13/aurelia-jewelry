@@ -29,7 +29,6 @@ const config: Config = {
       fontFamily: {
         serif: ['"Cormorant Garamond"', "Georgia", "serif"],
         sans: ['"Inter"', "system-ui", "sans-serif"],
-        hand: ['var(--font-hand)', "cursive"],
       },
       fontSize: {
         display: ["clamp(2.5rem, 6vw, 5rem)", { lineHeight: "1.05", letterSpacing: "-0.02em" }],

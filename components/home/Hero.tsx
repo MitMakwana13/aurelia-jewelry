@@ -50,30 +50,18 @@ export function Hero() {
             className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[7.5rem] leading-[0.9] text-ink tracking-tight"
           >
             The Culture of <br />
-            <em className="italic text-ink/70 font-light pr-4 relative inline-block">
-              Craft.
-              {/* Hand-drawn scribble underline */}
-              <svg 
-                className="absolute -bottom-4 left-0 w-[120%] h-auto text-gold-dark opacity-60 pointer-events-none" 
-                viewBox="0 0 200 30" 
-                fill="none" 
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M5 20C45 10 90 25 140 15C160 11 180 18 195 22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" style={{strokeDasharray: "200", strokeDashoffset: "0"}}/>
-                <path d="M15 25C65 15 110 20 160 25" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.5" />
-              </svg>
-            </em>
+            <em className="italic text-ink/70 font-light pr-4">Craft.</em>
           </motion.h1>
         </div>
 
-        {/* Subtitle - Now a handwritten note */}
+        {/* Subtitle */}
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: 1 }}
-          className="mt-16 max-w-sm text-2xl md:text-3xl font-hand text-ink/80 leading-snug -rotate-2"
+          className="mt-12 max-w-lg text-xs md:text-[14px] text-ink/70 leading-loose tracking-[0.05em] font-serif italic"
         >
-          Machines don't make mistakes. That's why they can't make masterpieces.
+          &quot;Machines don&apos;t make mistakes. That&apos;s why they can&apos;t make masterpieces.&quot;
         </motion.p>
 
         {/* Actions */}

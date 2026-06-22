@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 export function Marquee() {
-  const text = "MAISON RADHA RANI — HAUTE JOAILLERIE — ";
+  const text = "MAISON RADHA RANI • HAUTE JOAILLERIE • ";
   
   return (
     <div className="relative w-full overflow-hidden bg-cream py-10 flex items-center select-none pointer-events-none">

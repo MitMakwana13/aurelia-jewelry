@@ -12,9 +12,8 @@ export function SustainabilityBlock() {
         </div>
         <div className="lg:col-span-7">
           <p className="text-base leading-relaxed text-ink-soft">
-            Every piece is crafted from recycled metals and ethically sourced stones,
-            traceable from mine to making. We publish a public Impact Report every year —
-            because transparency isn't a campaign, it's a standard.
+            Crafted from recycled metals and ethically sourced stones,
+            traceable from mine to making. Transparency is a standard, not a campaign. Read our annual Impact Report.
           </p>
           <div className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3">
             {[
