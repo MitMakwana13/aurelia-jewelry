@@ -70,8 +70,8 @@ export function Hero() {
           transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: 1 }}
           className="mt-12 max-w-lg text-xs md:text-[13px] text-ink/70 leading-loose tracking-[0.05em]"
         >
-          Discover ethically sourced gemstones and brilliant diamonds. 
-          Bespoke jewelry tailored to your vision, starting at just 50% advance.
+          Discover ethically sourced gemstones and brilliant diamonds.
+          Bespoke jewelry tailored to your vision, crafted with centuries of heritage.
         </motion.p>
 
         {/* Actions */}
