@@ -38,17 +38,6 @@ export function Hero() {
         className="relative h-full container-x flex flex-col items-center justify-center text-center z-10"
       >
         
-        {/* Animated Eyebrow */}
-        <div className="overflow-hidden mb-8">
-          <motion.p 
-            initial={{ y: "100%" }}
-            animate={{ y: 0 }}
-            transition={{ duration: 1, ease: [0.76, 0, 0.24, 1], delay: 0.2 }}
-            className="text-[10px] uppercase tracking-[0.4em] text-ink/60"
-          >
-            The Heritage Collection
-          </motion.p>
-        </div>
 
         {/* Theatrical Masked Headline */}
         <div className="overflow-hidden">
