@@ -12,7 +12,7 @@ const stories = [
     title: "The Comeback Sapphire",
     subject: "A Bollywood Legend",
     excerpt: "Among India's most talked-about gemstone stories is that of a legendary actor who embraced a Neelam (Blue Sapphire) during a challenging period, later witnessing a remarkable comeback that redefined an era.",
-    image: "/stories/blue-sapphire-legend.png",
+    image: "/stories/actor-portrait.png",
     align: "left",
   },
   {
@@ -21,7 +21,7 @@ const stories = [
     title: "Vision & Tradition",
     subject: "A Business Titan",
     excerpt: "Legends of Indian entrepreneurship often include stories of visionaries who combined determination with timeless traditions, including the strategic use of Pukhraj (Yellow Sapphire) to clear obstacles and invite abundance.",
-    image: "/stories/yellow-sapphire-vision.png",
+    image: "/stories/titan-portrait.png",
     align: "right",
   },
   {
@@ -30,7 +30,7 @@ const stories = [
     title: "The Royal Emeralds",
     subject: "Maharajas of Jaipur",
     excerpt: "From the royal courts of Rajasthan to modern collectors, the great Maharajas assembled some of the world's finest emerald collections — symbols of cosmic wisdom, royal authority, and timeless prestige.",
-    image: "/stories/royal-emerald-jaipur.png",
+    image: "/stories/maharaja-portrait.png",
     align: "left",
   },
 ];

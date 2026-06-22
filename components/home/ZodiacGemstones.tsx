@@ -1,8 +1,7 @@
 "use client";
 
-import { useRef } from "react";
 import Link from "next/link";
-import { motion, useInView } from "framer-motion";
+import { ArrowRightIcon } from "@/components/ui/Icons";
 
 const zodiacData = [
   { sign: "Aries", hindi: "Mesh", symbol: "♈", stone: "Red Coral", stoneHindi: "Moonga", ruling: "Mars" },
@@ -20,122 +19,82 @@ const zodiacData = [
 ];
 
 export function ZodiacGemstones() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(sectionRef, { once: true, margin: "-10%" });
-
   return (
-    <section ref={sectionRef} className="py-24 lg:py-32 bg-cream">
+    <section className="py-24 lg:py-32 bg-white">
       <div className="container-x">
-
         {/* Header */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 mb-20">
-          <div className="lg:col-span-5">
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6 }}
-              className="eyebrow tracking-[0.3em] mb-6 text-[#053624]"
-            >
+        <div className="flex flex-col md:flex-row justify-between items-end gap-12 mb-20">
+          <div className="max-w-xl">
+            <p className="text-[10px] uppercase tracking-[0.3em] mb-4 text-ink/50">
               Cosmic Alignment
-            </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, y: 10 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-serif text-4xl md:text-5xl font-light tracking-tight text-ink leading-tight"
-            >
-              Your Celestial Stone
-            </motion.h2>
+            </p>
+            <h2 className="font-serif text-4xl md:text-5xl text-ink leading-tight">
+              The Zodiac Guide
+            </h2>
           </div>
-          <div className="lg:col-span-6 lg:col-start-7 flex items-end">
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-ink/60 leading-relaxed font-serif italic text-lg"
-            >
-              For millennia, Vedic master astrologers have mapped the profound resonance between the nine cosmic energies and the earth&apos;s rarest gems. Find your birthstone below and begin your alignment.
-            </motion.p>
+          <div className="max-w-md text-ink/70 text-sm leading-relaxed pb-2">
+            For millennia, Vedic master astrologers have mapped the profound resonance between cosmic energies and the earth's rarest gems. Find your alignment below.
           </div>
         </div>
 
-        {/* Animated top rule */}
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={isInView ? { scaleX: 1 } : {}}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="h-[1px] bg-ink/15 w-full origin-left"
-        />
-
-        {/* Table Column Headers — desktop only */}
-        <div className="hidden md:grid grid-cols-12 gap-4 py-4 border-b border-ink/10">
-          <p className="col-span-1 text-[9px] uppercase tracking-[0.25em] text-ink/30">#</p>
-          <p className="col-span-4 text-[9px] uppercase tracking-[0.25em] text-ink/30">Zodiac Sign</p>
-          <p className="col-span-3 text-[9px] uppercase tracking-[0.25em] text-ink/30">Ruling Planet</p>
-          <p className="col-span-4 text-[9px] uppercase tracking-[0.25em] text-ink/30">Lucky Gemstone</p>
-        </div>
-
-        {/* Rows */}
-        <div>
-          {zodiacData.map((zodiac, i) => (
-            <motion.div
+        {/* Architectural Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 border-t border-l border-ink/10">
+          {zodiacData.map((zodiac) => (
+            <div 
               key={zodiac.sign}
-              initial={{ opacity: 0, y: 8 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: 0.05 * i }}
-              className="group grid grid-cols-2 md:grid-cols-12 gap-4 items-center py-6 border-b border-ink/10 hover:bg-[#053624]/5 transition-colors px-2 -mx-2 cursor-default"
+              className="group relative flex flex-col justify-between aspect-square p-8 border-b border-r border-ink/10 hover:bg-ink transition-colors duration-500 cursor-default overflow-hidden"
             >
-              {/* Index */}
-              <p className="hidden md:block col-span-1 font-serif text-ink/20 text-sm">
-                {String(i + 1).padStart(2, "0")}
-              </p>
+              {/* Top Row: Symbol & Planet */}
+              <div className="flex justify-between items-start z-10">
+                <span className="text-2xl text-ink/40 group-hover:text-white/40 transition-colors duration-500">
+                  {zodiac.symbol}
+                </span>
+                <span className="text-[9px] uppercase tracking-[0.2em] text-ink/40 group-hover:text-white/40 transition-colors duration-500">
+                  {zodiac.ruling}
+                </span>
+              </div>
 
-              {/* Zodiac */}
-              <div className="col-span-1 md:col-span-4">
-                <div className="flex items-center gap-3">
-                  <span className="text-ink/20 text-base leading-none select-none">{zodiac.symbol}</span>
-                  <div>
-                    <h3 className="font-serif text-xl md:text-2xl text-ink group-hover:text-[#053624] transition-colors duration-300">
-                      {zodiac.sign}
-                    </h3>
-                    <p className="text-[10px] uppercase tracking-[0.2em] text-ink/40 mt-0.5">{zodiac.hindi}</p>
-                  </div>
+              {/* Huge Background Symbol (Decorative) */}
+              <div className="absolute -bottom-10 -right-6 text-[12rem] text-ink/[0.02] group-hover:text-white/[0.04] transition-colors duration-500 select-none pointer-events-none font-serif leading-none">
+                {zodiac.symbol}
+              </div>
+
+              {/* Bottom Row: Zodiac & Stone */}
+              <div className="z-10">
+                <div className="mb-6">
+                  <h3 className="font-serif text-2xl text-ink group-hover:text-white transition-colors duration-500 mb-1">
+                    {zodiac.sign}
+                  </h3>
+                  <p className="text-[9px] uppercase tracking-[0.2em] text-ink/50 group-hover:text-white/50 transition-colors duration-500">
+                    {zodiac.hindi}
+                  </p>
+                </div>
+                
+                <div>
+                  <p className="text-[9px] uppercase tracking-[0.2em] text-ink/40 group-hover:text-white/40 transition-colors duration-500 mb-1">
+                    Gemstone
+                  </p>
+                  <p className="font-serif text-lg text-ink group-hover:text-white transition-colors duration-500">
+                    {zodiac.stone} <span className="italic text-sm text-ink/60 group-hover:text-white/60">({zodiac.stoneHindi})</span>
+                  </p>
                 </div>
               </div>
-
-              {/* Planet */}
-              <p className="hidden md:block col-span-3 text-[11px] uppercase tracking-[0.15em] text-ink/40">
-                {zodiac.ruling}
-              </p>
-
-              {/* Gemstone */}
-              <div className="col-span-1 md:col-span-4 text-right md:text-left">
-                <p className="font-serif text-xl md:text-2xl text-ink">
-                  {zodiac.stone}
-                </p>
-                <p className="font-serif italic text-ink/50 text-sm mt-0.5">{zodiac.stoneHindi}</p>
-              </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Footer CTA */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
-        >
-          <p className="text-[11px] uppercase tracking-[0.2em] text-ink/40 max-w-sm">
-            Our master gemologists can advise on the ideal stone for your precise birth chart.
-          </p>
+        <div className="mt-16 flex justify-center">
           <Link
             href="/custom"
-            className="text-[11px] uppercase tracking-[0.2em] text-[#053624] border-b border-[#053624]/30 hover:border-[#053624] pb-1 transition-colors whitespace-nowrap"
+            className="group inline-flex items-center gap-3 text-[11px] uppercase tracking-[0.2em] text-ink hover:text-ink/70 transition-colors"
           >
-            Book a Consultation →
+            Consult a Gemologist 
+            <span className="group-hover:translate-x-2 transition-transform duration-300">
+              <ArrowRightIcon width={14} height={14} />
+            </span>
           </Link>
-        </motion.div>
+        </div>
 
       </div>
     </section>
