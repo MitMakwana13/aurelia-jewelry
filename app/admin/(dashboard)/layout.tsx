@@ -9,10 +9,13 @@ import { Logo } from "@/components/ui/Logo";
 const navItems = [
   { label: "Dashboard", href: "/admin", icon: "⊞" },
   { label: "Products", href: "/admin/products", icon: "◈" },
+  { label: "Inquiries", href: "/admin/inquiries", icon: "✉" },
   { label: "Orders", href: "/admin/orders", icon: "◉" },
-  { label: "Custom Requests", href: "/admin/custom-requests", icon: "✦" },
+  { label: "Rates & Pricing", href: "/admin/rates", icon: "◎" },
+  { label: "Settings", href: "/admin/settings", icon: "⚙" },
   { label: "View Site", href: "/", icon: "↗", external: true },
 ];
+
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const { data: session, status } = useSession();

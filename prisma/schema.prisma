@@ -3,17 +3,21 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model User {
-  id        String   @id @default(uuid())
-  email     String   @unique
+  id        String    @id @default(uuid())
+  email     String    @unique
   password  String
-  role      String   @default("USER") // USER or ADMIN
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  role      String    @default("USER") // USER or ADMIN
+  fullName  String?
+  isActive  Boolean   @default(true)
+  lastLogin DateTime?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
 }
 
 model Product {
@@ -27,57 +31,78 @@ model Product {
   metals          String[]
   sizes           String[]
   basePrice       Float
-  images          Json     // Array of { id: string, alt: string }
+  images          Json     // Array of { url: string, alt: string }
+  primaryImage    String?
+  hoverImage      String?
+  badge           String?  // 'Bespoke' | 'Masterpiece' | null
   featured        Boolean  @default(false)
   trending        Boolean  @default(false)
   newArrival      Boolean  @default(false)
   bestseller      Boolean  @default(false)
+  inStock         Boolean  @default(true)
+  isActive        Boolean  @default(true)
+  sortOrder       Int      @default(0)
+  seoTitle        String?
+  seoDescription  String?
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
   variants        Variant[]
+  gemstoneDetail  GemstoneDetail?
+  diamondDetail   DiamondDetail?
+  inquiries       Inquiry[]
+  analytics       AnalyticsEvent[]
 }
 
 model Variant {
-  id        String   @id @default(uuid())
+  id        String  @id @default(uuid())
   productId String
-  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
   title     String
   metal     String
   size      String?
   price     Float
-  currency  String   @default("INR")
-  available Boolean  @default(true)
+  currency  String  @default("INR")
+  available Boolean @default(true)
   sku       String
 }
 
 model Order {
-  id              String   @id @default(uuid())
-  razorpayOrderId String   @unique
+  id                String   @id @default(uuid())
+  razorpayOrderId   String   @unique
   razorpayPaymentId String?
-  amount          Float
-  currency        String   @default("INR")
-  status          String   @default("CREATED") // CREATED, PAID, SHIPPED, DELIVERED
+  amount            Float
+  currency          String   @default("INR")
+  status            String   @default("CREATED") // CREATED, PAID, SHIPPED, DELIVERED
   shiprocketOrderId String?
-  customerDetails Json?
-  items           Json
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  customerDetails   Json?
+  items             Json
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
 }
 
 model Inquiry {
-  id          String   @id @default(uuid())
-  name        String
-  email       String
-  phone       String
-  type        String   @default("GENERAL") // GENERAL, GEMSTONE, DIAMOND, CUSTOM_JEWELRY
-  productId   String?
-  productName String?
-  budget      String?
-  message     String
-  status      String   @default("NEW") // NEW, CONTACTED, QUOTED, CLOSED
-  notes       String?  // Admin internal notes
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id           String    @id @default(uuid())
+  name         String
+  email        String?
+  phone        String
+  type         String    @default("GENERAL") // GENERAL, GEMSTONE, DIAMOND, CUSTOM_JEWELRY, PRODUCT
+  status       String    @default("NEW")     // NEW, IN_PROGRESS, QUOTED, CONFIRMED, COMPLETED, CANCELLED
+  priority     String    @default("NORMAL")  // LOW, NORMAL, HIGH, URGENT
+  message      String
+  budget       String?
+  productId    String?
+  product      Product?  @relation(fields: [productId], references: [id], onDelete: SetNull)
+  productName  String?
+  notes        String?
+  quotedAmount Float?
+  advancePaid  Float?
+  assignedTo   String?
+  followUpDate DateTime?
+  source       String    @default("website") // website, whatsapp, instagram, referral
+  utmSource    String?
+  utmMedium    String?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
 }
 
 model CustomRequest {
@@ -85,7 +110,7 @@ model CustomRequest {
   name        String
   email       String
   phone       String
-  jewelryType String   // Ring, Necklace, Earrings, etc.
+  jewelryType String
   metal       String?
   gemstone    String?
   description String
@@ -94,4 +119,90 @@ model CustomRequest {
   status      String   @default("NEW")
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+}
+
+model GemstoneDetail {
+  id                String   @id @default(uuid())
+  productId         String   @unique
+  product           Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  stoneName         String
+  hindiName         String?
+  planet            String?
+  zodiacSigns       String[]
+  benefits          String[]
+  rattiWeight       Float?
+  originCountry     String?
+  treatment         String?
+  certificateLab    String?
+  certificateNumber String?
+  minPricePerRatti  Float?
+  maxPricePerRatti  Float?
+}
+
+model DiamondDetail {
+  id                String  @id @default(uuid())
+  productId         String  @unique
+  product           Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  shape             String?
+  carat             Float?
+  colorGrade        String?
+  clarityGrade      String?
+  cutGrade          String?
+  certificateLab    String?
+  certificateNumber String?
+  fluorescence      String?
+  pricePerCaratInr  Float?
+}
+
+model ExchangeRate {
+  id             String   @id @default(uuid())
+  currencyCode   String   @unique
+  currencySymbol String?
+  rateToInr      Float
+  lastUpdated    DateTime @default(now())
+  updatedBy      String?
+}
+
+model GoldRate {
+  id                 String   @id @default(uuid())
+  date               DateTime @default(now())
+  gold22kPerGramInr  Float?
+  gold24kPerGramInr  Float?
+  silverPerGramInr   Float?
+  platinumPerGramInr Float?
+  source             String   @default("manual")
+  createdBy          String?
+  createdAt          DateTime @default(now())
+}
+
+model NewsletterSubscriber {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  name         String?
+  isActive     Boolean  @default(true)
+  source       String?
+  subscribedAt DateTime @default(now())
+}
+
+model SiteSetting {
+  id        String   @id @default(uuid())
+  key       String   @unique
+  value     String?
+  valueJson Json?
+  label     String?
+  category  String?
+  updatedAt DateTime @updatedAt
+  updatedBy String?
+}
+
+model AnalyticsEvent {
+  id        String   @id @default(uuid())
+  eventType String
+  productId String?
+  product   Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+  sessionId String?
+  userAgent String?
+  country   String?
+  city      String?
+  createdAt DateTime @default(now())
 }

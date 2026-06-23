@@ -4,16 +4,17 @@ import { prisma } from "@/lib/prisma";
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, phone, type, productId, productName, budget, message } = body;
+    const { name, email, phone, type, productId, productName, budget, message, source, utmSource, utmMedium } = body;
 
-    if (!name || !email || !phone || !message) {
-      return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
+    // Only name, phone, and message are truly required
+    if (!name?.trim() || !phone?.trim() || !message?.trim()) {
+      return NextResponse.json({ error: "Name, phone, and message are required." }, { status: 400 });
     }
 
     const inquiry = await prisma.inquiry.create({
       data: {
         name: name.trim(),
-        email: email.trim().toLowerCase(),
+        email: email?.trim().toLowerCase() ?? null,
         phone: phone.trim(),
         type: type ?? "GENERAL",
         productId: productId ?? null,
@@ -21,19 +22,29 @@ export async function POST(request: Request) {
         budget: budget ?? null,
         message: message.trim(),
         status: "NEW",
+        priority: "NORMAL",
+        source: source ?? "website",
+        utmSource: utmSource ?? null,
+        utmMedium: utmMedium ?? null,
       },
     });
 
     return NextResponse.json({ success: true, id: inquiry.id }, { status: 201 });
   } catch (error) {
     console.error("Inquiry submission error:", error);
-    return NextResponse.json({ error: "Failed to submit inquiry" }, { status: 500 });
+    return NextResponse.json({ error: "Failed to submit inquiry. Please try WhatsApp instead." }, { status: 500 });
   }
 }
 
 export async function GET() {
-  const inquiries = await prisma.inquiry.findMany({
-    orderBy: { createdAt: "desc" },
-  });
-  return NextResponse.json(inquiries);
+  try {
+    const inquiries = await prisma.inquiry.findMany({
+      orderBy: { createdAt: "desc" },
+      take: 100,
+    });
+    return NextResponse.json(inquiries);
+  } catch (error) {
+    console.error("Inquiry fetch error:", error);
+    return NextResponse.json({ error: "Failed to fetch inquiries" }, { status: 500 });
+  }
 }

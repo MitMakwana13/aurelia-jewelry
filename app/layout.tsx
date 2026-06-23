@@ -9,6 +9,8 @@ import { Preloader } from "@/components/ui/Preloader";
 import { StorefrontLayout } from "@/components/layout/StorefrontLayout";
 import { Providers } from "@/components/Providers";
 import { OrganizationJsonLd } from "@/components/seo/JsonLd";
+import { WhatsAppFloat } from "@/components/ui/WhatsAppFloat";
+
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
 const cormorant = Cormorant_Garamond({
@@ -73,6 +75,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <CartDrawer />
           <MobileNav />
           <SearchOverlay />
+          <WhatsAppFloat />
+
         </Providers>
       </body>
     </html>
