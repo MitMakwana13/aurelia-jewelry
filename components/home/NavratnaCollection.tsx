@@ -5,15 +5,15 @@ import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 
 const navratnaStones = [
-  { energy: "Sun", english: "Ruby", sanskrit: "Manik", url: "https://images.unsplash.com/photo-1589128777073-263566ae5e4d?auto=format&fit=crop&w=600&q=80" },
-  { energy: "Moon", english: "Pearl", sanskrit: "Moti", url: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=600&q=80" },
-  { energy: "Mars", english: "Red Coral", sanskrit: "Moonga", url: "https://images.unsplash.com/photo-1535556116002-6281ff3e9f36?auto=format&fit=crop&w=600&q=80" },
-  { energy: "Mercury", english: "Emerald", sanskrit: "Panna", url: "https://images.unsplash.com/photo-1599643478524-fb524b0d0f72?auto=format&fit=crop&w=600&q=80" },
-  { energy: "Jupiter", english: "Yellow Sapphire", sanskrit: "Pukhraj", url: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=600&q=80" },
-  { energy: "Venus", english: "Diamond", sanskrit: "Heera", url: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=600&q=80" },
-  { energy: "Saturn", english: "Blue Sapphire", sanskrit: "Neelam", url: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=80" },
-  { energy: "Rahu", english: "Hessonite Garnet", sanskrit: "Gomed", url: "https://images.unsplash.com/photo-1622398925373-3f91b1e275f5?auto=format&fit=crop&w=600&q=80" },
-  { energy: "Ketu", english: "Cat's Eye", sanskrit: "Lehsunia", url: "https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?auto=format&fit=crop&w=600&q=80" },
+  { energy: "Sun", english: "Ruby", sanskrit: "Manik", url: "/gemstones/ruby.png" },
+  { energy: "Moon", english: "Pearl", sanskrit: "Moti", url: "/gemstones/pearl.png" },
+  { energy: "Mars", english: "Red Coral", sanskrit: "Moonga", url: "/gemstones/red-coral.png" },
+  { energy: "Mercury", english: "Emerald", sanskrit: "Panna", url: "/gemstones/emerald.png" },
+  { energy: "Jupiter", english: "Yellow Sapphire", sanskrit: "Pukhraj", url: "/gemstones/yellow-sapphire.png" },
+  { energy: "Venus", english: "Diamond", sanskrit: "Heera", url: "/gemstones/diamond.png" },
+  { energy: "Saturn", english: "Blue Sapphire", sanskrit: "Neelam", url: "/gemstones/blue-sapphire.png" },
+  { energy: "Rahu", english: "Hessonite Garnet", sanskrit: "Gomed", url: "/gemstones/hessonite.png" },
+  { energy: "Ketu", english: "Cat's Eye", sanskrit: "Lehsunia", url: "/gemstones/cats-eye.png" },
 ];
 
 export function NavratnaCollection() {
