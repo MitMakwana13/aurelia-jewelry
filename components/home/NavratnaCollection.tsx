@@ -5,9 +5,9 @@ import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 
 const navratnaStones = [
-  { energy: "Sun", english: "Ruby", sanskrit: "Manik", url: "/gemstones/ruby.png" },
+  { energy: "Sun", english: "Ruby", sanskrit: "Manik", url: "/gemstones/ruby-new.jpg" },
   { energy: "Moon", english: "Pearl", sanskrit: "Moti", url: "/gemstones/pearl.png" },
-  { energy: "Mars", english: "Red Coral", sanskrit: "Moonga", url: "/gemstones/red-coral.png" },
+  { energy: "Mars", english: "Red Coral", sanskrit: "Moonga", url: "/gemstones/red-coral-new.jpg" },
   { energy: "Mercury", english: "Emerald", sanskrit: "Panna", url: "/gemstones/emerald.png" },
   { energy: "Jupiter", english: "Yellow Sapphire", sanskrit: "Pukhraj", url: "/gemstones/yellow-sapphire.png" },
   { energy: "Venus", english: "Diamond", sanskrit: "Heera", url: "/gemstones/diamond.png" },
