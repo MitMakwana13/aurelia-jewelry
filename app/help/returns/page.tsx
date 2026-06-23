@@ -32,7 +32,7 @@ export default function ReturnsPage() {
           <h2 className="font-serif text-2xl text-ink">Damaged or Defective</h2>
           <p className="mt-3">
             Every piece is covered by our lifetime warranty against manufacturing defects.
-            If your piece arrives damaged or develops a defect, contact us — we'll repair
+            If your piece arrives damaged or develops a defect, contact us and we'll repair
             or replace it.
           </p>
         </section>

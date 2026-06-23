@@ -4,7 +4,7 @@ import { Breadcrumbs } from "@/components/plp/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Our Story",
-  description: "The story behind Aurelia — fine jewelry, made differently.",
+  description: "The story behind Aurelia: fine jewelry, made differently.",
 };
 
 export default function AboutPage() {
@@ -34,20 +34,20 @@ export default function AboutPage() {
           <div className="lg:col-span-5">
             <p className="eyebrow">Founded 2015</p>
             <h2 className="mt-3 font-serif text-3xl md:text-4xl leading-tight">
-              We believe fine jewelry should be worn — not saved for special occasions.
+              We believe fine jewelry should be worn, not saved for special occasions.
             </h2>
           </div>
           <div className="lg:col-span-7 space-y-6 text-base leading-relaxed text-ink-soft">
             <p>
               Aurelia began with a simple frustration: traditional fine jewelry was too expensive,
               too occasional, and too often tied to outdated rituals. We set out to make pieces
-              women buy for themselves — for everyday, for joy, for the way they want to live now.
+              women buy for themselves for everyday, for joy, for the way they want to live now.
             </p>
             <p>
               That meant rethinking the supply chain. We work directly with our makers, removing
               middlemen, and pricing pieces at a fair multiple over cost. It also meant rethinking
               materials: solid 14k gold, recycled silver, ethically sourced stones, and full
-              traceability — published openly in our annual Impact Report.
+              traceability, published openly in our annual Impact Report.
             </p>
             <p>
               A decade in, Aurelia is worn by millions, available in 14 stores across North America

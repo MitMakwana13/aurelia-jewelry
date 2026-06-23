@@ -10,15 +10,15 @@ const faqs = [
   },
   {
     q: "What's the difference between solid gold and gold vermeil?",
-    a: "Solid 14k gold is gold throughout — meaning the entire piece is solid 14k. Gold vermeil is sterling silver thickly plated with 14k gold (at least 2.5 microns). Both are fine jewelry; vermeil is a more accessible price point.",
+    a: "Solid 14k gold is gold throughout, meaning the entire piece is solid 14k. Gold vermeil is sterling silver thickly plated with 14k gold (at least 2.5 microns). Both are fine jewelry; vermeil is a more accessible price point.",
   },
   {
     q: "Will my jewelry tarnish?",
-    a: "Solid gold won't tarnish. Sterling silver may develop a natural patina over time — this is normal and easily polished. Avoid contact with perfume, lotion, and chlorine to extend the life of any fine jewelry.",
+    a: "Solid gold won't tarnish. Sterling silver may develop a natural patina over time. This is normal and easily polished. Avoid contact with perfume, lotion, and chlorine to extend the life of any fine jewelry.",
   },
   {
     q: "Can I return or exchange a piece?",
-    a: "Yes — we offer free returns and exchanges within 30 days for unworn pieces in their original packaging. Engraved and final-sale items are excluded.",
+    a: "Yes, we offer free returns and exchanges within 30 days for unworn pieces in their original packaging. Engraved and final-sale items are excluded.",
   },
   {
     q: "Do you ship internationally?",
@@ -26,7 +26,7 @@ const faqs = [
   },
   {
     q: "Do you offer engraving?",
-    a: "Yes — many of our signets, bands, and ID pieces can be engraved with up to 12 characters. Engraving is added at checkout and adds 3–5 business days to processing.",
+    a: "Yes, many of our signets, bands, and ID pieces can be engraved with up to 12 characters. Engraving is added at checkout and adds 3–5 business days to processing.",
   },
   {
     q: "Is my purchase covered by a warranty?",

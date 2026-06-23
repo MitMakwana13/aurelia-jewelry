@@ -3,7 +3,7 @@ export default function CarePage() {
     <div>
       <h1 className="font-serif text-4xl md:text-5xl">Care Guide</h1>
       <p className="mt-4 max-w-xl text-sm text-ink-soft">
-        Fine jewelry is built to last — with the right care, it gets better with time.
+        Fine jewelry is built to last. With the right care, it gets better with time.
       </p>
 
       <div className="mt-12 space-y-12">
@@ -11,7 +11,7 @@ export default function CarePage() {
           {[
             {
               title: "Daily Wear",
-              body: "Solid gold and silver are durable, but contact with chlorine, perfume, and lotion can dull the finish over time. Put your jewelry on last — and take it off first.",
+              body: "Solid gold and silver are durable, but contact with chlorine, perfume, and lotion can dull the finish over time. Put your jewelry on last and take it off first.",
             },
             {
               title: "Cleaning",

@@ -3,13 +3,13 @@ import { Breadcrumbs } from "@/components/plp/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Sustainability",
-  description: "Our 2026 Impact Report — better materials, fewer emissions, traceable supply.",
+  description: "Our 2026 Impact Report: better materials, fewer emissions, traceable supply.",
 };
 
 const pillars = [
   {
     title: "Recycled Metals",
-    body: "Every piece is cast in 100% recycled gold and silver — no new mining required.",
+    body: "Every piece is cast in 100% recycled gold and silver with no new mining required.",
     stat: "100%",
   },
   {
@@ -40,8 +40,8 @@ export default function SustainabilityPage() {
             A smaller footprint,<br />a fairer supply.
           </h1>
           <p className="mt-6 max-w-xl text-base text-ink-soft">
-            Transparency isn't a campaign. Every year we publish our progress — and the gaps —
-            in full. Here's where we are in 2026.
+            Transparency isn't a campaign. Every year we publish our progress and the gaps in full.
+            Here's where we are in 2026.
           </p>
         </div>
       </section>
@@ -66,13 +66,13 @@ export default function SustainabilityPage() {
           </div>
           <div className="lg:col-span-7 space-y-5 text-cream/85 leading-relaxed">
             <p>
-              We're proud of how far we've come — and we're not finished. By 2028, we aim
+              We're proud of how far we've come and we're not finished. By 2028, we aim
               to make every piece of packaging compostable or reusable, eliminate single-use plastics
               from our entire supply chain, and reach a 50% reduction in operational emissions.
             </p>
             <p>
-              The full report — including methodology, third-party audits, and where we missed
-              targets — is available below.
+              The full report, including methodology, third-party audits, and where we missed
+              targets, is available below.
             </p>
             <a href="#" className="btn-outline mt-4 border-cream text-cream hover:bg-cream hover:text-ink">
               Download the Report (PDF)

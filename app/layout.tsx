@@ -20,11 +20,11 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: {
-    default: "Radha Rani Heritage Collection — The Culture of Craft",
+    default: "Radha Rani Heritage Collection: The Culture of Craft",
     template: "%s · Radha Rani",
   },
   description:
-    "Radha Rani Heritage Collection — Exquisite, ethically sourced diamonds, emeralds, and bespoke masterpieces crafted in India. A heritage of pure intention and timeless luxury.",
+    "Radha Rani Heritage Collection: Exquisite, ethically sourced diamonds, emeralds, and bespoke masterpieces crafted in India. A heritage of pure intention and timeless luxury.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://radharani-jewelry.com"),
   keywords: [
     "Buy Natural Gemstones Online India", "Astrological Gemstones India", "Vedic Astrology Gemstones",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Radha Rani Heritage Collection" }],
   openGraph: {
-    title: "Radha Rani Heritage Collection — The Culture of Craft",
+    title: "Radha Rani Heritage Collection: The Culture of Craft",
     description: "Exquisite diamonds and bespoke masterpieces crafted in India.",
     type: "website",
     locale: "en_IN",

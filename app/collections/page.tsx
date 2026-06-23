@@ -16,7 +16,7 @@ export default async function CollectionsPage() {
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Collections" }]} />
       <h1 className="mt-6 font-serif text-4xl md:text-5xl">Collections</h1>
       <p className="mt-3 max-w-xl text-sm text-ink-soft">
-        Each collection is built around an idea — an object, a material, a way of wearing.
+        Each collection is built around an idea: an object, a material, a way of wearing.
         Together, they tell the story of Aurelia.
       </p>
 

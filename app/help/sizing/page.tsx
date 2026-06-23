@@ -9,7 +9,7 @@ export default function SizingPage() {
             <h2 className="font-serif text-2xl text-ink">Visit a Store</h2>
             <p className="mt-3">
               The most accurate way to find your size is in person. Walk into any Aurelia
-              store for a complimentary professional fitting — no appointment needed.
+              store for a complimentary professional fitting, no appointment needed.
             </p>
           </section>
 
@@ -19,7 +19,7 @@ export default function SizingPage() {
               <li>Wrap a strip of paper or string around the base of your finger.</li>
               <li>Mark where it meets and measure the length in millimeters.</li>
               <li>Match the millimeter measurement to the chart at right.</li>
-              <li>If you're between sizes, size up — fingers swell slightly during the day.</li>
+              <li>If you're between sizes, size up as fingers swell slightly during the day.</li>
             </ol>
           </section>
 
