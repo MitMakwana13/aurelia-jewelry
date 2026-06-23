@@ -111,14 +111,14 @@ export default async function StoryPage({ params }: { params: Promise<{ slug: st
         </div>
 
         {/* Intro */}
-        <p className="font-serif italic text-xl md:text-2xl text-ink/80 leading-relaxed mb-12">
+        <p className="font-serif italic text-xl md:text-2xl text-ink/80 leading-relaxed mb-12 text-justify">
           {story.intro}
         </p>
 
         {/* Body paragraphs */}
         <div className="space-y-8">
           {story.body.map((para, i) => (
-            <p key={i} className="text-ink/70 leading-loose text-base md:text-lg">
+            <p key={i} className="text-ink/70 leading-loose text-base md:text-lg text-justify text-justify-inter-word">
               {para}
             </p>
           ))}
