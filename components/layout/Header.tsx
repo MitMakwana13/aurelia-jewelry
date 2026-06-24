@@ -95,8 +95,10 @@ export function Header() {
 
           {/* Icons */}
           <div className="flex items-center gap-4 transition-colors text-ink">
-            {/* Currency Selector */}
-            <CurrencySelector />
+            {/* Currency Selector — desktop only to avoid logo overlap on mobile */}
+            <div className="hidden lg:block">
+              <CurrencySelector />
+            </div>
 
             <button aria-label="Search" onClick={openSearch} className="hidden lg:inline-flex hover:opacity-60 transition">
               <SearchIcon />

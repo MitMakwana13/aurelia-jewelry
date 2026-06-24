@@ -7,6 +7,7 @@ import { mainNav } from "@/data/navigation";
 import { useUI } from "@/lib/store/ui-store";
 import { CloseIcon, ChevronRightIcon, ArrowLeftIcon } from "@/components/ui/Icons";
 import { Logo } from "@/components/ui/Logo";
+import { CurrencySelector } from "@/components/ui/CurrencySelector";
 
 export function MobileNav() {
   const { mobileNavOpen, closeMobileNav } = useUI();
@@ -86,10 +87,16 @@ export function MobileNav() {
             )}
           </nav>
 
-          <div className="border-t border-border p-5 space-y-2 text-sm">
-            <Link href="/custom" onClick={close} className="block py-1">Book Consultation</Link>
-            <Link href="/contact" onClick={close} className="block py-1">Contact Us</Link>
-            <Link href="/help/faq" onClick={close} className="block py-1">Help</Link>
+          <div className="border-t border-border p-5 space-y-4 text-sm">
+            <div className="flex items-center justify-between">
+              <span className="text-[10px] uppercase tracking-[0.18em] text-ink/40">Currency</span>
+              <CurrencySelector />
+            </div>
+            <div className="space-y-2 pt-2 border-t border-border">
+              <Link href="/custom" onClick={close} className="block py-1">Book Consultation</Link>
+              <Link href="/contact" onClick={close} className="block py-1">Contact Us</Link>
+              <Link href="/help/faq" onClick={close} className="block py-1">Help</Link>
+            </div>
           </div>
         </DialogPanel>
       </div>

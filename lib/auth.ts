@@ -10,6 +10,8 @@ export const authOptions: NextAuthOptions = {
       credentials: {
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
+        // Optional: pass adminOnly=true to restrict to ADMIN role (for /admin panel)
+        adminOnly: { label: "Admin Only", type: "text" },
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) return null;
@@ -23,9 +25,15 @@ export const authOptions: NextAuthOptions = {
         const isValid = await bcrypt.compare(credentials.password, user.password);
         if (!isValid) return null;
 
-        if (user.role !== "ADMIN") return null;
+        // Admin routes: only allow ADMIN role
+        if (credentials.adminOnly === "true" && user.role !== "ADMIN") return null;
 
-        return { id: user.id, email: user.email, role: user.role };
+        return {
+          id: user.id,
+          email: user.email,
+          name: user.fullName ?? undefined,
+          role: user.role,
+        };
       },
     }),
   ],
@@ -33,19 +41,21 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
+        token.id = user.id;
         token.role = (user as { id: string; email: string; role: string }).role;
       }
       return token;
     },
     async session({ session, token }) {
       if (session.user) {
-        (session.user as { role?: string }).role = token.role as string;
+        (session.user as { id?: string; role?: string }).id = token.id as string;
+        (session.user as { id?: string; role?: string }).role = token.role as string;
       }
       return session;
     },
   },
   pages: {
-    signIn: "/admin/login",
+    signIn: "/account",
   },
   secret: process.env.NEXTAUTH_SECRET,
 };
