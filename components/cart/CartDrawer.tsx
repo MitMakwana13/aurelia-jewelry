@@ -3,13 +3,14 @@
 import { Dialog, DialogPanel, DialogBackdrop } from "@headlessui/react";
 import Link from "next/link";
 import { useCart, getCartTotals } from "@/lib/store/cart-store";
-import { formatMoney } from "@/lib/utils/format";
+import { useCurrency } from "@/context/CurrencyContext";
 import { CloseIcon, PlusIcon, MinusIcon, BagIcon } from "@/components/ui/Icons";
 
-const FREE_SHIPPING_THRESHOLD = 150;
+const FREE_SHIPPING_THRESHOLD = 15000;
 
 export function CartDrawer() {
   const { lineItems, isOpen, closeDrawer, removeItem, updateQuantity } = useCart();
+  const { formatPrice } = useCurrency();
   const { subtotal, itemCount } = getCartTotals(lineItems);
   const remaining = Math.max(0, FREE_SHIPPING_THRESHOLD - subtotal.amount);
   const progress = Math.min(100, (subtotal.amount / FREE_SHIPPING_THRESHOLD) * 100);
@@ -34,7 +35,7 @@ export function CartDrawer() {
                 <span>{remaining > 0 ? "Add" : "Congrats!"}</span>
                 <span className="text-ink-muted">
                   {remaining > 0
-                    ? `${formatMoney({ amount: remaining, currency: subtotal.currency })} away from free shipping`
+                    ? `${formatPrice(remaining)} away from free shipping`
                     : "You unlocked free shipping"}
                 </span>
               </div>
@@ -76,7 +77,7 @@ export function CartDrawer() {
                         >
                           {li.title}
                         </Link>
-                        <span className="text-sm">{formatMoney({ amount: li.price.amount * li.quantity, currency: li.price.currency })}</span>
+                        <span className="text-sm">{formatPrice(li.price.amount * li.quantity)}</span>
                       </div>
                       <p className="text-xs text-ink-muted">{li.variantTitle}</p>
                       <div className="mt-auto flex items-center justify-between pt-3">
@@ -115,7 +116,7 @@ export function CartDrawer() {
             <div className="border-t border-border px-6 py-5 space-y-4">
               <div className="flex justify-between text-sm">
                 <span>Subtotal</span>
-                <span>{formatMoney(subtotal)}</span>
+                <span>{formatPrice(subtotal.amount)}</span>
               </div>
               <p className="text-xs text-ink-muted">
                 Shipping and taxes calculated at checkout.

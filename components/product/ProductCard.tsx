@@ -3,13 +3,14 @@
 import Link from "next/link";
 import { useState } from "react";
 import type { Product } from "@/lib/commerce/types";
-import { formatMoney } from "@/lib/utils/format";
+import { useCurrency } from "@/context/CurrencyContext";
 import { HeartIcon } from "@/components/ui/Icons";
 import { InquiryModal } from "@/components/inquiry/InquiryModal";
 
 export function ProductCard({ product }: { product: Product }) {
   const [hovered, setHovered] = useState(false);
   const [inquiryOpen, setInquiryOpen] = useState(false);
+  const { formatPrice } = useCurrency();
   const second = product.images[1] ?? product.images[0];
 
   const inferType = () => {
@@ -100,8 +101,8 @@ export function ProductCard({ product }: { product: Product }) {
             <span className="w-1 h-1 rounded-full bg-ink/20" />
             <span>
               {product.priceRange.min.amount === product.priceRange.max.amount
-                ? formatMoney({ ...product.priceRange.min, currency: "INR" })
-                : formatMoney({ ...product.priceRange.min, currency: "INR" })}
+                ? formatPrice(product.priceRange.min.amount)
+                : `${formatPrice(product.priceRange.min.amount)} – ${formatPrice(product.priceRange.max.amount)}`}
             </span>
           </div>
         </div>

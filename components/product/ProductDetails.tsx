@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import type { Product, ProductVariant } from "@/lib/commerce/types";
 import { InquiryModal } from "@/components/inquiry/InquiryModal";
-import { formatMoney } from "@/lib/utils/format";
+import { useCurrency } from "@/context/CurrencyContext";
 import { HeartIcon, ChevronDownIcon } from "@/components/ui/Icons";
 
 const ACCORDION = [
@@ -34,6 +34,7 @@ export function ProductDetails({ product }: { product: Product }) {
   const [size, setSize] = useState(product.sizes?.[0]);
   const [open, setOpen] = useState<string | null>("Description");
   const [inquiryOpen, setInquiryOpen] = useState(false);
+  const { formatPrice } = useCurrency();
 
   const variant = useMemo<ProductVariant | undefined>(
     () => product.variants.find((v) => v.metal === metal && (!size || v.size === size)),
@@ -61,9 +62,9 @@ export function ProductDetails({ product }: { product: Product }) {
           <p className="text-[10px] uppercase tracking-[0.3em] text-ink/50 mb-4">{product.categorySlug}</p>
           <h1 className="font-serif text-4xl md:text-5xl leading-tight text-ink">{product.title}</h1>
           <div className="mt-6 flex items-baseline gap-3">
-            <p className="text-xl tracking-wide text-ink">{formatMoney(displayPrice)}</p>
+            <p className="text-xl tracking-wide text-ink">{formatPrice(displayPrice.amount)}</p>
             {product.metals.length > 1 && metal !== cheapestMetal && (
-              <p className="text-sm text-ink/40">From {formatMoney(product.priceRange.min)}</p>
+              <p className="text-sm text-ink/40">From {formatPrice(product.priceRange.min.amount)}</p>
             )}
           </div>
           <p className="mt-1 text-xs text-ink/40">Price varies by material selection below</p>
@@ -85,7 +86,7 @@ export function ProductDetails({ product }: { product: Product }) {
                     }`}
                   >
                     {m}
-                    {mv && <span className="block text-[9px] mt-0.5 opacity-70">{formatMoney(mv.price)}</span>}
+                    {mv && <span className="block text-[9px] mt-0.5 opacity-70">{formatPrice(mv.price.amount)}</span>}
                   </button>
                 );
               })}

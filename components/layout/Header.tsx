@@ -8,6 +8,7 @@ import { MegaMenu } from "./MegaMenu";
 import { SearchIcon, UserIcon, BagIcon, MenuIcon } from "@/components/ui/Icons";
 import { Logo } from "@/components/ui/Logo";
 import { LiveMetalPrices } from "@/components/ui/LiveMetalPrices";
+import { CurrencySelector } from "@/components/ui/CurrencySelector";
 
 export function Header() {
   const [hovered, setHovered] = useState<string | null>(null);
@@ -94,6 +95,9 @@ export function Header() {
 
           {/* Icons */}
           <div className="flex items-center gap-4 transition-colors text-ink">
+            {/* Currency Selector */}
+            <CurrencySelector />
+
             <button aria-label="Search" onClick={openSearch} className="hidden lg:inline-flex hover:opacity-60 transition">
               <SearchIcon />
             </button>
