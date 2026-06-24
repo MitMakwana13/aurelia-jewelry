@@ -50,12 +50,30 @@ export const prismaAdapter: CommerceAdapter = {
   async getProducts(opts = {}) {
     try {
       const where: any = {};
-      if (opts.category) where.categorySlug = opts.category;
+      if (opts.category) {
+        if (opts.category === "jewelry") {
+          where.categorySlug = { in: ["rings", "necklaces", "earrings", "bracelets"] };
+        } else if (opts.category === "gemstones") {
+          where.OR = [
+            { categorySlug: "gemstones" },
+            { tags: { hasSome: ["gemstone", "birthstone", "pearl"] } },
+            { gemstoneDetail: { isNot: null } }
+          ];
+        } else if (opts.category === "diamonds") {
+          where.OR = [
+            { categorySlug: "diamonds" },
+            { tags: { has: "diamond" } },
+            { diamondDetail: { isNot: null } }
+          ];
+        } else {
+          where.categorySlug = opts.category;
+        }
+      }
       if (opts.collection) where.collectionSlugs = { has: opts.collection };
 
       const products = await prisma.product.findMany({
         where,
-        include: { variants: true },
+        include: { variants: true, gemstoneDetail: true, diamondDetail: true },
         take: opts.limit,
         orderBy: { createdAt: "desc" },
       });

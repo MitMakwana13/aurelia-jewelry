@@ -6,7 +6,17 @@ import type { CommerceAdapter } from "./types";
 export const mockAdapter: CommerceAdapter = {
   async getProducts(opts = {}) {
     let list = [...products];
-    if (opts.category) list = list.filter((p) => p.categorySlug === opts.category);
+    if (opts.category) {
+      if (opts.category === "jewelry") {
+        list = list.filter((p) => ["rings", "necklaces", "earrings", "bracelets"].includes(p.categorySlug));
+      } else if (opts.category === "gemstones") {
+        list = list.filter((p) => p.categorySlug === "gemstones" || p.tags.some(t => ["gemstone", "birthstone", "pearl"].includes(t)));
+      } else if (opts.category === "diamonds") {
+        list = list.filter((p) => p.categorySlug === "diamonds" || p.tags.includes("diamond"));
+      } else {
+        list = list.filter((p) => p.categorySlug === opts.category);
+      }
+    }
     if (opts.collection) list = list.filter((p) => p.collectionSlugs.includes(opts.collection!));
     if (opts.limit) list = list.slice(0, opts.limit);
     return list;
