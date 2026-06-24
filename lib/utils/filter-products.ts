@@ -3,6 +3,7 @@ import type { Product } from "@/lib/commerce/types";
 export type ProductFilters = {
   metal?: string;
   tag?: string;
+  type?: string;
   price?: string;
   sort?: string;
   filter?: string;
@@ -16,6 +17,10 @@ export function filterAndSort(products: Product[], filters: ProductFilters): Pro
   }
   if (filters.tag) {
     list = list.filter((p) => p.tags.includes(filters.tag!) || p.categorySlug === filters.tag);
+  }
+  // Gemstone type filter — e.g. ?type=ruby filters by that specific tag
+  if (filters.type) {
+    list = list.filter((p) => p.tags.includes(filters.type!));
   }
   if (filters.price) {
     const [min, max] = filters.price.split("-").map(Number);

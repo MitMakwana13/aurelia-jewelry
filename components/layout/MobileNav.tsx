@@ -87,7 +87,8 @@ export function MobileNav() {
           </nav>
 
           <div className="border-t border-border p-5 space-y-2 text-sm">
-            <Link href="/stores" onClick={close} className="block py-1">Find a Store</Link>
+            <Link href="/custom" onClick={close} className="block py-1">Book Consultation</Link>
+            <Link href="/contact" onClick={close} className="block py-1">Contact Us</Link>
             <Link href="/help/faq" onClick={close} className="block py-1">Help</Link>
           </div>
         </DialogPanel>

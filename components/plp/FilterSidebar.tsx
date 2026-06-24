@@ -5,19 +5,35 @@ import { useTransition } from "react";
 import { ChevronDownIcon } from "@/components/ui/Icons";
 
 const METALS = ["14k Gold", "14k Gold Vermeil", "Sterling Silver", "Rose Gold"];
-const TAGS = ["stacker", "hoops", "chain", "pendant", "diamond", "birthstone"];
-const PRICES = [
-  { label: "Under $250", min: 0, max: 250 },
-  { label: "$250 – $500", min: 250, max: 500 },
-  { label: "$500 – $1,000", min: 500, max: 1000 },
-  { label: "$1,000+", min: 1000, max: 100000 },
+
+const GEMSTONE_TYPES = [
+  { label: "Ruby (Manik)", value: "ruby" },
+  { label: "Pearl (Moti)", value: "pearl" },
+  { label: "Red Coral (Moonga)", value: "red-coral" },
+  { label: "Emerald (Panna)", value: "emerald" },
+  { label: "Yellow Sapphire (Pukhraj)", value: "yellow-sapphire" },
+  { label: "Diamond (Heera)", value: "diamond-gem" },
+  { label: "Blue Sapphire (Neelam)", value: "blue-sapphire" },
+  { label: "Hessonite Garnet (Gomed)", value: "hessonite" },
+  { label: "Cat's Eye (Lehsunia)", value: "cats-eye" },
 ];
 
-export function FilterSidebar() {
+const JEWELRY_TAGS = ["stacker", "hoops", "chain", "pendant", "diamond", "birthstone"];
+
+const PRICES = [
+  { label: "Under ₹5,00,000", min: 0, max: 500000 },
+  { label: "₹5L – ₹15L", min: 500000, max: 1500000 },
+  { label: "₹15L – ₹50L", min: 1500000, max: 5000000 },
+  { label: "₹50L+", min: 5000000, max: 999999999 },
+];
+
+export function FilterSidebar({ category }: { category?: string }) {
   const router = useRouter();
   const pathname = usePathname();
   const params = useSearchParams();
   const [, startTransition] = useTransition();
+
+  const isGemstones = category === "gemstones" || pathname.includes("/shop/gemstones");
 
   const update = (key: string, value: string | null) => {
     const next = new URLSearchParams(params.toString());
@@ -58,31 +74,59 @@ export function FilterSidebar() {
         </ul>
       </FilterGroup>
 
-      <FilterGroup title="Style">
-        <ul className="space-y-2">
-          {TAGS.map((t) => (
-            <li key={t}>
-              <label className="flex cursor-pointer items-center gap-3 text-sm capitalize">
-                <input
-                  type="radio"
-                  name="tag"
-                  checked={isActive("tag", t)}
-                  onChange={() => update("tag", t)}
-                  className="h-3 w-3 accent-ink"
-                />
-                {t}
-              </label>
-            </li>
-          ))}
-          {params.get("tag") && (
-            <li>
-              <button onClick={() => update("tag", null)} className="text-xs underline underline-offset-2">
-                Clear
-              </button>
-            </li>
-          )}
-        </ul>
-      </FilterGroup>
+      {isGemstones ? (
+        <FilterGroup title="Gemstone Type">
+          <ul className="space-y-2">
+            {GEMSTONE_TYPES.map((t) => (
+              <li key={t.value}>
+                <label className="flex cursor-pointer items-center gap-3 text-sm">
+                  <input
+                    type="radio"
+                    name="type"
+                    checked={isActive("type", t.value)}
+                    onChange={() => update("type", t.value)}
+                    className="h-3 w-3 accent-ink"
+                  />
+                  {t.label}
+                </label>
+              </li>
+            ))}
+            {params.get("type") && (
+              <li>
+                <button onClick={() => update("type", null)} className="text-xs underline underline-offset-2">
+                  Clear
+                </button>
+              </li>
+            )}
+          </ul>
+        </FilterGroup>
+      ) : (
+        <FilterGroup title="Style">
+          <ul className="space-y-2">
+            {JEWELRY_TAGS.map((t) => (
+              <li key={t}>
+                <label className="flex cursor-pointer items-center gap-3 text-sm capitalize">
+                  <input
+                    type="radio"
+                    name="tag"
+                    checked={isActive("tag", t)}
+                    onChange={() => update("tag", t)}
+                    className="h-3 w-3 accent-ink"
+                  />
+                  {t}
+                </label>
+              </li>
+            ))}
+            {params.get("tag") && (
+              <li>
+                <button onClick={() => update("tag", null)} className="text-xs underline underline-offset-2">
+                  Clear
+                </button>
+              </li>
+            )}
+          </ul>
+        </FilterGroup>
+      )}
 
       <FilterGroup title="Price">
         <ul className="space-y-2">

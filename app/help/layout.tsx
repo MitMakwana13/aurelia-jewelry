@@ -2,10 +2,11 @@ import Link from "next/link";
 
 const links = [
   { label: "FAQs", href: "/help/faq" },
-  { label: "Shipping", href: "/help/shipping" },
   { label: "Returns", href: "/help/returns" },
   { label: "Ring Sizing", href: "/help/sizing" },
   { label: "Care Guide", href: "/help/care" },
+  { label: "Gem Guide", href: "/help/gem-guide" },
+  { label: "Gem Certification", href: "/help/gem-certification" },
 ];
 
 export default function HelpLayout({ children }: { children: React.ReactNode }) {
