@@ -32,6 +32,7 @@ export default function CheckoutPage() {
   const [step, setStep] = useState<Step>(1);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [notes, setNotes] = useState("");
 
   const [contact, setContact] = useState<ContactForm>({
     firstName: "", lastName: "", email: "", phone: "",
@@ -47,107 +48,50 @@ export default function CheckoutPage() {
 
   if (lineItems.length === 0) return null;
 
-  const shippingFee = subtotal.amount >= 15000 ? 0 : 250;
-  const totalAmount = subtotal.amount + shippingFee;
+  const totalAmount = subtotal.amount;
 
-  // ─── Razorpay Payment Handler ────────────────────────────────────────────────
-  const handlePay = async () => {
+  // ─── Inquiry Submission Handler ───────────────────────────────────────────────
+  const handleSubmitInquiry = async () => {
     setLoading(true);
     setError("");
 
     try {
-      // 1. Create Razorpay order on our server
-      const orderRes = await fetch("/api/razorpay/create-order", {
+      const itemsSummary = lineItems
+        .map((li) => `${li.title} (${li.variantTitle}) x${li.quantity} — ${formatPrice(li.price.amount * li.quantity)}`)
+        .join("\n");
+
+      const shippingAddress = [address.line1, address.line2, address.city, address.state, address.pincode, address.country]
+        .filter(Boolean)
+        .join(", ");
+
+      const message = [
+        `Cart Items:\n${itemsSummary}`,
+        `\nEstimated Total: ${formatPrice(totalAmount)}`,
+        shippingAddress ? `\nShipping Address: ${shippingAddress}` : "",
+        notes ? `\nNotes: ${notes}` : "",
+      ].filter(Boolean).join("\n");
+
+      const res = await fetch("/api/inquiry", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ amount: totalAmount, currency: "INR" }),
-      });
-
-      if (!orderRes.ok) throw new Error("Failed to create payment order");
-      const { orderId: razorpayOrderId, amount } = await orderRes.json();
-
-      // 2. Load Razorpay SDK and open modal
-      const keyId = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
-
-      await new Promise<void>((resolve, reject) => {
-        if (typeof window !== "undefined" && (window as Window & { Razorpay?: unknown }).Razorpay) {
-          resolve();
-          return;
-        }
-        const script = document.createElement("script");
-        script.src = "https://checkout.razorpay.com/v1/checkout.js";
-        script.onload = () => resolve();
-        script.onerror = () => reject(new Error("Failed to load Razorpay SDK"));
-        document.body.appendChild(script);
-      });
-
-      type RazorpayCallback = {
-        razorpay_order_id: string;
-        razorpay_payment_id: string;
-        razorpay_signature: string;
-      };
-
-      const RazorpayClass = (window as any).Razorpay;
-
-      const rzp = new RazorpayClass({
-        key: keyId,
-        amount,
-        currency: "INR",
-        name: "Radha Rani Heritage Collection",
-        description: `Order of ${itemCount} piece${itemCount > 1 ? "s" : ""}`,
-        order_id: razorpayOrderId,
-        prefill: {
-          name: `${contact.firstName} ${contact.lastName}`,
+        body: JSON.stringify({
+          name: `${contact.firstName} ${contact.lastName}`.trim(),
           email: contact.email,
-          contact: contact.phone,
-        },
-        theme: { color: "#0a0a0a" },
-        handler: async (response: RazorpayCallback) => {
-          // 3. Verify payment on server
-          const verifyRes = await fetch("/api/razorpay/verify", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              razorpay_order_id: response.razorpay_order_id,
-              razorpay_payment_id: response.razorpay_payment_id,
-              razorpay_signature: response.razorpay_signature,
-              orderData: {
-                amount: totalAmount,
-                customerDetails: {
-                  firstName: contact.firstName,
-                  lastName: contact.lastName,
-                  email: contact.email,
-                  phone: contact.phone,
-                  address: address.line1 + (address.line2 ? `, ${address.line2}` : ""),
-                  city: address.city,
-                  state: address.state,
-                  pincode: address.pincode,
-                  country: address.country,
-                },
-                items: lineItems.map((li) => ({
-                  name: li.title,
-                  sku: li.variantId,
-                  quantity: li.quantity,
-                  price: li.price.amount,
-                  variantTitle: li.variantTitle,
-                })),
-              },
-            }),
-          });
-
-          if (!verifyRes.ok) {
-            setError("Payment verification failed. Please contact us immediately.");
-            setLoading(false);
-            return;
-          }
-
-          const { orderId } = await verifyRes.json();
-          clear(); // Clear cart
-          router.push(`/checkout/success?orderId=${orderId}&email=${encodeURIComponent(contact.email)}`);
-        },
+          phone: contact.phone,
+          type: "PRODUCT",
+          message,
+          source: "checkout",
+        }),
       });
 
-      rzp.open();
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error ?? "Failed to submit inquiry. Please try again.");
+      }
+
+      const { id: inquiryId } = await res.json();
+      clear(); // Clear cart
+      router.push(`/checkout/success?orderId=${inquiryId}&email=${encodeURIComponent(contact.email)}`);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
     } finally {
@@ -156,7 +100,7 @@ export default function CheckoutPage() {
   };
 
   // ─── Step Progress ──────────────────────────────────────────────────────────
-  const STEPS = ["Contact", "Shipping", "Payment"];
+  const STEPS = ["Contact", "Address", "Confirm"];
 
   return (
     <div className="min-h-screen bg-cream-light">
@@ -199,7 +143,7 @@ export default function CheckoutPage() {
             {step === 1 && (
               <form onSubmit={(e) => { e.preventDefault(); setStep(2); }} className="space-y-6">
                 <h1 className="font-serif text-3xl text-ink">Contact Information</h1>
-                <p className="text-sm text-ink/60">We'll use this to send your order confirmation and updates.</p>
+                <p className="text-sm text-ink/60">We'll use this to send your order inquiry details and follow-up updates.</p>
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
@@ -233,26 +177,27 @@ export default function CheckoutPage() {
                 </div>
 
                 <div>
-                  <label className="block text-[10px] uppercase tracking-[0.18em] text-ink/50 mb-2">Phone Number *</label>
+                  <label className="block text-[10px] uppercase tracking-[0.18em] text-ink/50 mb-2">WhatsApp / Phone *</label>
                   <input
                     required type="tel" value={contact.phone}
                     onChange={(e) => setContact((p) => ({ ...p, phone: e.target.value }))}
                     placeholder="+91 98765 43210"
                     className="w-full border border-border px-4 py-3 text-sm outline-none focus:border-ink bg-white transition"
                   />
-                  <p className="mt-1 text-[10px] text-ink/40">Required for delivery coordination and WhatsApp updates.</p>
+                  <p className="mt-1 text-[10px] text-ink/40">We'll reach out on WhatsApp to confirm your order and pricing.</p>
                 </div>
 
                 <button type="submit" className="w-full bg-ink text-cream py-4 text-[11px] uppercase tracking-[0.25em] hover:bg-ink/90 transition">
-                  Continue to Shipping →
+                  Continue →
                 </button>
               </form>
             )}
 
-            {/* STEP 2 — Shipping Address */}
+            {/* STEP 2 — Delivery Address */}
             {step === 2 && (
               <form onSubmit={(e) => { e.preventDefault(); setStep(3); }} className="space-y-6">
-                <h2 className="font-serif text-3xl text-ink">Shipping Address</h2>
+                <h2 className="font-serif text-3xl text-ink">Delivery Address</h2>
+                <p className="text-sm text-ink/60">Your address helps us provide an accurate shipping quote when we follow up.</p>
 
                 <div>
                   <label className="block text-[10px] uppercase tracking-[0.18em] text-ink/50 mb-2">Address Line 1 *</label>
@@ -316,21 +261,32 @@ export default function CheckoutPage() {
                   </div>
                 </div>
 
+                <div>
+                  <label className="block text-[10px] uppercase tracking-[0.18em] text-ink/50 mb-2">Special Notes / Requirements</label>
+                  <textarea
+                    value={notes}
+                    onChange={(e) => setNotes(e.target.value)}
+                    rows={3}
+                    placeholder="e.g. Vedic consultation required, specific ratti weight, ring size, auspicious date for delivery..."
+                    className="w-full border border-border px-4 py-3 text-sm outline-none focus:border-ink bg-white transition resize-none"
+                  />
+                </div>
+
                 <div className="flex gap-4">
                   <button type="button" onClick={() => setStep(1)} className="flex-1 border border-border py-4 text-[11px] uppercase tracking-[0.2em] hover:border-ink transition">
                     ← Back
                   </button>
                   <button type="submit" className="flex-[2] bg-ink text-cream py-4 text-[11px] uppercase tracking-[0.25em] hover:bg-ink/90 transition">
-                    Review Order →
+                    Review Inquiry →
                   </button>
                 </div>
               </form>
             )}
 
-            {/* STEP 3 — Review & Pay */}
+            {/* STEP 3 — Review & Confirm */}
             {step === 3 && (
               <div className="space-y-8">
-                <h2 className="font-serif text-3xl text-ink">Review & Pay</h2>
+                <h2 className="font-serif text-3xl text-ink">Review & Confirm</h2>
 
                 {/* Summary blocks */}
                 <div className="grid gap-4 sm:grid-cols-2">
@@ -345,7 +301,7 @@ export default function CheckoutPage() {
                   </div>
                   <div className="border border-border p-5">
                     <div className="flex justify-between mb-3">
-                      <p className="text-[10px] uppercase tracking-[0.18em] text-ink/40">Ship To</p>
+                      <p className="text-[10px] uppercase tracking-[0.18em] text-ink/40">Deliver To</p>
                       <button onClick={() => setStep(2)} className="text-[10px] underline text-ink/40 hover:text-ink">Edit</button>
                     </div>
                     <p className="text-sm text-ink">{address.line1}</p>
@@ -355,10 +311,17 @@ export default function CheckoutPage() {
                   </div>
                 </div>
 
-                {/* Trust badges */}
-                <div className="bg-amber-50 border border-amber-200 p-4 text-xs text-amber-800 space-y-1">
-                  <p className="font-semibold">🔒 100% Secure Payment via Razorpay</p>
-                  <p>All transactions are encrypted. We never store your card details. Prepaid only — no COD.</p>
+                {notes && (
+                  <div className="border border-border p-5">
+                    <p className="text-[10px] uppercase tracking-[0.18em] text-ink/40 mb-2">Your Notes</p>
+                    <p className="text-sm text-ink/70 leading-relaxed">{notes}</p>
+                  </div>
+                )}
+
+                {/* Info notice */}
+                <div className="bg-[#053624]/5 border border-[#053624]/20 p-4 text-xs text-[#053624] space-y-1 rounded-sm">
+                  <p className="font-semibold">📋 Inquiry-Based Order</p>
+                  <p>Our team will review your selection, confirm availability, and reach out on WhatsApp within 24 hours with final pricing and payment details.</p>
                 </div>
 
                 {error && <p className="text-red-600 text-sm border border-red-200 bg-red-50 p-4">{error}</p>}
@@ -368,11 +331,11 @@ export default function CheckoutPage() {
                     ← Back
                   </button>
                   <button
-                    onClick={handlePay}
+                    onClick={handleSubmitInquiry}
                     disabled={loading}
-                    className="flex-[2] bg-ink text-cream py-4 text-[11px] uppercase tracking-[0.25em] hover:bg-ink/90 transition disabled:opacity-60"
+                    className="flex-[2] bg-[#053624] text-cream py-4 text-[11px] uppercase tracking-[0.25em] hover:bg-[#053624]/90 transition disabled:opacity-60"
                   >
-                    {loading ? "Processing..." : `Pay ${formatPrice(totalAmount)} →`}
+                    {loading ? "Submitting..." : "Submit Order Inquiry →"}
                   </button>
                 </div>
               </div>
@@ -382,7 +345,7 @@ export default function CheckoutPage() {
           {/* Order Summary Sidebar */}
           <div className="lg:col-span-5">
             <div className="bg-white border border-border p-6 lg:sticky lg:top-8">
-              <h2 className="font-serif text-xl text-ink mb-6">Order Summary</h2>
+              <h2 className="font-serif text-xl text-ink mb-6">Your Selection</h2>
               <ul className="space-y-4 divide-y divide-border">
                 {lineItems.map((li) => (
                   <li key={li.variantId} className="flex gap-4 pt-4 first:pt-0">
@@ -403,30 +366,28 @@ export default function CheckoutPage() {
 
               <div className="mt-6 space-y-3 border-t border-border pt-6">
                 <div className="flex justify-between text-sm">
-                  <span className="text-ink/60">Subtotal</span>
+                  <span className="text-ink/60">Subtotal ({itemCount} item{itemCount !== 1 ? "s" : ""})</span>
                   <span>{formatPrice(subtotal.amount)}</span>
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-ink/60">Shipping</span>
-                  <span>{shippingFee === 0 ? <span className="text-[#053624]">Free</span> : formatPrice(shippingFee)}</span>
+                  <span className="text-[#053624]">To be confirmed</span>
                 </div>
-                {shippingFee > 0 && (
-                  <p className="text-[10px] text-ink/40">
-                    Free shipping on orders above {formatPrice(15000)}
-                  </p>
-                )}
                 <div className="flex justify-between font-medium border-t border-border pt-3">
-                  <span>Total (INR)</span>
+                  <span>Indicative Total</span>
                   <span className="font-serif text-lg">{formatPrice(totalAmount)}</span>
                 </div>
+                <p className="text-[10px] text-ink/40 leading-relaxed">
+                  Final price including shipping will be confirmed by our team via WhatsApp before payment.
+                </p>
               </div>
 
               {/* Trust signals */}
               <div className="mt-6 space-y-3 border-t border-border pt-6">
                 {[
-                  { icon: "🔐", text: "256-bit SSL encrypted checkout" },
-                  { icon: "📦", text: "Insured & tracked shipping" },
                   { icon: "📜", text: "Certificate of Authenticity included" },
+                  { icon: "💎", text: "IGI / GIA certified natural gemstones" },
+                  { icon: "🔐", text: "Secure WhatsApp-confirmed payment" },
                   { icon: "↩️", text: "7-day return policy" },
                 ].map((t) => (
                   <p key={t.text} className="text-[11px] text-ink/50 flex items-center gap-2">

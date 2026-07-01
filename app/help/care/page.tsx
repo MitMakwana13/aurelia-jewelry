@@ -15,7 +15,7 @@ export default function CarePage() {
             },
             {
               title: "Cleaning",
-              body: "Polish gently with a soft cloth. For a deeper clean, soak in warm water with a drop of unscented soap, then rinse and dry. Or stop by an Aurelia store for free professional cleaning.",
+              body: "Polish gently with a soft cloth. For a deeper clean, soak in warm water with a drop of unscented soap, then rinse and dry. Or contact our team for professional cleaning assistance.",
             },
             {
               title: "Storage",

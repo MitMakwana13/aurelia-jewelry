@@ -7,8 +7,6 @@ import { useUI } from "@/lib/store/ui-store";
 import { MegaMenu } from "./MegaMenu";
 import { SearchIcon, UserIcon, BagIcon, MenuIcon } from "@/components/ui/Icons";
 import { Logo } from "@/components/ui/Logo";
-import { LiveMetalPrices } from "@/components/ui/LiveMetalPrices";
-import { CurrencySelector } from "@/components/ui/CurrencySelector";
 
 export function Header() {
   const [hovered, setHovered] = useState<string | null>(null);
@@ -35,10 +33,7 @@ export function Header() {
       }`}
       onMouseLeave={() => setHovered(null)}
     >
-      {/* Live Market Price Ticker */}
-      <div className={`transition-all duration-500 overflow-hidden ${scrolled ? "h-0 opacity-0" : "h-auto opacity-100"}`}>
-        <LiveMetalPrices />
-      </div>
+
 
       {/* 3-column grid: left-nav | logo | right-actions */}
       <div className={`container-x grid grid-cols-3 items-center transition-all duration-500 ${scrolled ? "pt-2" : "pt-4"}`}>
@@ -95,10 +90,6 @@ export function Header() {
 
           {/* Icons */}
           <div className="flex items-center gap-4 transition-colors text-ink">
-            {/* Currency Selector — desktop only to avoid logo overlap on mobile */}
-            <div className="hidden lg:block">
-              <CurrencySelector />
-            </div>
 
             <button aria-label="Search" onClick={openSearch} className="hidden lg:inline-flex hover:opacity-60 transition">
               <SearchIcon />

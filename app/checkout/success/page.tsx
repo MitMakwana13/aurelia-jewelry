@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Order Confirmed | Radha Rani Heritage Collection",
-  description: "Your order has been placed successfully.",
+  title: "Inquiry Received | Radha Rani Gemstones",
+  description: "Your order inquiry has been received. Our team will follow up on WhatsApp.",
 };
 
 export default async function CheckoutSuccessPage({
@@ -26,29 +26,29 @@ export default async function CheckoutSuccessPage({
           </svg>
         </div>
 
-        <p className="eyebrow tracking-[0.3em] text-[#053624] mb-4">Order Confirmed</p>
+        <p className="eyebrow tracking-[0.3em] text-[#053624] mb-4">Inquiry Received</p>
         <h1 className="font-serif text-4xl md:text-5xl text-ink mb-4">
-          Thank you for your order
+          Thank you for your interest
         </h1>
         <p className="text-ink/60 leading-relaxed mb-8 max-w-sm mx-auto">
-          We have received your order and payment. Your piece is being prepared with utmost care.
+          We have received your order inquiry and will personally reach out on WhatsApp within 24 hours to confirm details and pricing.
         </p>
 
-        {/* Order Details */}
+        {/* Inquiry Details */}
         <div className="bg-white border border-border p-8 mb-8 text-left space-y-4">
           <div className="flex justify-between items-start">
             <div>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-ink/40 mb-1">Order Reference</p>
+              <p className="text-[10px] uppercase tracking-[0.2em] text-ink/40 mb-1">Inquiry Reference</p>
               <p className="font-serif text-2xl text-ink">#{shortId}</p>
             </div>
             <span className="text-[10px] uppercase tracking-[0.15em] border border-[#053624]/30 text-[#053624] px-3 py-1.5">
-              Confirmed
+              Received
             </span>
           </div>
 
           {email && (
             <div className="border-t border-border pt-4">
-              <p className="text-[10px] uppercase tracking-[0.2em] text-ink/40 mb-1">Confirmation sent to</p>
+              <p className="text-[10px] uppercase tracking-[0.2em] text-ink/40 mb-1">Submitted by</p>
               <p className="text-sm text-ink">{email}</p>
             </div>
           )}
@@ -58,10 +58,10 @@ export default async function CheckoutSuccessPage({
         <div className="text-left space-y-4 mb-10">
           <p className="text-[10px] uppercase tracking-[0.2em] text-ink/40">What happens next</p>
           {[
-            { icon: "📧", title: "Order Confirmation", body: "You'll receive an email with your order details within the next few minutes." },
-            { icon: "📦", title: "Packaging & Dispatch", body: "Your piece is carefully packaged and dispatched within 2–3 business days." },
-            { icon: "📲", title: "Tracking Updates", body: "WhatsApp tracking updates will be sent directly to your registered phone number." },
-            { icon: "💎", title: "Delivery", body: "Insured delivery within 5–7 business days. Signature required." },
+            { icon: "📲", title: "WhatsApp Follow-Up", body: "Our team will contact you within 24 hours to confirm gemstone availability and final pricing." },
+            { icon: "💰", title: "Payment Confirmation", body: "We'll share secure payment options (UPI, bank transfer, or cash) after confirming your selection." },
+            { icon: "💎", title: "Expert Verification", body: "Each stone is verified and re-certified before dispatch. Your certificate will accompany the parcel." },
+            { icon: "📦", title: "Insured Dispatch", body: "Your order is carefully packaged and shipped with full insurance and tracking within 2–3 business days." },
           ].map((item) => (
             <div key={item.title} className="flex items-start gap-4 border-t border-border pt-4">
               <span className="text-2xl flex-shrink-0 mt-0.5">{item.icon}</span>
@@ -76,7 +76,7 @@ export default async function CheckoutSuccessPage({
         {/* Actions */}
         <div className="space-y-3">
           <Link href="/shop/gemstones" className="block w-full bg-ink text-cream py-4 text-[11px] uppercase tracking-[0.25em] hover:bg-ink/90 transition">
-            Continue Shopping
+            Explore More Gemstones
           </Link>
           <Link href="/contact" className="block w-full border border-border py-4 text-[11px] uppercase tracking-[0.2em] hover:border-ink transition">
             Contact Us

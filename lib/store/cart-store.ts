@@ -65,7 +65,7 @@ export const useCart = create<CartState>()(
       closeDrawer: () => set({ isOpen: false }),
       toggleDrawer: () => set((s) => ({ isOpen: !s.isOpen })),
     }),
-    { name: "aurelia-cart" }
+    { name: "radharani-cart" }
   )
 );
 

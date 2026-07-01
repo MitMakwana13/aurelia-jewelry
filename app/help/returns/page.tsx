@@ -5,7 +5,7 @@ export default function ReturnsPage() {
 
       <div className="mt-10 space-y-8 text-sm leading-relaxed text-ink-soft">
         <p>
-          We want you to love every Aurelia piece. If something isn't right, you have
+          We want you to love every Radha Rani piece. If something isn't right, you have
           30 days from delivery to return or exchange it for free.
         </p>
 

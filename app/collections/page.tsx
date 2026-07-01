@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/plp/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Collections",
-  description: "Discover Aurelia's curated collections.",
+  description: "Discover Radha Rani's curated collections.",
 };
 
 export default async function CollectionsPage() {
@@ -17,7 +17,7 @@ export default async function CollectionsPage() {
       <h1 className="mt-6 font-serif text-4xl md:text-5xl">Collections</h1>
       <p className="mt-3 max-w-xl text-sm text-ink-soft">
         Each collection is built around an idea: an object, a material, a way of wearing.
-        Together, they tell the story of Aurelia.
+        Together, they tell the story of Radha Rani Gemstones.
       </p>
 
       <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">

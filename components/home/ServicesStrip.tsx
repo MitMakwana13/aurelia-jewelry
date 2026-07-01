@@ -2,39 +2,42 @@ import Link from "next/link";
 
 const services = [
   {
-    title: "Visit a Store",
-    body: "Try on, get fit, and meet our team in 14 cities across North America.",
+    title: "Vedic Consultation",
+    body: "Get expert astrology-based guidance to discover the gemstone that aligns with your cosmic energy.",
     image: "https://images.unsplash.com/photo-1559563458-527698bf5295?auto=format&fit=crop&w=900&q=80",
-    cta: "Find a Store",
-    href: "/stores",
+    cta: "Book Consultation",
+    href: "/custom",
   },
   {
-    title: "Professional Piercing",
-    body: "Expert piercers, sterile needles, and a full ear of fine jewelry to choose from.",
+    title: "100% Certified Stones",
+    body: "Complete transparency and peace of mind with trusted lab certifications such as IGI and GIA.",
     image: "https://images.unsplash.com/photo-1535556116002-6281ff3e9f36?auto=format&fit=crop&w=900&q=80",
-    cta: "Book Now",
-    href: "/stores",
+    cta: "Verify Certification",
+    href: "/help/gem-certification",
   },
   {
-    title: "Free Cleaning",
-    body: "Bring your pieces back to life. Complimentary cleaning at every Aurelia location.",
+    title: "Bespoke Jewelry",
+    body: "Work directly with our master craftsmen to create custom rings, pendants, and jewelry designs.",
     image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=900&q=80",
-    cta: "Learn More",
-    href: "/stores",
+    cta: "Start Designing",
+    href: "/custom",
   },
 ];
 
 export function ServicesStrip() {
   return (
     <section className="container-x py-20">
-      <h2 className="font-serif text-3xl md:text-4xl">Stores & Services</h2>
-      <div className="mt-10 grid gap-6 md:grid-cols-3">
+      <h2 className="font-serif text-3xl md:text-4xl text-center mb-2">Our Services</h2>
+      <p className="text-ink-soft text-sm text-center max-w-lg mx-auto mb-12">
+        Rooted in trust, craftsmanship, and personal guidance, we create jewelry that truly belongs to you.
+      </p>
+      <div className="grid gap-6 md:grid-cols-3">
         {services.map((s) => (
           <Link key={s.title} href={s.href} className="group block">
             <div className="aspect-[4/3] overflow-hidden bg-cream-warm">
               <img
                 src={s.image}
-                alt=""
+                alt={s.title}
                 className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                 loading="lazy"
               />

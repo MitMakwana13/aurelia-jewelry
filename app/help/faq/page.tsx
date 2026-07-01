@@ -6,7 +6,7 @@ import { ChevronDownIcon } from "@/components/ui/Icons";
 const faqs = [
   {
     q: "How do I know my ring size?",
-    a: "We recommend visiting an Aurelia store for a complimentary fitting. If you can't make it in, our Ring Sizing Guide includes a printable measuring tool, plus instructions for measuring an existing ring you already own.",
+    a: "We recommend referring to our Ring Sizing Guide or contacting our support team for a complimentary virtual fitting. The guide includes a printable measuring tool, plus instructions for measuring an existing ring you already own.",
   },
   {
     q: "What's the difference between solid gold and gold vermeil?",
@@ -30,7 +30,7 @@ const faqs = [
   },
   {
     q: "Is my purchase covered by a warranty?",
-    a: "Every Aurelia piece comes with a lifetime warranty against manufacturing defects. We also offer free cleaning and minor repairs at any of our retail locations.",
+    a: "Every Radha Rani piece comes with a lifetime warranty against manufacturing defects. We also offer free cleaning and minor repairs at our locations.",
   },
 ];
 

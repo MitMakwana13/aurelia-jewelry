@@ -3,8 +3,8 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/plp/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Our Story",
-  description: "The story behind Aurelia: fine jewelry, made differently.",
+  title: "Our Story | Radha Rani Gemstones",
+  description: "The story behind Radha Rani Gemstones: natural certified gemstones & custom jewelry.",
 };
 
 export default function AboutPage() {
@@ -13,7 +13,7 @@ export default function AboutPage() {
       <section className="relative aspect-[16/8] w-full bg-cream-warm">
         <img
           src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=1800&q=85"
-          alt=""
+          alt="Radha Rani Gemstones Craftsmanship"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-ink/30" />
@@ -21,7 +21,7 @@ export default function AboutPage() {
           <div className="max-w-2xl">
             <p className="eyebrow text-cream/80">Our Story</p>
             <h1 className="mt-2 font-serif text-5xl md:text-7xl leading-[1.05]">
-              Fine jewelry,<br /> made differently.
+              Natural Gemstones,<br /> Crafted with Care.
             </h1>
           </div>
         </div>
@@ -32,66 +32,63 @@ export default function AboutPage() {
 
         <div className="mt-12 grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <p className="eyebrow">Founded 2015</p>
+            <p className="eyebrow">Trust & Transparency</p>
             <h2 className="mt-3 font-serif text-3xl md:text-4xl leading-tight">
-              We believe fine jewelry should be worn, not saved for special occasions.
+              Astrology-based guidance and authentic natural gemstones.
             </h2>
           </div>
           <div className="lg:col-span-7 space-y-6 text-base leading-relaxed text-ink-soft">
             <p>
-              Aurelia began with a simple frustration: traditional fine jewelry was too expensive,
-              too occasional, and too often tied to outdated rituals. We set out to make pieces
-              women buy for themselves for everyday, for joy, for the way they want to live now.
+              At Radha Rani Gemstones, we believe that every gemstone and every piece of jewelry carries a personal meaning.
             </p>
             <p>
-              That meant rethinking the supply chain. We work directly with our makers, removing
-              middlemen, and pricing pieces at a fair multiple over cost. It also meant rethinking
-              materials: solid 14k gold, recycled silver, ethically sourced stones, and full
-              traceability, published openly in our annual Impact Report.
+              We offer natural, certified gemstones along with astrology-based guidance to help individuals find the gemstone that best suits their needs. Every gemstone is accompanied by trusted certifications such as IGI and GIA, ensuring authenticity and transparency.
             </p>
             <p>
-              A decade in, Aurelia is worn by millions, available in 14 stores across North America
-              and the UK, and still run by the same small team that started it.
+              Along with gemstones, we also create custom jewelry in gold, silver, and other precious metals. Whether you have a design in mind or wish to create something unique, each piece is crafted with care and attention to detail.
+            </p>
+            <p>
+              Rooted in trust, craftsmanship, and personal guidance, our work is centered around creating jewelry that truly belongs to you.
             </p>
           </div>
         </div>
 
         <div className="mt-24 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { stat: "10", label: "Years of craft" },
-            { stat: "14", label: "Stores worldwide" },
-            { stat: "1.2M+", label: "Customers" },
-            { stat: "100%", label: "Recycled metals" },
+            { stat: "100%", label: "Natural Certified Stones" },
+            { stat: "IGI / GIA", label: "Trusted Labs" },
+            { stat: "Astrology", label: "Expert Guidance" },
+            { stat: "Customized", label: "Metal Crafting" },
           ].map((s) => (
             <div key={s.label} className="border-t border-border pt-6">
-              <p className="font-serif text-5xl">{s.stat}</p>
+              <p className="font-serif text-3.5xl md:text-4xl">{s.stat}</p>
               <p className="mt-2 text-xs uppercase tracking-[0.18em] text-ink-muted">{s.label}</p>
             </div>
           ))}
         </div>
 
         <div className="mt-24 grid gap-8 lg:grid-cols-2">
-          <Link href="/sustainability" className="group block">
+          <Link href="/shop/gemstones" className="group block">
             <div className="aspect-[4/3] overflow-hidden bg-cream-warm">
               <img
                 src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1200&q=80"
-                alt=""
+                alt="Navratna Gemstones Collection"
                 className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
               />
             </div>
-            <h3 className="mt-5 font-serif text-2xl">Sustainability</h3>
-            <p className="mt-2 text-sm text-ink-soft">Read the 2026 Impact Report.</p>
+            <h3 className="mt-5 font-serif text-2xl">Explore Gemstones</h3>
+            <p className="mt-2 text-sm text-ink-soft">View our natural certified Navratna catalog.</p>
           </Link>
-          <Link href="/stores" className="group block">
+          <Link href="/custom" className="group block">
             <div className="aspect-[4/3] overflow-hidden bg-cream-warm">
               <img
                 src="https://images.unsplash.com/photo-1559563458-527698bf5295?auto=format&fit=crop&w=1200&q=80"
-                alt=""
+                alt="Bespoke Jewelry Customization"
                 className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
               />
             </div>
-            <h3 className="mt-5 font-serif text-2xl">Visit Us</h3>
-            <p className="mt-2 text-sm text-ink-soft">Find an Aurelia store near you.</p>
+            <h3 className="mt-5 font-serif text-2xl">Bespoke Jewelry</h3>
+            <p className="mt-2 text-sm text-ink-soft">Book a personalization consultation.</p>
           </Link>
         </div>
       </div>

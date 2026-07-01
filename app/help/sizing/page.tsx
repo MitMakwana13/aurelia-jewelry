@@ -8,8 +8,8 @@ export default function SizingPage() {
           <section>
             <h2 className="font-serif text-2xl text-ink">Visit a Store</h2>
             <p className="mt-3">
-              The most accurate way to find your size is in person. Walk into any Aurelia
-              store for a complimentary professional fitting, no appointment needed.
+              The most accurate way to find your size is in person. Walk into our
+              store or contact us for a complimentary professional fitting.
             </p>
           </section>
 
