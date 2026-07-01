@@ -164,7 +164,7 @@ export default async function CategoryPage({
             <FilterSidebar category={category} />
           </div>
           <div className="lg:col-span-9">
-            <ProductGrid products={products} />
+            <ProductGrid products={products} category={category} />
           </div>
         </div>
       </div>

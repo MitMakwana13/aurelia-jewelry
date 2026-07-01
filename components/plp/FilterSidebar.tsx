@@ -21,10 +21,10 @@ const GEMSTONE_TYPES = [
 const JEWELRY_TAGS = ["stacker", "hoops", "chain", "pendant", "diamond", "birthstone"];
 
 const PRICES = [
-  { label: "Under ₹5,00,000", min: 0, max: 500000 },
-  { label: "₹5L – ₹15L", min: 500000, max: 1500000 },
-  { label: "₹15L – ₹50L", min: 1500000, max: 5000000 },
-  { label: "₹50L+", min: 5000000, max: 999999999 },
+  { label: "Under ₹5,000", min: 0, max: 5000 },
+  { label: "₹5,000 – ₹15,000", min: 5000, max: 15000 },
+  { label: "₹15,000 – ₹50,000", min: 15000, max: 50000 },
+  { label: "₹50,000+", min: 50000, max: 999999999 },
 ];
 
 export function FilterSidebar({ category }: { category?: string }) {

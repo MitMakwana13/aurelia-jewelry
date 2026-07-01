@@ -56,7 +56,12 @@ export const prismaAdapter: CommerceAdapter = {
         } else if (opts.category === "gemstones") {
           where.OR = [
             { categorySlug: "gemstones" },
-            { tags: { hasSome: ["gemstone", "birthstone", "pearl"] } },
+            { tags: { hasSome: [
+              "gemstone", "navratna", "birthstone",
+              "ruby", "pearl", "red-coral", "emerald",
+              "yellow-sapphire", "diamond-gem", "blue-sapphire",
+              "hessonite", "cats-eye"
+            ] } },
             { gemstoneDetail: { isNot: null } }
           ];
         } else if (opts.category === "diamonds") {
