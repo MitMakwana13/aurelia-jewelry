@@ -3,6 +3,20 @@ import { prisma } from "@/lib/prisma";
 import bcrypt from "bcryptjs";
 import type { NextAuthOptions } from "next-auth";
 
+if (!process.env.NEXTAUTH_URL) {
+  if (process.env.VERCEL_URL) {
+    process.env.NEXTAUTH_URL = `https://${process.env.VERCEL_URL}`;
+  } else if (process.env.NEXT_PUBLIC_SITE_URL) {
+    process.env.NEXTAUTH_URL = process.env.NEXT_PUBLIC_SITE_URL;
+  } else {
+    process.env.NEXTAUTH_URL = "http://localhost:3000";
+  }
+}
+
+if (!process.env.NEXTAUTH_SECRET) {
+  process.env.NEXTAUTH_SECRET = "a7419e3e13dff83bddc29424cb652782dfdc86d0f9e719bb65ab3dbab7eee3e0";
+}
+
 export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
@@ -57,5 +71,5 @@ export const authOptions: NextAuthOptions = {
   pages: {
     signIn: "/account",
   },
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET || "a7419e3e13dff83bddc29424cb652782dfdc86d0f9e719bb65ab3dbab7eee3e0",
 };
