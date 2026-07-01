@@ -5,6 +5,11 @@ import bcrypt from "bcryptjs";
 const prisma = new PrismaClient();
 
 async function main() {
+  // Clear existing product data
+  console.log("Cleaning database...");
+  await prisma.variant.deleteMany();
+  await prisma.product.deleteMany();
+
   // Create an admin user
   const hashedPassword = await bcrypt.hash("admin123", 10);
   await prisma.user.upsert({
@@ -19,12 +24,8 @@ async function main() {
 
   // Seed products
   for (const prod of products) {
-    const existing = await prisma.product.findUnique({
-      where: { handle: prod.handle },
-    });
-
-    if (!existing) {
-      await prisma.product.create({
+    console.log(`Seeding product: ${prod.title}`);
+    await prisma.product.create({
         data: {
           handle: prod.handle,
           title: prod.title,
@@ -53,7 +54,6 @@ async function main() {
           },
         },
       });
-    }
   }
 
   console.log("Seeding finished.");

@@ -32,7 +32,9 @@ export default async function ShopPage({
           <h1 className="font-serif text-4xl md:text-5xl">All Jewelry</h1>
           <p className="mt-2 text-sm text-ink-muted">{products.length} pieces</p>
         </div>
-        <SortDropdown />
+        <div className="hidden lg:block">
+          <SortDropdown />
+        </div>
       </div>
 
       <div className="mt-10 grid gap-10 lg:grid-cols-12">

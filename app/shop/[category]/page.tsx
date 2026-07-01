@@ -156,7 +156,9 @@ export default async function CategoryPage({
             )}
             <p className="text-sm text-ink-muted">{products.length} pieces</p>
           </div>
-          <SortDropdown />
+          <div className="hidden lg:block">
+            <SortDropdown />
+          </div>
         </div>
 
         <div className="mt-10 grid gap-10 lg:grid-cols-12">
