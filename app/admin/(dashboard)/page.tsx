@@ -49,32 +49,32 @@ export default async function AdminDashboard() {
 
   return (
     <div>
-      <div className="mb-8 flex items-center justify-between">
+      <div className="mb-8 flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center">
         <div>
           <h1 className="font-serif text-3xl text-ink">Dashboard</h1>
           <p className="mt-1 text-sm text-ink/50">
             {new Date().toLocaleDateString("en-IN", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}
           </p>
         </div>
-        <div className="flex gap-3">
-          <Link href="/admin/inquiries/new" className="text-sm border border-ink/20 px-4 py-2 hover:border-ink transition">
+        <div className="flex gap-3 w-full sm:w-auto">
+          <Link href="/admin/inquiries/new" className="flex-1 sm:flex-initial text-center text-sm border border-ink/20 px-4 py-2 hover:border-ink transition">
             + New Inquiry
           </Link>
-          <Link href="/admin/products/new" className="text-sm bg-ink text-white px-4 py-2 hover:bg-ink/80 transition">
+          <Link href="/admin/products/new" className="flex-1 sm:flex-initial text-center text-sm bg-ink text-white px-4 py-2 hover:bg-ink/80 transition">
             + Add Product
           </Link>
         </div>
       </div>
 
       {/* KPI Cards */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mb-10">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 mb-10">
         {kpis.map((k) => (
-          <div key={k.label} className={`bg-white border p-6 rounded-sm ${k.urgent ? "border-red-200 shadow-sm shadow-red-100" : "border-ink/8"}`}>
-            <div className={`inline-flex items-center justify-center w-10 h-10 rounded-full text-lg mb-4 ${k.bg} ${k.color}`}>
+          <div key={k.label} className={`bg-white border p-4 lg:p-6 rounded-sm ${k.urgent ? "border-red-200 shadow-sm shadow-red-100" : "border-ink/8"}`}>
+            <div className={`inline-flex items-center justify-center w-10 h-10 rounded-full text-lg mb-3 lg:mb-4 ${k.bg} ${k.color}`}>
               {k.icon}
             </div>
-            <p className="text-3xl font-semibold text-ink">{k.value}</p>
-            <p className="text-xs text-ink/50 mt-1 uppercase tracking-[0.14em]">{k.label}</p>
+            <p className="text-2xl lg:text-3xl font-semibold text-ink">{k.value}</p>
+            <p className="text-[10px] text-ink/50 mt-1 uppercase tracking-[0.14em] truncate">{k.label}</p>
             {k.urgent && <p className="text-[10px] text-red-500 mt-1">Needs attention</p>}
           </div>
         ))}
@@ -83,17 +83,19 @@ export default async function AdminDashboard() {
       {/* Status Pipeline */}
       <div className="mb-10">
         <h2 className="font-serif text-lg text-ink mb-4">Inquiry Pipeline</h2>
-        <div className="grid grid-cols-5 gap-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
           {statuses.map((s, i) => (
             <Link
               key={s}
               href={`/admin/inquiries?status=${s}`}
-              className="bg-white border border-ink/8 p-4 rounded-sm text-center hover:border-ink/30 transition group"
+              className="bg-white border border-ink/8 p-4 rounded-sm text-center hover:border-ink/30 transition group flex flex-col justify-between"
             >
-              <p className="text-2xl font-semibold text-ink group-hover:text-gold-dark transition">{statusCounts[i]}</p>
-              <p className="text-[9px] uppercase tracking-wider text-ink/40 mt-1">{s.replace("_", " ")}</p>
+              <div>
+                <p className="text-2xl font-semibold text-ink group-hover:text-gold-dark transition">{statusCounts[i]}</p>
+                <p className="text-[9px] uppercase tracking-wider text-ink/40 mt-1">{s.replace("_", " ")}</p>
+              </div>
               {i < statuses.length - 1 && (
-                <p className="text-ink/20 text-xs mt-2">→</p>
+                <p className="hidden lg:block text-ink/20 text-xs mt-2">→</p>
               )}
             </Link>
           ))}

@@ -10,12 +10,12 @@ export default async function AdminProductsPage() {
 
   return (
     <div>
-      <div className="mb-8 flex items-center justify-between">
+      <div className="mb-8 flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center">
         <div>
           <h1 className="font-serif text-3xl text-ink">Products</h1>
           <p className="mt-1 text-sm text-ink/50">{products.length} products in catalog</p>
         </div>
-        <Link href="/admin/products/new" className="btn-primary">
+        <Link href="/admin/products/new" className="btn-primary text-center w-full sm:w-auto">
           + Add Product
         </Link>
       </div>

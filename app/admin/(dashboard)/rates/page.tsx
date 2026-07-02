@@ -37,7 +37,7 @@ export default async function RatesPage() {
       {/* Exchange Rates Current */}
       <div className="mb-10 bg-white border border-ink/8 p-6 rounded-sm">
         <h2 className="font-serif text-lg text-ink mb-4">Current Exchange Rates</h2>
-        <div className="grid grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
           {exchangeRates.map((r) => (
             <div key={r.currencyCode} className="text-center p-3 bg-cream-warm rounded-sm">
               <p className="text-[10px] uppercase tracking-wider text-ink/40">{r.currencyCode}</p>

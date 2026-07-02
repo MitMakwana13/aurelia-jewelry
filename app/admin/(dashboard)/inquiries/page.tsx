@@ -53,7 +53,7 @@ export default async function InquiriesPage({
 
   return (
     <div>
-      <div className="mb-8 flex items-center justify-between">
+      <div className="mb-8 flex flex-col sm:flex-row gap-4 justify-between items-start sm:items-center">
         <div>
           <h1 className="font-serif text-3xl text-ink">Inquiries</h1>
           <p className="mt-1 text-sm text-ink/50">
@@ -62,7 +62,7 @@ export default async function InquiriesPage({
         </div>
         <a
           href="/api/admin/inquiries/export"
-          className="btn-primary text-sm py-2.5 px-5"
+          className="btn-primary text-sm py-2.5 px-5 text-center w-full sm:w-auto"
         >
           Export CSV
         </a>
