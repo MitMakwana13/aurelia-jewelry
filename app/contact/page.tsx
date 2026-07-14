@@ -92,24 +92,7 @@ export default function ContactPage() {
               </div>
             </a>
 
-            {/* Address */}
-            <div className="flex items-start gap-6 border border-border p-6">
-              <div className="mt-1 text-ink/50">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-                  <path d="M12 2C8.134 2 5 5.134 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.866-3.134-7-7-7z" />
-                  <circle cx="12" cy="9" r="2.5" />
-                </svg>
-              </div>
-              <div>
-                <p className="text-[10px] uppercase tracking-[0.2em] text-ink/40 mb-1">Boutique Address</p>
-                <p className="font-serif text-xl text-ink mb-1">Radha Rani Heritage Collection</p>
-                <p className="text-sm text-ink/60 leading-relaxed">
-                  123 Gems Lane, Surat<br />
-                  Gujarat 395003, India<br />
-                  <span className="mt-1 block">Mon – Sat · 10 AM – 7 PM IST</span>
-                </p>
-              </div>
-            </div>
+
           </div>
 
           {/* Inquiry Form */}
