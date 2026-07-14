@@ -147,7 +147,7 @@ export default function AccountPage() {
               {loading ? "Signing in…" : "Sign In"}
             </button>
 
-            <Link href="#" className="block text-center text-xs text-ink/40 hover:text-ink underline underline-offset-4">
+            <Link href="/account/forgot-password" className="block text-center text-xs text-ink/40 hover:text-ink underline underline-offset-4 transition-colors">
               Forgot your password?
             </Link>
           </form>

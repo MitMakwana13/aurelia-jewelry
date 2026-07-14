@@ -206,3 +206,11 @@ model AnalyticsEvent {
   createdAt DateTime @default(now())
   product   Product? @relation(fields: [productId], references: [id])
 }
+
+model PasswordResetToken {
+  id        String   @id @default(uuid())
+  email     String
+  token     String   @unique
+  expires   DateTime
+  createdAt DateTime @default(now())
+}
