@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
+import { ArrowLeftIcon, ArrowRightIcon } from "@/components/ui/Icons";
 
 const navratnaStones = [
   { energy: "Sun", english: "Ruby", sanskrit: "Manik", url: "/gemstones/ruby-new.jpg", slug: "ruby" },
@@ -19,7 +20,16 @@ const navratnaStones = [
 
 export function NavratnaCollection() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const scroller = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-10%" });
+
+  const scrollBy = (dir: 1 | -1) => {
+    const el = scroller.current;
+    if (!el) return;
+    const card = el.querySelector("[data-card]") as HTMLElement | null;
+    const step = card ? card.offsetWidth + 24 : el.clientWidth * 0.6; // 24 is gap-6 (1.5rem)
+    el.scrollBy({ left: step * dir, behavior: "smooth" });
+  };
 
   return (
     <section ref={sectionRef} className="py-24 lg:py-32 bg-white">
@@ -51,10 +61,11 @@ export function NavratnaCollection() {
       </div>
 
       <div className="container-x overflow-hidden">
-        <div className="hide-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto pb-12">
+        <div ref={scroller} className="hide-scrollbar flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4">
           {navratnaStones.map((stone, i) => (
             <motion.div
               key={stone.energy}
+              data-card
               initial={{ opacity: 0, x: 20 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.1 * i }}
@@ -87,6 +98,27 @@ export function NavratnaCollection() {
               </Link>
             </motion.div>
           ))}
+        </div>
+
+        {/* Carousel Navigation Buttons */}
+        <div className="flex items-center justify-end gap-4 mt-8">
+          <Link href="/shop/gemstones" className="hidden md:inline-block text-[10px] uppercase tracking-[0.25em] link-underline mr-2">
+            View All
+          </Link>
+          <button
+            onClick={() => scrollBy(-1)}
+            aria-label="Scroll left"
+            className="border border-ink/20 p-3 hover:bg-[#053624] hover:text-cream hover:border-[#053624] transition-colors duration-300 rounded-full"
+          >
+            <ArrowLeftIcon width={16} height={16} />
+          </button>
+          <button
+            onClick={() => scrollBy(1)}
+            aria-label="Scroll right"
+            className="border border-ink/20 p-3 hover:bg-[#053624] hover:text-cream hover:border-[#053624] transition-colors duration-300 rounded-full"
+          >
+            <ArrowRightIcon width={16} height={16} />
+          </button>
         </div>
       </div>
     </section>

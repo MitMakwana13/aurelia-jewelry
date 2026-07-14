@@ -35,7 +35,7 @@ async function main() {
   // Site settings
   const settings = [
     { key: "contact_phone", value: "+91 98765 43210", label: "Contact Phone", category: "contact" },
-    { key: "contact_email", value: "hello@radharanigemstone.com", label: "Contact Email", category: "contact" },
+    { key: "contact_email", value: "radharanigemstone@gmail.com", label: "Contact Email", category: "contact" },
     { key: "whatsapp_number", value: "+919876543210", label: "WhatsApp Number", category: "contact" },
     { key: "boutique_address", value: "123 Gems Lane, Surat, Gujarat 395003, India", label: "Boutique Address", category: "contact" },
     { key: "business_hours", value: "Mon–Sat, 10 AM – 7 PM IST", label: "Business Hours", category: "contact" },

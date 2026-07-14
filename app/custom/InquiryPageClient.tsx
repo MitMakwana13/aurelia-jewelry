@@ -190,7 +190,7 @@ export function InquiryPageClient() {
                 </div>
                 <div>
                   <p className="text-[10px] uppercase tracking-[0.2em] text-ink/40 mb-1">Email</p>
-                  <a href="mailto:info@radharanigemstone.com" className="text-lg hover:text-gold-dark transition">info@radharanigemstone.com</a>
+                  <a href="mailto:radharanigemstone@gmail.com" className="text-lg hover:text-gold-dark transition">radharanigemstone@gmail.com</a>
                 </div>
                 <div className="pt-4 border-t border-gold/20">
                   <p className="text-[10px] uppercase tracking-[0.2em] text-ink/40 mb-1">Boutique Hours</p>

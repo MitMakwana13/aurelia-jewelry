@@ -76,7 +76,7 @@ export default function ContactPage() {
 
             {/* Email */}
             <a
-              href="mailto:hello@radharanigemstone.com"
+              href="mailto:radharanigemstone@gmail.com"
               className="group flex items-start gap-6 border border-border p-6 hover:border-ink/40 transition-colors"
             >
               <div className="mt-1 text-ink/50">
@@ -87,7 +87,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <p className="text-[10px] uppercase tracking-[0.2em] text-ink/40 mb-1">Email</p>
-                <p className="font-serif text-xl text-ink mb-1">hello@radharanigemstone.com</p>
+                <p className="font-serif text-xl text-ink mb-1">radharanigemstone@gmail.com</p>
                 <p className="text-sm text-ink/60">We respond within 24 business hours</p>
               </div>
             </a>

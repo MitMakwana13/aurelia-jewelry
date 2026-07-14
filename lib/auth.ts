@@ -39,8 +39,10 @@ export const authOptions: NextAuthOptions = {
         const isValid = await bcrypt.compare(credentials.password, user.password);
         if (!isValid) return null;
 
-        // Admin routes: only allow ADMIN role
-        if (credentials.adminOnly === "true" && user.role !== "ADMIN") return null;
+        // Admin routes: only allow ADMIN role and official email
+        if (credentials.adminOnly === "true") {
+          if (user.role !== "ADMIN" || user.email !== "radharanigemstone@gmail.com") return null;
+        }
 
         return {
           id: user.id,

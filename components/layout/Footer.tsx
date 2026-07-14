@@ -83,14 +83,10 @@ export function Footer() {
         {/* Deep Footer */}
         <div className="mt-24 flex flex-col items-start justify-between gap-8 border-t border-cream/10 pt-8 md:flex-row md:items-center">
           <div className="flex items-center gap-6 text-cream/50">
-            <a href="#" aria-label="Instagram" className="hover:text-cream transition-colors"><InstagramIcon width={16} height={16} /></a>
-            <a href="#" aria-label="Pinterest" className="hover:text-cream transition-colors"><PinterestIcon width={16} height={16} /></a>
+            <a href="https://www.instagram.com/radharanigemstone?igsh=MWNscnBqN21tNXRoag==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-cream transition-colors"><InstagramIcon width={16} height={16} /></a>
           </div>
           <div className="flex flex-wrap items-center gap-x-8 gap-y-4 text-[9px] uppercase tracking-[0.2em] text-cream/40">
-            <Link href="/help/faq" className="hover:text-cream transition-colors">Privacy</Link>
-            <Link href="/help/faq" className="hover:text-cream transition-colors">Terms</Link>
-            <Link href="/help/faq" className="hover:text-cream transition-colors">Accessibility</Link>
-            <span>© {new Date().getFullYear()} RADHA RANI HERITAGE COLLECTION</span>
+            <span>{new Date().getFullYear()} RADHA RANI HERITAGE COLLECTION</span>
           </div>
         </div>
       </div>

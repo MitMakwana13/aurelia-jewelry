@@ -160,14 +160,6 @@ export const footerNav = {
       { label: "Our Story", href: "/about" },
       { label: "Sustainability", href: "/sustainability" },
       { label: "Craftsmanship", href: "/about" },
-      { label: "Careers", href: "/about" },
-    ],
-  },
-  membership: {
-    heading: "Membership",
-    links: [
-      { label: "Join the Circle", href: "/account" },
-      { label: "Member Benefits", href: "/account" },
     ],
   },
 };

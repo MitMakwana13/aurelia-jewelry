@@ -22,20 +22,6 @@ const labs = [
     stones: ["Diamonds", "Lab-Grown Diamonds", "Colored Stones"],
     link: "https://www.igi.org",
   },
-  {
-    name: "GRS",
-    full: "GemResearch Swisslab",
-    description: "A leading Swiss laboratory specializing in colored gemstones — particularly origin determination (Burma ruby, Kashmir sapphire, Colombian emerald) and treatment detection.",
-    stones: ["Rubies", "Sapphires", "Emeralds", "Spinels"],
-    link: "https://www.gemresearch.ch",
-  },
-  {
-    name: "Gübelin",
-    full: "Gübelin Gem Lab",
-    description: "The most prestigious lab for unheated, untreated stone certification. A Gübelin report on a Kashmir sapphire or Burma ruby carries the highest premium worldwide.",
-    stones: ["Sapphires", "Rubies", "Alexandrite"],
-    link: "https://www.gubelinggemlab.ch",
-  },
 ];
 
 const whatWeProvide = [
@@ -140,7 +126,7 @@ export default function GemCertificationPage() {
             {[
               {
                 q: "Do all your gemstones come with certificates?",
-                a: "Our Radha Rani Certificate of Authenticity is included with every purchase. Third-party lab reports (GIA/IGI/GRS) are included for stones above ₹1,00,000 and are available on request for other stones.",
+                a: "Our Radha Rani Certificate of Authenticity is included with every purchase. Third-party lab reports (GIA/IGI) are included for stones above ₹1,00,000 and are available on request for other stones.",
               },
               {
                 q: "What does 'unheated' or 'untreated' mean?",
@@ -148,7 +134,7 @@ export default function GemCertificationPage() {
               },
               {
                 q: "Can I request a specific lab report?",
-                a: "Yes. If you require a specific laboratory certification (e.g., GIA for a diamond, or GRS for a ruby), please mention it during your inquiry and we will arrange it. Additional fees may apply.",
+                a: "Yes. If you require a specific laboratory certification (e.g., GIA for a diamond, or IGI for a ruby), please mention it during your inquiry and we will arrange it. Additional fees may apply.",
               },
               {
                 q: "How do I verify the authenticity of my certificate?",
