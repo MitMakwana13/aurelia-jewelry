@@ -15,22 +15,24 @@ const links = [
 export default function HelpLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="container-x py-12">
-      <div className="grid gap-12 lg:grid-cols-12">
-        <aside className="lg:col-span-3">
-          <p className="font-serif text-2xl hidden lg:block">Help Center</p>
-          <nav className="lg:mt-6 -mx-5 px-5 lg:mx-0 lg:px-0">
-            <ul className="flex overflow-x-auto gap-6 pb-4 lg:pb-0 lg:flex-col lg:gap-0 lg:space-y-2 hide-scrollbar">
-              {links.map((l) => (
-                <li key={l.href} className="shrink-0">
-                  <Link href={l.href} className="text-sm text-ink/70 hover:text-ink hover:underline underline-offset-2 whitespace-nowrap">
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+      <div className="flex flex-col lg:grid lg:grid-cols-12 gap-12">
+        <aside className="order-2 lg:order-1 lg:col-span-3">
+          <div className="border-t border-border pt-12 lg:border-t-0 lg:pt-0">
+            <p className="font-serif text-2xl mb-6">Help Center</p>
+            <nav>
+              <ul className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:flex lg:flex-col lg:gap-0 lg:space-y-3">
+                {links.map((l) => (
+                  <li key={l.href}>
+                    <Link href={l.href} className="text-sm text-ink/70 hover:text-ink hover:underline underline-offset-2">
+                      {l.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
         </aside>
-        <div className="lg:col-span-9">{children}</div>
+        <div className="order-1 lg:order-2 lg:col-span-9">{children}</div>
       </div>
     </div>
   );
