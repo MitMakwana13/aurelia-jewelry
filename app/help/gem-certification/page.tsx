@@ -40,9 +40,9 @@ const whatWeProvide = [
 export default function GemCertificationPage() {
   return (
     <>
-      <section className="relative min-h-[320px] md:min-h-0 md:aspect-[16/6] w-full bg-ink overflow-hidden">
+      <section className="relative w-full bg-ink overflow-hidden md:aspect-[16/6] rounded-sm">
         <div className="absolute inset-0 bg-gradient-to-br from-[#053624]/70 to-ink" />
-        <div className="container-x relative flex h-full items-center">
+        <div className="relative flex flex-col justify-center h-full px-8 py-12 md:py-16 md:px-12 lg:px-16">
           <div className="text-cream max-w-2xl">
             <p className="eyebrow text-cream/60 tracking-[0.3em] mb-4">Transparency & Trust</p>
             <h1 className="font-serif text-5xl md:text-7xl font-light leading-tight">
