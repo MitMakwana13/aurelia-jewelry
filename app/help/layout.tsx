@@ -7,6 +7,9 @@ const links = [
   { label: "Care Guide", href: "/help/care" },
   { label: "Gem Guide", href: "/help/gem-guide" },
   { label: "Gem Certification", href: "/help/gem-certification" },
+  { label: "Privacy Policy", href: "/help/privacy" },
+  { label: "Terms of Service", href: "/help/terms" },
+  { label: "Accessibility", href: "/help/accessibility" },
 ];
 
 export default function HelpLayout({ children }: { children: React.ReactNode }) {
