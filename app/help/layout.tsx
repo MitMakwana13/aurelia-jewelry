@@ -17,12 +17,12 @@ export default function HelpLayout({ children }: { children: React.ReactNode }) 
     <div className="container-x py-12">
       <div className="grid gap-12 lg:grid-cols-12">
         <aside className="lg:col-span-3">
-          <p className="font-serif text-2xl">Help Center</p>
-          <nav className="mt-6">
-            <ul className="space-y-2">
+          <p className="font-serif text-2xl hidden lg:block">Help Center</p>
+          <nav className="lg:mt-6 -mx-5 px-5 lg:mx-0 lg:px-0">
+            <ul className="flex overflow-x-auto gap-6 pb-4 lg:pb-0 lg:flex-col lg:gap-0 lg:space-y-2 hide-scrollbar">
               {links.map((l) => (
-                <li key={l.href}>
-                  <Link href={l.href} className="text-sm hover:underline underline-offset-2">
+                <li key={l.href} className="shrink-0">
+                  <Link href={l.href} className="text-sm text-ink/70 hover:text-ink hover:underline underline-offset-2 whitespace-nowrap">
                     {l.label}
                   </Link>
                 </li>

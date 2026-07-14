@@ -62,7 +62,7 @@ const qualityFactors = [
 export default function GemGuidePage() {
   return (
     <>
-      <section className="relative aspect-[16/6] w-full bg-ink overflow-hidden">
+      <section className="relative min-h-[320px] md:min-h-0 md:aspect-[16/6] w-full bg-ink overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#053624]/70 via-ink/80 to-ink" />
         <div className="container-x relative flex h-full items-center">
           <div className="text-cream max-w-2xl">
