@@ -24,8 +24,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   useEffect(() => {
     if (status === "unauthenticated") {
       router.push("/admin/login");
+    } else if (status === "authenticated") {
+      const userRole = (session?.user as any)?.role;
+      if (userRole !== "ADMIN") {
+        router.push("/");
+      }
     }
-  }, [status, router]);
+  }, [status, session, router]);
 
   // Close sidebar on pathname change
   useEffect(() => {

@@ -20,6 +20,7 @@ export default function AdminLoginPage() {
     const result = await signIn("credentials", {
       email,
       password,
+      adminOnly: "true",
       redirect: false,
     });
 
