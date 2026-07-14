@@ -1,11 +1,11 @@
 import { Hero } from "@/components/home/Hero";
 import { CategoryGrid } from "@/components/home/CategoryGrid";
-import { TrendingCarousel } from "@/components/home/TrendingCarousel";
+
 import { NavratnaCollection } from "@/components/home/NavratnaCollection";
 import { WhyChooseUs } from "@/components/home/WhyChooseUs";
 import { LegacyOfGemstones } from "@/components/home/LegacyOfGemstones";
 import { ZodiacGemstones } from "@/components/home/ZodiacGemstones";
-import { GemstoneKnowledgeHub } from "@/components/home/GemstoneKnowledgeHub";
+
 import { Marquee } from "@/components/ui/Marquee";
 import { commerce } from "@/lib/commerce";
 
@@ -20,10 +20,10 @@ export default async function HomePage() {
       <NavratnaCollection />
       <WhyChooseUs />
       <CategoryGrid />
-      <TrendingCarousel products={trending} title="The Masterpieces" viewAllHref="/shop" />
+
       <LegacyOfGemstones />
       <ZodiacGemstones />
-      <GemstoneKnowledgeHub />
+
     </>
   );
 }

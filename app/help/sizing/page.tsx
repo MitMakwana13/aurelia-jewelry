@@ -5,13 +5,7 @@ export default function SizingPage() {
 
       <div className="mt-10 grid gap-10 lg:grid-cols-2">
         <div className="space-y-6 text-sm leading-relaxed text-ink-soft">
-          <section>
-            <h2 className="font-serif text-2xl text-ink">Visit a Store</h2>
-            <p className="mt-3">
-              The most accurate way to find your size is in person. Walk into our
-              store or contact us for a complimentary professional fitting.
-            </p>
-          </section>
+
 
           <section>
             <h2 className="font-serif text-2xl text-ink">Measure at Home</h2>

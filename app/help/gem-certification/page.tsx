@@ -35,16 +35,6 @@ const whatWeProvide = [
     title: "Lab Report (where applicable)",
     body: "High-value stones (typically above ₹1,00,000) are accompanied by a third-party laboratory report from GIA, IGI, or GRS confirming colour, clarity, cut, carat weight, and treatment status.",
   },
-  {
-    icon: "🌍",
-    title: "Origin Documentation",
-    body: "For premium pieces — especially unheated Burma rubies, Kashmir sapphires, and Colombian emeralds — we provide full origin documentation as part of the purchase.",
-  },
-  {
-    icon: "✍️",
-    title: "Handwritten Atelier Note",
-    body: "Every Radha Rani piece is accompanied by a handwritten note from our atelier, describing the stone's journey from mine to masterpiece.",
-  },
 ];
 
 export default function GemCertificationPage() {
@@ -71,7 +61,7 @@ export default function GemCertificationPage() {
         <div>
           <p className="eyebrow tracking-[0.3em] mb-4 text-[#053624]">Our Commitment</p>
           <h2 className="font-serif text-3xl md:text-4xl text-ink mb-12">What You Receive with Every Purchase</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {whatWeProvide.map((item) => (
               <div key={item.title} className="border border-border p-6 space-y-4">
                 <div className="text-4xl">{item.icon}</div>

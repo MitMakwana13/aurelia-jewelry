@@ -151,7 +151,6 @@ export const footerNav = {
     heading: "Resources",
     links: [
       { label: "Gem Guide", href: "/help/gem-guide" },
-      { label: "Diamond 4Cs", href: "/help/care" },
     ],
   },
   company: {
