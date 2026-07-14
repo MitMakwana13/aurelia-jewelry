@@ -70,13 +70,6 @@ export default function SustainabilityPage() {
               to make every piece of packaging compostable or reusable, eliminate single-use plastics
               from our entire supply chain, and reach a 50% reduction in operational emissions.
             </p>
-            <p>
-              The full report, including methodology, third-party audits, and where we missed
-              targets, is available below.
-            </p>
-            <a href="#" className="btn-outline mt-4 border-cream text-cream hover:bg-cream hover:text-ink">
-              Download the Report (PDF)
-            </a>
           </div>
         </div>
       </section>

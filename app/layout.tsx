@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Cormorant_Garamond } from "next/font/google";
 import "@/styles/globals.css";
-import { CartDrawer } from "@/components/cart/CartDrawer";
 import { MobileNav } from "@/components/layout/MobileNav";
 import { SearchOverlay } from "@/components/layout/SearchOverlay";
 import { CustomCursor } from "@/components/ui/CustomCursor";
@@ -72,7 +71,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <StorefrontLayout>
             {children}
           </StorefrontLayout>
-          <CartDrawer />
           <MobileNav />
           <SearchOverlay />
           <WhatsAppFloat />

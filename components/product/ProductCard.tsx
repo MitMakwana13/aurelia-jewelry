@@ -10,7 +10,6 @@ import { InquiryModal } from "@/components/inquiry/InquiryModal";
 export function ProductCard({ product }: { product: Product }) {
   const [hovered, setHovered] = useState(false);
   const [inquiryOpen, setInquiryOpen] = useState(false);
-  const { formatPrice } = useCurrency();
   const second = product.images[1] ?? product.images[0];
 
   const inferType = () => {
@@ -99,11 +98,7 @@ export function ProductCard({ product }: { product: Product }) {
           <div className="mt-3 flex items-center justify-center gap-3 text-[10px] uppercase tracking-[0.2em] text-ink/50">
             <span>{product.metals.length === 1 ? product.metals[0] : `${product.metals.length} Metals`}</span>
             <span className="w-1 h-1 rounded-full bg-ink/20" />
-            <span>
-              {product.priceRange.min.amount === product.priceRange.max.amount
-                ? formatPrice(product.priceRange.min.amount)
-                : `${formatPrice(product.priceRange.min.amount)} – ${formatPrice(product.priceRange.max.amount)}`}
-            </span>
+            <span>Price Upon Request</span>
           </div>
         </div>
       </article>

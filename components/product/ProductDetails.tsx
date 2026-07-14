@@ -61,13 +61,9 @@ export function ProductDetails({ product }: { product: Product }) {
         <div>
           <p className="text-[10px] uppercase tracking-[0.3em] text-ink/50 mb-4">{product.categorySlug}</p>
           <h1 className="font-serif text-4xl md:text-5xl leading-tight text-ink">{product.title}</h1>
-          <div className="mt-6 flex items-baseline gap-3">
-            <p className="text-xl tracking-wide text-ink">{formatPrice(displayPrice.amount)}</p>
-            {product.metals.length > 1 && metal !== cheapestMetal && (
-              <p className="text-sm text-ink/40">From {formatPrice(product.priceRange.min.amount)}</p>
-            )}
+          <div className="mt-6">
+            <p className="text-sm uppercase tracking-[0.2em] text-ink/60">Price Upon Request</p>
           </div>
-          <p className="mt-1 text-xs text-ink/40">Price varies by material selection below</p>
         </div>
 
         <div className="space-y-8">
@@ -86,7 +82,6 @@ export function ProductDetails({ product }: { product: Product }) {
                     }`}
                   >
                     {m}
-                    {mv && <span className="block text-[9px] mt-0.5 opacity-70">{formatPrice(mv.price.amount)}</span>}
                   </button>
                 );
               })}

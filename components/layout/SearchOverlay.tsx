@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useUI } from "@/lib/store/ui-store";
 import { products } from "@/data/products";
-import { useCurrency } from "@/context/CurrencyContext";
 import { CloseIcon, SearchIcon } from "@/components/ui/Icons";
 import type { Product } from "@/lib/commerce/types";
 
@@ -15,8 +14,6 @@ export function SearchOverlay() {
   const { searchOpen, closeSearch } = useUI();
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<Product[]>([]);
-  const { formatPrice } = useCurrency();
-
   useEffect(() => {
     if (!searchOpen) setQuery("");
   }, [searchOpen]);
@@ -108,7 +105,7 @@ export function SearchOverlay() {
                             />
                           </div>
                           <p className="mt-2 text-sm">{p.title}</p>
-                          <p className="text-xs text-ink-muted">{formatPrice(p.priceRange.min.amount)}</p>
+                          <p className="text-[10px] uppercase tracking-wider text-ink-muted">Price Upon Request</p>
                         </Link>
                       </li>
                     ))}
