@@ -187,7 +187,7 @@ export function ProductDetails({ product }: { product: Product }) {
         isOpen={inquiryOpen}
         onClose={() => setInquiryOpen(false)}
         productId={product.id}
-        productName={product.title}
+        productName={`${product.title} (${metal}${size ? `, Size: ${size}` : ""})`}
         defaultType={inferType()}
       />
     </>
