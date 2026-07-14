@@ -70,9 +70,6 @@ export default function GemGuidePage() {
             <h1 className="font-serif text-5xl md:text-7xl font-light leading-tight">
               Gemstone Guide
             </h1>
-            <p className="mt-4 text-cream/70 max-w-xl leading-relaxed">
-              Everything you need to know about selecting, evaluating, and wearing natural gemstones — written by master gemologists with decades of experience.
-            </p>
           </div>
         </div>
       </section>
