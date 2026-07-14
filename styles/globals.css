@@ -15,6 +15,15 @@
     text-rendering: optimizeLegibility;
   }
 
+  /* Hide scrollbar globally for a seamless luxury experience */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  * {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
   body {
     @apply bg-cream text-ink font-sans;
     font-feature-settings: "ss01", "cv11";
