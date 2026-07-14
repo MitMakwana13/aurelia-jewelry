@@ -86,6 +86,9 @@ export function Footer() {
             <a href="https://www.instagram.com/radharanigemstone?igsh=MWNscnBqN21tNXRoag==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-cream transition-colors"><InstagramIcon width={16} height={16} /></a>
           </div>
           <div className="flex flex-wrap items-center gap-x-8 gap-y-4 text-[9px] uppercase tracking-[0.2em] text-cream/40">
+            <Link href="/help/privacy" className="hover:text-cream transition-colors">Privacy</Link>
+            <Link href="/help/terms" className="hover:text-cream transition-colors">Terms</Link>
+            <Link href="/help/accessibility" className="hover:text-cream transition-colors">Accessibility</Link>
             <span>{new Date().getFullYear()} RADHA RANI HERITAGE COLLECTION</span>
           </div>
         </div>
