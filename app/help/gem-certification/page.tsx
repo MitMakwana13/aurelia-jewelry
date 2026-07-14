@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Gem Certification Guide | Radha Rani Heritage Collection",
-  description: "Understanding gemstone certificates — GIA, IGI, GRS, and our in-house authenticity reports. Every Radha Rani gemstone ships with full documentation.",
+  description: "Understanding gemstone certificates - GIA, IGI, GRS, and our in-house authenticity reports. Every Radha Rani gemstone ships with full documentation.",
   keywords: ["Gemstone Certificate India", "GIA Certified Gemstone", "IGI Certificate", "Authentic Gemstone Certification", "Radha Rani Certificate"],
 };
 
@@ -77,7 +77,7 @@ export default function GemCertificationPage() {
           <p className="eyebrow tracking-[0.3em] mb-4 text-[#053624]">Our Partners</p>
           <h2 className="font-serif text-3xl md:text-4xl text-ink mb-4">Internationally Trusted Laboratories</h2>
           <p className="text-ink/60 max-w-2xl leading-relaxed mb-12">
-            We work with the world's most respected gemological laboratories. Reports are issued independently — we have no financial relationship that could compromise their objectivity.
+            We work with the world's most respected gemological laboratories. Reports are issued independently - we have no financial relationship that could compromise their objectivity.
           </p>
           <div className="grid gap-8 md:grid-cols-2">
             {labs.map((lab) => (

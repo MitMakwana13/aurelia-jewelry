@@ -63,7 +63,7 @@ export function Header() {
           </nav>
         </div>
 
-        {/* ── Col 2: Logo — perfectly centered ── */}
+        {/* ── Col 2: Logo - perfectly centered ── */}
         <div className="flex justify-center transition-transform duration-500">
           <Logo variant="light" className={scrolled ? "scale-[0.85]" : "scale-100"} />
         </div>

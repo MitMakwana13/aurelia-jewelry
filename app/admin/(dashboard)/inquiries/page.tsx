@@ -134,8 +134,8 @@ export default async function InquiriesPage({
                     <td className="px-4 py-3">
                       <span className="text-[10px] uppercase tracking-wide text-ink/60">{inq.type.replace("_", " ")}</span>
                     </td>
-                    <td className="px-4 py-3 text-ink/60 text-xs">{inq.budget ?? "—"}</td>
-                    <td className="px-4 py-3 text-ink/60 text-xs max-w-[120px] truncate">{inq.productName ?? "—"}</td>
+                    <td className="px-4 py-3 text-ink/60 text-xs">{inq.budget ?? "-"}</td>
+                    <td className="px-4 py-3 text-ink/60 text-xs max-w-[120px] truncate">{inq.productName ?? "-"}</td>
                     <td className="px-4 py-3">
                       <span className={`inline-block text-[10px] uppercase tracking-wider px-2 py-1 rounded-full font-medium ${STATUS_COLORS[inq.status] ?? "bg-gray-100 text-gray-600"}`}>
                         {inq.status.replace("_", " ")}

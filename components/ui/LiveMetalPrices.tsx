@@ -26,7 +26,7 @@ export function LiveMetalPrices() {
     }
 
     fetchPrices();
-    // Poll every 15 minutes — matches server revalidation window
+    // Poll every 15 minutes - matches server revalidation window
     const interval = setInterval(fetchPrices, 900_000);
     return () => clearInterval(interval);
   }, []);

@@ -17,7 +17,7 @@ export async function POST(request: Request) {
 
     const { email } = parsed.data;
 
-    // Upsert — idempotent so duplicate submissions don't error
+    // Upsert - idempotent so duplicate submissions don't error
     await prisma.newsletterSubscriber.upsert({
       where: { email },
       update: { subscribedAt: new Date() },

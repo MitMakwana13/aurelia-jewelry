@@ -152,7 +152,7 @@ export function InquiryModal({ isOpen, onClose, productId, productName, defaultT
             {/* Message */}
             <div className="space-y-1">
               <label className="text-xs uppercase tracking-[0.16em] text-ink/60">Message / Requirements *</label>
-              <textarea name="message" required rows={4} value={form.message} onChange={handleChange} placeholder="Describe what you're looking for — stone type, size, colour, occasion, or any specific design ideas..." className="w-full border border-ink/20 px-4 py-3 text-sm outline-none focus:border-gold-dark transition bg-transparent resize-none" />
+              <textarea name="message" required rows={4} value={form.message} onChange={handleChange} placeholder="Describe what you're looking for - stone type, size, colour, occasion, or any specific design ideas..." className="w-full border border-ink/20 px-4 py-3 text-sm outline-none focus:border-gold-dark transition bg-transparent resize-none" />
             </div>
 
             {error && <p className="text-red-600 text-xs">{error}</p>}

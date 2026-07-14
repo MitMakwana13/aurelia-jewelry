@@ -110,14 +110,14 @@ export function ProductForm({ initialData, mode }: ProductFormProps) {
       {error && <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 text-sm">{error}</div>}
 
       <div className="grid grid-cols-2 gap-5">
-        <Field label="Product Title *" name="title" placeholder="e.g. Natural Ruby — 2.5ct" />
+        <Field label="Product Title *" name="title" placeholder="e.g. Natural Ruby - 2.5ct" />
         <Field label="URL Handle *" name="handle" placeholder="natural-ruby-2-5ct" />
       </div>
 
       <div className="space-y-1">
         <label className="text-xs uppercase tracking-[0.16em] text-ink/60">Description *</label>
         <textarea name="description" rows={4} value={form.description} onChange={handleChange}
-          placeholder="Describe the product — quality, origin, certifications..."
+          placeholder="Describe the product - quality, origin, certifications..."
           className="w-full border border-ink/20 px-4 py-3 text-sm outline-none focus:border-ink transition bg-transparent resize-none" />
       </div>
 

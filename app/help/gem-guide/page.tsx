@@ -21,9 +21,9 @@ const navratnaGuide = [
   { stone: "Emerald (Panna)", planet: "Mercury", benefits: "Intelligence, business, communication, creativity", wearing: "Little finger, gold or silver setting, Wednesday morning", caution: "Not recommended for those with strong Jupiter" },
   { stone: "Yellow Sapphire (Pukhraj)", planet: "Jupiter", benefits: "Wisdom, prosperity, marriage, spiritual growth", wearing: "Index finger, gold setting, Thursday morning", caution: "Ensure Jupiter is benefic in your horoscope" },
   { stone: "Diamond (Heera)", planet: "Venus", benefits: "Love, luxury, beauty, artistic talent, relationships", wearing: "Middle or ring finger, platinum or white gold, Friday morning", caution: "Avoid combining with Ruby or Emerald" },
-  { stone: "Blue Sapphire (Neelam)", planet: "Saturn", benefits: "Discipline, career breakthrough, justice, protection", wearing: "Middle finger, gold or silver setting, Saturday morning", caution: "Most powerful Navratna — always test for 3 days first" },
+  { stone: "Blue Sapphire (Neelam)", planet: "Saturn", benefits: "Discipline, career breakthrough, justice, protection", wearing: "Middle finger, gold or silver setting, Saturday morning", caution: "Most powerful Navratna - always test for 3 days first" },
   { stone: "Hessonite (Gomed)", planet: "Rahu", benefits: "Clarity, removing confusion, career advancement, protection from enemies", wearing: "Middle finger, silver or gold, Wednesday or Saturday morning", caution: "Should not be worn with Ruby or Pearl" },
-  { stone: "Cat's Eye (Lehsunia)", planet: "Ketu", benefits: "Spiritual growth, psychic protection, moksha, gut instinct", wearing: "Middle or ring finger, silver or gold, Tuesday or Thursday morning", caution: "The most unpredictable Navratna — wear only after astrological consultation" },
+  { stone: "Cat's Eye (Lehsunia)", planet: "Ketu", benefits: "Spiritual growth, psychic protection, moksha, gut instinct", wearing: "Middle or ring finger, silver or gold, Tuesday or Thursday morning", caution: "The most unpredictable Navratna - wear only after astrological consultation" },
 ];
 
 const qualityFactors = [
@@ -34,8 +34,8 @@ const qualityFactors = [
   },
   {
     title: "Clarity",
-    description: "Natural gemstones almost always contain inclusions — these are fingerprints of nature. Eye-clean stones (no visible inclusions to the naked eye) command a significant premium. Avoid stones with cracks or fractures.",
-    tip: "Some inclusions are characteristic of origin — e.g., silk in Kashmir sapphires is a positive identifier.",
+    description: "Natural gemstones almost always contain inclusions - these are fingerprints of nature. Eye-clean stones (no visible inclusions to the naked eye) command a significant premium. Avoid stones with cracks or fractures.",
+    tip: "Some inclusions are characteristic of origin - e.g., silk in Kashmir sapphires is a positive identifier.",
   },
   {
     title: "Cut & Shape",
@@ -45,7 +45,7 @@ const qualityFactors = [
   {
     title: "Carat Weight",
     description: "Price increases exponentially with carat weight for fine stones. A 5-carat ruby of the same quality as a 1-carat ruby can be 25× the price. Larger stones are dramatically rarer.",
-    tip: "Prioritise quality over size — a 1-carat vivid unheated ruby is worth far more than a 3-carat heated ruby.",
+    tip: "Prioritise quality over size - a 1-carat vivid unheated ruby is worth far more than a 3-carat heated ruby.",
   },
   {
     title: "Treatment Status",
@@ -55,7 +55,7 @@ const qualityFactors = [
   {
     title: "Origin",
     description: "Geographic origin significantly affects value. Kashmir sapphires, Burma rubies, and Colombian emeralds command the highest premiums due to their legendary quality and rarity.",
-    tip: "Origin can only be determined by gemological laboratory analysis — not visual inspection alone.",
+    tip: "Origin can only be determined by gemological laboratory analysis - not visual inspection alone.",
   },
 ];
 
@@ -70,6 +70,9 @@ export default function GemGuidePage() {
             <h1 className="font-serif text-5xl md:text-7xl font-light leading-tight">
               Gemstone Guide
             </h1>
+            <p className="mt-4 text-cream/70 max-w-xl leading-relaxed">
+              Everything you need to know about selecting, evaluating, and wearing natural gemstones - written by master gemologists with decades of experience.
+            </p>
           </div>
         </div>
       </section>

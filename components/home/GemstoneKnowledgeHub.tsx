@@ -22,7 +22,7 @@ const articles = [
   },
   {
     title: "Certification & Trust",
-    description: "How GIA, IGI, and GRS reports protect you — and what every Radha Rani gemstone includes in its documentation package.",
+    description: "How GIA, IGI, and GRS reports protect you - and what every Radha Rani gemstone includes in its documentation package.",
     image: "https://images.unsplash.com/photo-1622398925373-3f91b1e275f5?auto=format&fit=crop&w=800&q=80",
     category: "Documentation",
     href: "/help/gem-certification",

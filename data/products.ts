@@ -65,7 +65,7 @@ const seeds: Seed[] = [
   {
     handle: "ruby-manik",
     title: "Natural Ruby (Manik)",
-    description: "A fiery, unheated natural Ruby sourced from Burma — the Sun's stone. Known to bestow confidence, leadership, and vitality upon its wearer.",
+    description: "A fiery, unheated natural Ruby sourced from Burma - the Sun's stone. Known to bestow confidence, leadership, and vitality upon its wearer.",
     categorySlug: "gemstones",
     collectionSlugs: ["birthstones"],
     tags: ["gemstone", "ruby", "navratna"],
@@ -80,7 +80,7 @@ const seeds: Seed[] = [
   {
     handle: "pearl-moti",
     title: "Natural Pearl (Moti)",
-    description: "An ethically sourced freshwater Pearl — the Moon's stone. Promotes emotional balance, clarity of mind, and inner calm in its wearer.",
+    description: "An ethically sourced freshwater Pearl - the Moon's stone. Promotes emotional balance, clarity of mind, and inner calm in its wearer.",
     categorySlug: "gemstones",
     collectionSlugs: ["birthstones"],
     tags: ["gemstone", "pearl", "navratna"],
@@ -94,7 +94,7 @@ const seeds: Seed[] = [
   {
     handle: "red-coral-moonga",
     title: "Natural Red Coral (Moonga)",
-    description: "A vivid, high-quality Natural Red Coral from the Mediterranean — Mars's stone. Empowers courage, health, and decisive action in those who wear it.",
+    description: "A vivid, high-quality Natural Red Coral from the Mediterranean - Mars's stone. Empowers courage, health, and decisive action in those who wear it.",
     categorySlug: "gemstones",
     collectionSlugs: [],
     tags: ["gemstone", "red-coral", "navratna"],
@@ -107,7 +107,7 @@ const seeds: Seed[] = [
   {
     handle: "emerald-panna",
     title: "Natural Emerald (Panna)",
-    description: "A luminous, untreated Colombian Emerald — Mercury's stone. Enhances intellect, communication, and business acumen for those who wear it.",
+    description: "A luminous, untreated Colombian Emerald - Mercury's stone. Enhances intellect, communication, and business acumen for those who wear it.",
     categorySlug: "gemstones",
     collectionSlugs: ["rare"],
     tags: ["gemstone", "emerald", "navratna"],
@@ -122,7 +122,7 @@ const seeds: Seed[] = [
   {
     handle: "yellow-sapphire-pukhraj",
     title: "Natural Yellow Sapphire (Pukhraj)",
-    description: "A radiant, untreated Yellow Sapphire from Ceylon — Jupiter's stone. Brings wisdom, prosperity, and spiritual growth to those who wear it.",
+    description: "A radiant, untreated Yellow Sapphire from Ceylon - Jupiter's stone. Brings wisdom, prosperity, and spiritual growth to those who wear it.",
     categorySlug: "gemstones",
     collectionSlugs: ["rare"],
     tags: ["gemstone", "yellow-sapphire", "navratna"],
@@ -137,7 +137,7 @@ const seeds: Seed[] = [
   {
     handle: "diamond-heera",
     title: "Natural Diamond (Heera)",
-    description: "A GIA-certified, ethically sourced Natural Diamond — Venus's stone. Enhances love, luxury, and artistic creativity for its wearer.",
+    description: "A GIA-certified, ethically sourced Natural Diamond - Venus's stone. Enhances love, luxury, and artistic creativity for its wearer.",
     categorySlug: "gemstones",
     collectionSlugs: ["rare"],
     tags: ["gemstone", "diamond-gem", "navratna", "diamond"],
@@ -152,7 +152,7 @@ const seeds: Seed[] = [
   {
     handle: "blue-sapphire-neelam",
     title: "Natural Blue Sapphire (Neelam)",
-    description: "A breathtaking unheated Blue Sapphire from Kashmir — Saturn's stone. The most powerful Navratna gemstone, known to rapidly transform destiny.",
+    description: "A breathtaking unheated Blue Sapphire from Kashmir - Saturn's stone. The most powerful Navratna gemstone, known to rapidly transform destiny.",
     categorySlug: "gemstones",
     collectionSlugs: ["rare"],
     tags: ["gemstone", "blue-sapphire", "navratna"],
@@ -168,7 +168,7 @@ const seeds: Seed[] = [
   {
     handle: "hessonite-gomed",
     title: "Natural Hessonite Garnet (Gomed)",
-    description: "A honey-hued Hessonite Garnet — Rahu's stone. Known to dispel confusion, remove obstacles, and bring clarity and success to its wearer.",
+    description: "A honey-hued Hessonite Garnet - Rahu's stone. Known to dispel confusion, remove obstacles, and bring clarity and success to its wearer.",
     categorySlug: "gemstones",
     collectionSlugs: [],
     tags: ["gemstone", "hessonite", "navratna"],
@@ -182,7 +182,7 @@ const seeds: Seed[] = [
   {
     handle: "cats-eye-lehsunia",
     title: "Natural Cat's Eye (Lehsunia)",
-    description: "A phenomenon-grade Chrysoberyl Cat's Eye — Ketu's stone. Protects against unseen forces, enhances intuition, and accelerates spiritual growth.",
+    description: "A phenomenon-grade Chrysoberyl Cat's Eye - Ketu's stone. Protects against unseen forces, enhances intuition, and accelerates spiritual growth.",
     categorySlug: "gemstones",
     collectionSlugs: [],
     tags: ["gemstone", "cats-eye", "navratna"],
@@ -381,7 +381,7 @@ const seeds: Seed[] = [
   {
     handle: "mini-hoops",
     title: "Mini Hoops",
-    description: "Our smallest hoops — 10mm, lightweight, and comfortable enough to sleep in.",
+    description: "Our smallest hoops - 10mm, lightweight, and comfortable enough to sleep in.",
     categorySlug: "earrings",
     collectionSlugs: ["everyday-essentials"],
     tags: ["hoops", "everyday"],
@@ -408,7 +408,7 @@ const seeds: Seed[] = [
   {
     handle: "dome-earrings",
     title: "Dôme Studs",
-    description: "Rounded, substantial studs — the perfect single-earring moment.",
+    description: "Rounded, substantial studs - the perfect single-earring moment.",
     categorySlug: "earrings",
     collectionSlugs: ["dome"],
     tags: ["studs", "dome"],

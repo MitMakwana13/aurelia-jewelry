@@ -10,7 +10,7 @@ function formatINR(n: number): string {
 }
 
 function ChangeIndicator({ percent }: { percent: number }) {
-  if (!percent || percent === 0) return <span className="text-ink/30">—</span>;
+  if (!percent || percent === 0) return <span className="text-ink/30">-</span>;
   const up = percent > 0;
   return (
     <span className={up ? "text-emerald-400" : "text-red-400"} style={{ fontSize: 11 }}>
@@ -35,7 +35,7 @@ export function MetalRateTicker() {
         }
       }
     } catch {
-      // silent — stale data remains visible
+      // silent - stale data remains visible
     } finally {
       setLoading(false);
     }

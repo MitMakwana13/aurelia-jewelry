@@ -6,7 +6,7 @@ interface LogoProps {
 }
 
 /**
- * Radharani Gemstone — ultra-premium typographic logo component.
+ * Radharani Gemstone - ultra-premium typographic logo component.
  *
  * Uses a refined gold metallic gradient on the brand name and mark to match
  * the luxury aesthetic requested. Crisp at any resolution.
@@ -19,7 +19,7 @@ export function Logo({ variant = "light", className = "" }: LogoProps) {
   return (
     <Link
       href="/"
-      aria-label="Radha Rani — Home"
+      aria-label="Radha Rani - Home"
       className={`group inline-flex flex-col items-center select-none ${className}`}
     >
       {/* Avant-Garde Geometric Mark (Restored) */}
@@ -33,7 +33,7 @@ export function Logo({ variant = "light", className = "" }: LogoProps) {
         </svg>
       </div>
 
-      {/* Brand name — Classic Heritage Serif */}
+      {/* Brand name - Classic Heritage Serif */}
       <span
         style={{
           fontFamily: '"Cormorant Garamond", Georgia, serif',

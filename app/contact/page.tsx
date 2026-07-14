@@ -134,7 +134,7 @@ export default function ContactPage() {
                   <label className="text-[10px] uppercase tracking-[0.18em] text-cream/40 block mb-2">Message</label>
                   <textarea
                     rows={4}
-                    placeholder="Tell us what you're looking for — gemstone type, occasion, custom design, etc."
+                    placeholder="Tell us what you're looking for - gemstone type, occasion, custom design, etc."
                     className="w-full bg-transparent border border-cream/20 px-4 py-3 text-sm text-cream placeholder:text-cream/30 outline-none focus:border-cream/60 transition resize-none"
                   />
                 </div>

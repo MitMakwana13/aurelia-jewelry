@@ -10,7 +10,7 @@ function formatINR(n: number) {
 function arrow(p: number) {
   if (p > 0) return "▲";
   if (p < 0) return "▼";
-  return "—";
+  return "-";
 }
 
 function arrowColor(p: number) {

@@ -57,7 +57,7 @@ export default function CheckoutPage() {
 
     try {
       const itemsSummary = lineItems
-        .map((li) => `${li.title} (${li.variantTitle}) x${li.quantity} — ${formatPrice(li.price.amount * li.quantity)}`)
+        .map((li) => `${li.title} (${li.variantTitle}) x${li.quantity} - ${formatPrice(li.price.amount * li.quantity)}`)
         .join("\n");
 
       const shippingAddress = [address.line1, address.line2, address.city, address.state, address.pincode, address.country]
@@ -139,7 +139,7 @@ export default function CheckoutPage() {
           {/* Form Area */}
           <div className="lg:col-span-7">
 
-            {/* STEP 1 — Contact */}
+            {/* STEP 1 - Contact */}
             {step === 1 && (
               <form onSubmit={(e) => { e.preventDefault(); setStep(2); }} className="space-y-6">
                 <h1 className="font-serif text-3xl text-ink">Contact Information</h1>
@@ -193,7 +193,7 @@ export default function CheckoutPage() {
               </form>
             )}
 
-            {/* STEP 2 — Delivery Address */}
+            {/* STEP 2 - Delivery Address */}
             {step === 2 && (
               <form onSubmit={(e) => { e.preventDefault(); setStep(3); }} className="space-y-6">
                 <h2 className="font-serif text-3xl text-ink">Delivery Address</h2>
@@ -283,7 +283,7 @@ export default function CheckoutPage() {
               </form>
             )}
 
-            {/* STEP 3 — Review & Confirm */}
+            {/* STEP 3 - Review & Confirm */}
             {step === 3 && (
               <div className="space-y-8">
                 <h2 className="font-serif text-3xl text-ink">Review & Confirm</h2>

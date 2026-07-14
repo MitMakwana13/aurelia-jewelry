@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-// Uses @fawazahmed0/currency-api — completely free, no key, CDN-backed, updated daily
+// Uses @fawazahmed0/currency-api - completely free, no key, CDN-backed, updated daily
 // XAU = 1 troy oz of gold in target currency
 // XAG = 1 troy oz of silver in target currency
 // 1 Troy oz = 31.1035 grams

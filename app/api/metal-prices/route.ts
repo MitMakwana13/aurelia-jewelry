@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
-// In-memory cache — survives multiple requests within the same serverless instance
+// In-memory cache - survives multiple requests within the same serverless instance
 let cache: { data: MetalPrices | null; fetchedAt: number } = {
   data: null,
   fetchedAt: 0,
@@ -128,7 +128,7 @@ export async function GET() {
     });
   }
 
-  // No API key — fall back to DB immediately
+  // No API key - fall back to DB immediately
   if (!process.env.GOLDAPI_KEY) {
     const dbData = await getFromDb();
     if (dbData) return NextResponse.json({ ...dbData, source: "db-no-api-key" });

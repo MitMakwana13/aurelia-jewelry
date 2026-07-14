@@ -5,7 +5,7 @@ export const collections: Collection[] = [
     slug: "everyday-essentials",
     name: "Everyday Essentials",
     tagline: "The pieces you'll never take off",
-    description: "Foundational jewelry designed for daily wear — understated, comfortable, and crafted to last.",
+    description: "Foundational jewelry designed for daily wear - understated, comfortable, and crafted to last.",
     heroImage: {
       url: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1600&q=80",
       alt: "A minimal set of gold jewelry on a cream surface",
@@ -16,7 +16,7 @@ export const collections: Collection[] = [
     slug: "solid-gold",
     name: "Solid Gold",
     tagline: "14k, always",
-    description: "Investment pieces cast in solid 14k gold — the rare kind of jewelry that gets better with time.",
+    description: "Investment pieces cast in solid 14k gold - the rare kind of jewelry that gets better with time.",
     heroImage: {
       url: "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?auto=format&fit=crop&w=1600&q=80",
       alt: "A collection of solid gold rings",
@@ -38,7 +38,7 @@ export const collections: Collection[] = [
     slug: "dome",
     name: "Dôme",
     tagline: "Rounded silhouettes",
-    description: "Sculptural pieces with soft, sculpted curves — polished, smooth, and substantial.",
+    description: "Sculptural pieces with soft, sculpted curves - polished, smooth, and substantial.",
     heroImage: {
       url: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1600&q=80",
       alt: "A polished dome ring on linen",
@@ -60,7 +60,7 @@ export const collections: Collection[] = [
     slug: "sterling-silver",
     name: "Sterling Silver",
     tagline: "Cool-toned classics",
-    description: "The timeless alternative — fine jewelry in recycled sterling silver.",
+    description: "The timeless alternative - fine jewelry in recycled sterling silver.",
     heroImage: {
       url: "https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?auto=format&fit=crop&w=1600&q=80",
       alt: "A silver ring stack",

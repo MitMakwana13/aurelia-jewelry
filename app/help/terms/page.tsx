@@ -43,7 +43,7 @@ export default function TermsPage() {
         <section>
           <h2 className="font-serif text-2xl mb-4">5. Intellectual Property</h2>
           <p className="text-sm leading-relaxed text-ink-soft">
-            The website and its original content, features, and functionality—including all jewelry designs, images, text, and branding—are owned by Radha Rani Heritage Collection and are protected by international copyright, trademark, and other intellectual property laws. You may not use our content for commercial purposes without explicit written consent.
+            The website and its original content, features, and functionality-including all jewelry designs, images, text, and branding-are owned by Radha Rani Heritage Collection and are protected by international copyright, trademark, and other intellectual property laws. You may not use our content for commercial purposes without explicit written consent.
           </p>
         </section>
 

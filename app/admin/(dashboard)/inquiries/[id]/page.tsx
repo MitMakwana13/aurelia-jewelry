@@ -13,7 +13,7 @@ export default async function InquiryDetailPage({
   if (!inq) notFound();
 
   const waMessage = encodeURIComponent(
-    `Hello ${inq.name}, thank you for your inquiry${inq.productName ? ` about the ${inq.productName}` : ""}. We'd love to help you — could you share a convenient time to speak?`
+    `Hello ${inq.name}, thank you for your inquiry${inq.productName ? ` about the ${inq.productName}` : ""}. We'd love to help you - could you share a convenient time to speak?`
   );
   const waUrl = `https://wa.me/${inq.phone.replace(/\D/g, "")}?text=${waMessage}`;
   const mailtoUrl = `mailto:${inq.email ?? ""}?subject=Re: Your Inquiry at Radha Rani&body=Dear ${inq.name},%0A%0AThank you for reaching out to Radha Rani Heritage Collection.%0A%0A`;

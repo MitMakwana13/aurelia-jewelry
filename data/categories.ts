@@ -49,7 +49,7 @@ export const categories: Category[] = [
   {
     slug: "earrings",
     name: "Earrings",
-    description: "Hoops, studs, and huggies — everyday classics in fine metal.",
+    description: "Hoops, studs, and huggies - everyday classics in fine metal.",
     heroImage: {
       url: "https://images.unsplash.com/photo-1535556116002-6281ff3e9f36?auto=format&fit=crop&w=1600&q=80",
       alt: "Gold hoop earrings",

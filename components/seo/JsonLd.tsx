@@ -13,7 +13,7 @@ export function OrganizationJsonLd({
     name,
     url,
     description:
-      "Radha Rani Heritage Collection — Exquisite diamonds, emeralds and bespoke masterpieces. The Culture of Craft. Based in India.",
+      "Radha Rani Heritage Collection - Exquisite diamonds, emeralds and bespoke masterpieces. The Culture of Craft. Based in India.",
     logo: `${url}/logo.png`,
     image: `${url}/logo.png`,
     telephone: "+91-99999-99999",

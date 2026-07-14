@@ -23,7 +23,7 @@ const ACCORDION = [
 ];
 
 export function ProductDetails({ product }: { product: Product }) {
-  // Default to cheapest metal — same price the listing card shows
+  // Default to cheapest metal - same price the listing card shows
   const cheapestVariant = product.variants.reduce(
     (min, v) => (v.price.amount < min.price.amount ? v : min),
     product.variants[0]
