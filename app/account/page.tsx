@@ -6,9 +6,9 @@ import AuthClient from "./AuthClient";
 export default async function AccountPage() {
   const session = await getServerSession(authOptions);
 
-  // If the user is already authenticated, redirect them to the Orders page
+  // If the user is already authenticated, redirect them to the Dashboard
   if (session) {
-    redirect("/account/orders");
+    redirect("/account/dashboard");
   }
 
   // Otherwise, render the client-side login/register forms

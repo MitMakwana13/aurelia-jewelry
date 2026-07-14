@@ -20,7 +20,6 @@ export default async function AdminDashboard() {
     inquiriesMonth,
     newInquiries,
     recentInquiries,
-    latestGoldRate,
   ] = await Promise.all([
     prisma.product.count({ where: { isActive: true } }),
     prisma.inquiry.count({ where: { createdAt: { gte: today } } }),
@@ -32,7 +31,6 @@ export default async function AdminDashboard() {
       orderBy: { createdAt: "desc" },
       take: 10,
     }),
-    prisma.goldRate.findFirst({ orderBy: { createdAt: "desc" } }),
   ]);
 
   const statuses = ["NEW", "IN_PROGRESS", "QUOTED", "CONFIRMED", "COMPLETED"];
@@ -103,9 +101,9 @@ export default async function AdminDashboard() {
       </div>
 
       {/* Bottom Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-6">
         {/* Recent Inquiries */}
-        <div className="lg:col-span-2 bg-white border border-ink/8 rounded-sm">
+        <div className="bg-white border border-ink/8 rounded-sm">
           <div className="px-6 py-4 border-b border-ink/8 flex items-center justify-between">
             <h2 className="font-serif text-lg text-ink">Recent Inquiries</h2>
             <Link href="/admin/inquiries" className="text-xs uppercase tracking-[0.14em] text-ink/50 hover:text-ink transition">
@@ -134,44 +132,6 @@ export default async function AdminDashboard() {
               ))}
             </div>
           )}
-        </div>
-
-        {/* Today's Rates */}
-        <div className="bg-white border border-ink/8 rounded-sm">
-          <div className="px-6 py-4 border-b border-ink/8 flex items-center justify-between">
-            <h2 className="font-serif text-lg text-ink">Today's Rates</h2>
-            <Link href="/admin/rates" className="text-xs uppercase tracking-[0.14em] text-ink/50 hover:text-ink transition">
-              Update →
-            </Link>
-          </div>
-          <div className="px-6 py-5 space-y-4">
-            {latestGoldRate ? (
-              <>
-                <div className="flex items-center justify-between">
-                  <p className="text-xs text-ink/50 uppercase tracking-wider">22K Gold / gram</p>
-                  <p className="text-sm font-semibold text-ink">₹{latestGoldRate.gold22kPerGramInr?.toLocaleString("en-IN") ?? "—"}</p>
-                </div>
-                <div className="flex items-center justify-between">
-                  <p className="text-xs text-ink/50 uppercase tracking-wider">24K Gold / gram</p>
-                  <p className="text-sm font-semibold text-ink">₹{latestGoldRate.gold24kPerGramInr?.toLocaleString("en-IN") ?? "—"}</p>
-                </div>
-                <div className="flex items-center justify-between">
-                  <p className="text-xs text-ink/50 uppercase tracking-wider">Silver / gram</p>
-                  <p className="text-sm font-semibold text-ink">₹{latestGoldRate.silverPerGramInr?.toLocaleString("en-IN") ?? "—"}</p>
-                </div>
-                <p className="text-[10px] text-ink/30 mt-2">
-                  Source: {latestGoldRate.source} · {new Date(latestGoldRate.createdAt).toLocaleDateString("en-IN")}
-                </p>
-              </>
-            ) : (
-              <div className="text-center py-6">
-                <p className="text-sm text-ink/40 mb-3">No rates logged yet.</p>
-                <Link href="/admin/rates" className="text-xs uppercase tracking-wider text-ink underline">
-                  Add Rates →
-                </Link>
-              </div>
-            )}
-          </div>
         </div>
       </div>
     </div>

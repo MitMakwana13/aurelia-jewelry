@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { sendInquiryConfirmationEmail, sendInquiryAdminAlert } from "@/lib/email";
 
 export async function POST(request: Request) {
   try {
@@ -28,6 +29,22 @@ export async function POST(request: Request) {
         utmMedium: utmMedium ?? null,
       },
     });
+
+    // Send emails in the background so it doesn't block the response to the user
+    (async () => {
+      try {
+        if (inquiry.email) {
+          await sendInquiryConfirmationEmail(inquiry.email, inquiry.name, inquiry.productName);
+        }
+        
+        // Use an environment variable or fallback for the admin email
+        const adminEmail = process.env.ADMIN_EMAIL || "mitmakwana13@gmail.com"; 
+        
+        await sendInquiryAdminAlert(adminEmail, inquiry);
+      } catch (emailError) {
+        console.error("Failed to send inquiry emails in background:", emailError);
+      }
+    })();
 
     return NextResponse.json({ success: true, id: inquiry.id }, { status: 201 });
   } catch (error) {

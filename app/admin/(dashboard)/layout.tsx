@@ -11,7 +11,6 @@ const navItems = [
   { label: "Products", href: "/admin/products", icon: "◈" },
   { label: "Inquiries", href: "/admin/inquiries", icon: "✉" },
   { label: "Orders", href: "/admin/orders", icon: "◉" },
-  { label: "Rates & Pricing", href: "/admin/rates", icon: "◎" },
   { label: "Settings", href: "/admin/settings", icon: "⚙" },
   { label: "View Site", href: "/", icon: "↗", external: true },
 ];
