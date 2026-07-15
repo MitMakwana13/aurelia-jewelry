@@ -73,7 +73,7 @@ export function Hero() {
           className="mt-16 flex flex-col sm:flex-row items-center gap-8"
         >
           {/* Signature Emerald CTA */}
-          <Link href="/shop/gemstones" className="group relative overflow-hidden bg-[#053624] text-cream px-14 py-5 text-[10px] uppercase tracking-[0.25em] transition-transform hover:scale-105 duration-500">
+          <Link href="/collections" className="group relative overflow-hidden bg-[#053624] text-cream px-14 py-5 text-[10px] uppercase tracking-[0.25em] transition-transform hover:scale-105 duration-500">
             <span className="relative z-10">Explore Collection</span>
             <div className="absolute inset-0 bg-ink translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500 ease-out-smooth" />
           </Link>
