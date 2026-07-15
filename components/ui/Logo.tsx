@@ -22,13 +22,15 @@ export function Logo({ variant = "light", className = "" }: LogoProps) {
       aria-label="Radha Rani - Home"
       className={`group inline-flex flex-col items-center select-none ${className}`}
     >
-      {/* Render the custom 3D gold logo uploaded by the user */}
+      {/* Avant-Garde Geometric Mark (Restored) */}
       <div className="mb-4 transition-transform duration-[1.5s] ease-out-smooth group-hover:scale-110">
-        <img 
-          src="/logo.png" 
-          alt="Radha Rani Gemstone Logo" 
-          className="h-14 w-auto object-contain"
-        />
+        <svg width="40" height="24" viewBox="0 0 40 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* Symmetrical minimalist gemstone/architecture lines */}
+          <path d="M20 0 L10 12 L20 24 L30 12 Z" stroke={primaryColor} strokeWidth="1" strokeLinejoin="round" />
+          <path d="M0 12 L10 12" stroke={primaryColor} strokeWidth="1" opacity="0.4" />
+          <path d="M30 12 L40 12" stroke={primaryColor} strokeWidth="1" opacity="0.4" />
+          <path d="M20 0 L20 24" stroke={primaryColor} strokeWidth="1" opacity="0.4" />
+        </svg>
       </div>
 
       {/* Brand name - Classic Heritage Serif */}
