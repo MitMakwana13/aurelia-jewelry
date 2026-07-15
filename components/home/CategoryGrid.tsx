@@ -61,10 +61,12 @@ export function CategoryGrid() {
               <Link href={cat.href} className="group block">
                 {/* Image container */}
                 <div className="relative overflow-hidden bg-cream-warm aspect-[3/4] md:aspect-[4/5]">
-                  <div className="absolute inset-4 md:inset-6 border border-[#053624]/0 transition-colors duration-1000 ease-out-smooth group-hover:border-[#053624]/30 z-20 pointer-events-none" />
+
                   <img
                     src={cat.image}
                     alt={cat.title}
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, 33vw"
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-[3s] ease-out-smooth group-hover:scale-[1.03]"
                   />
                 </div>

@@ -24,7 +24,7 @@ export default async function CollectionsPage() {
         {collections.map((c) => (
           <Link key={c.slug} href={`/collections/${c.slug}`} className="group block">
             <div className="aspect-[4/5] overflow-hidden bg-cream-warm">
-              <img src={c.heroImage.url} alt={c.heroImage.alt} className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+              <img src={c.heroImage.url} alt={c.heroImage.alt} loading="lazy" sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw" className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
             </div>
             <p className="eyebrow mt-5">{c.tagline}</p>
             <h2 className="mt-2 font-serif text-2xl">{c.name}</h2>
