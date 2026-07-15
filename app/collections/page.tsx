@@ -21,8 +21,8 @@ export default async function CollectionsPage() {
       </p>
 
       <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {collections.map((c, i) => (
-          <Link key={c.slug} href={`/collections/${c.slug}`} className={`group block ${i % 2 === 1 ? "lg:mt-12" : ""}`}>
+        {collections.map((c) => (
+          <Link key={c.slug} href={`/collections/${c.slug}`} className="group block">
             <div className="aspect-[4/5] overflow-hidden bg-cream-warm">
               <img src={c.heroImage.url} alt={c.heroImage.alt} className="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
             </div>

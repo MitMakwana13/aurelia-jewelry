@@ -1,7 +1,10 @@
 import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
 import { prisma } from "@/lib/prisma";
 import bcrypt from "bcryptjs";
 import type { NextAuthOptions } from "next-auth";
+
+
 
 if (!process.env.NEXTAUTH_URL) {
   if (process.env.VERCEL_URL) {
@@ -19,12 +22,15 @@ if (!process.env.NEXTAUTH_SECRET) {
 
 export const authOptions: NextAuthOptions = {
   providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID ?? "",
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "",
+    }),
     CredentialsProvider({
       name: "credentials",
       credentials: {
         email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" },
-        // Optional: pass adminOnly=true to restrict to ADMIN role (for /admin panel)
         adminOnly: { label: "Admin Only", type: "text" },
       },
       async authorize(credentials) {
@@ -39,7 +45,6 @@ export const authOptions: NextAuthOptions = {
         const isValid = await bcrypt.compare(credentials.password, user.password);
         if (!isValid) return null;
 
-        // Admin routes: only allow ADMIN role and official email
         if (credentials.adminOnly === "true") {
           if (user.role !== "ADMIN" || user.email !== "radharanigemstone@gmail.com") return null;
         }
@@ -55,6 +60,27 @@ export const authOptions: NextAuthOptions = {
   ],
   session: { strategy: "jwt" },
   callbacks: {
+    async signIn({ user, account }) {
+      if (account?.provider === "google" && user.email) {
+        try {
+          const existing = await prisma.user.findUnique({ where: { email: user.email } });
+          if (!existing) {
+            await prisma.user.create({
+              data: {
+                email: user.email,
+                fullName: user.name ?? "",
+                password: "",
+                role: "CUSTOMER",
+              },
+            });
+          }
+        } catch (e) {
+          console.error("Google sign-in DB error:", e);
+          return false;
+        }
+      }
+      return true;
+    },
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
