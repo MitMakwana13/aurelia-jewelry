@@ -4,10 +4,10 @@ interface OrganizationJsonLdProps {
 }
 
 export function OrganizationJsonLd({
-  name = "Radha Rani Heritage Collection",
-  url = "https://radharani-jewelry.com",
+  name = "Radharani Gemstone",
+  url = "https://radharanigemstone.com",
 }: OrganizationJsonLdProps) {
-  const data = {
+  const storeData = {
     "@context": "https://schema.org",
     "@type": "JewelryStore",
     name,
@@ -17,7 +17,7 @@ export function OrganizationJsonLd({
     logo: `${url}/logo.png`,
     image: `${url}/logo.png`,
     telephone: "+91-79840-62415",
-    email: "concierge@radharani-jewelry.com",
+    email: "concierge@radharanigemstone.com",
     address: {
       "@type": "PostalAddress",
       addressCountry: "IN",
@@ -31,11 +31,24 @@ export function OrganizationJsonLd({
     ],
   };
 
+  const websiteData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Radharani Gemstone",
+    url: "https://radharanigemstone.com/",
+  };
+
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(storeData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteData) }}
+      />
+    </>
   );
 }
 
