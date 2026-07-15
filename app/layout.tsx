@@ -47,6 +47,9 @@ export const metadata: Metadata = {
     title: "Radha Rani Heritage Collection",
     description: "The Culture of Craft. Heritage Collection Masterpieces.",
   },
+  verification: {
+    google: "R3UrqYhF250O2pvX_ITufJ2JRBE9bktmDUN-I_zVCOU",
+  },
   robots: {
     index: true,
     follow: true,
