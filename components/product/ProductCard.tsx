@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import type { Product } from "@/lib/commerce/types";
 import { useCurrency } from "@/context/CurrencyContext";
 import { HeartIcon } from "@/components/ui/Icons";
@@ -10,6 +12,9 @@ import { InquiryModal } from "@/components/inquiry/InquiryModal";
 export function ProductCard({ product }: { product: Product }) {
   const [hovered, setHovered] = useState(false);
   const [inquiryOpen, setInquiryOpen] = useState(false);
+  const [wishlistMsg, setWishlistMsg] = useState(false);
+  const { data: session } = useSession();
+  const router = useRouter();
   const second = product.images[1] ?? product.images[0];
 
   const inferType = () => {
@@ -67,11 +72,25 @@ export function ProductCard({ product }: { product: Product }) {
             {/* Wishlist */}
             <button
               aria-label="Add to wishlist"
-              onClick={(e) => { e.preventDefault(); }}
+              onClick={(e) => {
+                e.preventDefault();
+                if (!session) {
+                  setWishlistMsg(true);
+                  setTimeout(() => setWishlistMsg(false), 2500);
+                  setTimeout(() => router.push("/account"), 1000);
+                }
+              }}
               className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-white/50 backdrop-blur-md opacity-0 transition-all duration-500 hover:bg-white group-hover:opacity-100"
             >
               <HeartIcon width={14} height={14} />
             </button>
+
+            {/* Login-to-wishlist toast */}
+            {wishlistMsg && (
+              <div className="absolute right-4 top-14 z-20 bg-ink text-cream text-[9px] uppercase tracking-[0.18em] px-3 py-2 shadow-lg whitespace-nowrap">
+                Please sign in to save
+              </div>
+            )}
 
             {/* Inquiry Button */}
             <div className="absolute inset-x-4 bottom-4 translate-y-4 opacity-0 transition-all duration-700 ease-out-smooth group-hover:translate-y-0 group-hover:opacity-100">
