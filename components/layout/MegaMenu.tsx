@@ -30,14 +30,14 @@ export function MegaMenu({ columns, onNavigate }: { columns: NavColumn[]; onNavi
         <div className="col-span-4">
           <div className="aspect-[4/5] w-full overflow-hidden bg-cream-warm">
             <img
-              src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=900&q=80"
-              alt="Featured collection"
+              src="/products/rubies/IMG_7489.JPG"
+              alt="Vivid Pigeon Blood Ruby — Bespoke Collection"
               className="h-full w-full object-cover"
             />
           </div>
           <p className="eyebrow mt-4">Featured</p>
-          <Link href="/collections/everyday-essentials" className="mt-2 block font-serif text-2xl link-underline">
-            Everyday Essentials →
+          <Link href="/shop/gemstones?type=ruby" className="mt-2 block font-serif text-2xl link-underline">
+            Rare Rubies →
           </Link>
         </div>
       </div>

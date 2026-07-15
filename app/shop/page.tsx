@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { commerce } from "@/lib/commerce";
-import { FilterSidebar } from "@/components/plp/FilterSidebar";
 import { SortDropdown } from "@/components/plp/SortDropdown";
 import { ProductGrid } from "@/components/plp/ProductGrid";
 import { Breadcrumbs } from "@/components/plp/Breadcrumbs";
@@ -37,13 +36,8 @@ export default async function ShopPage({
         </div>
       </div>
 
-      <div className="mt-10 grid gap-10 lg:grid-cols-12">
-        <div className="lg:col-span-3">
-          <FilterSidebar />
-        </div>
-        <div className="lg:col-span-9">
-          <ProductGrid products={products} />
-        </div>
+      <div className="mt-10">
+        <ProductGrid products={products} />
       </div>
     </div>
   );
