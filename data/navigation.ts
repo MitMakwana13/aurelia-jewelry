@@ -33,19 +33,10 @@ export const mainNav: NavItem[] = [
         heading: "Shop by Category",
         links: [
           { label: "All Jewelry", href: "/shop/jewelry" },
-          { label: "Rings", href: "/shop/jewelry/rings" },
-          { label: "Necklaces", href: "/shop/jewelry/necklaces" },
-          { label: "Bracelets", href: "/shop/jewelry/bracelets" },
-          { label: "Bangles", href: "/shop/jewelry/bangles" },
-        ],
-      },
-      {
-        heading: "Collections",
-        links: [
-          { label: "Bespoke Rings", href: "/collections/bespoke-rings" },
-          { label: "Bespoke Necklaces", href: "/collections/bespoke-necklaces" },
-          { label: "Bespoke Bracelets", href: "/collections/bespoke-bracelets" },
-          { label: "Bespoke Bangles", href: "/collections/bespoke-bangles" },
+          { label: "Rings", href: "/shop/rings" },
+          { label: "Necklaces", href: "/shop/necklaces" },
+          { label: "Bracelets", href: "/shop/bracelets" },
+          { label: "Bangles", href: "/shop/bangles" },
         ],
       },
     ],
