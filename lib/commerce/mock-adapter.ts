@@ -8,7 +8,7 @@ export const mockAdapter: CommerceAdapter = {
     let list = [...products];
     if (opts.category) {
       if (opts.category === "jewelry") {
-        list = list.filter((p) => ["rings", "necklaces", "earrings", "bracelets"].includes(p.categorySlug));
+        list = list.filter((p) => ["rings", "necklaces", "earrings", "bracelets", "bangles"].includes(p.categorySlug));
       } else if (opts.category === "gemstones") {
         list = list.filter((p) => p.categorySlug === "gemstones" || p.tags.some(t => ["gemstone", "birthstone", "pearl"].includes(t)));
       } else if (opts.category === "diamonds") {
