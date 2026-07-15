@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
-  const whatsappLink = "https://wa.me/919876543210?text=Hello%2C%20I%20have%20an%20inquiry%20about%20your%20gemstones%20%26%20jewelry.";
+  const whatsappLink = "https://wa.me/917984062415?text=Hello%2C%20I%20have%20an%20inquiry%20about%20your%20gemstones%20%26%20jewelry.";
 
   return (
     <>
@@ -52,14 +52,14 @@ export default function ContactPage() {
               <div>
                 <p className="text-[10px] uppercase tracking-[0.2em] text-ink/40 mb-1">Fastest Response</p>
                 <p className="font-serif text-xl text-ink mb-1">WhatsApp Inquiry</p>
-                <p className="text-sm text-ink/60">+91 98765 43210 · Typically responds within 2 hours</p>
+                <p className="text-sm text-ink/60">+91 79840 62415 · Typically responds within 2 hours</p>
                 <p className="mt-3 text-[10px] uppercase tracking-[0.15em] text-[#25D366] group-hover:underline">Chat Now →</p>
               </div>
             </a>
 
             {/* Phone */}
             <a
-              href="tel:+919876543210"
+              href="tel:+917984062415"
               className="group flex items-start gap-6 border border-border p-6 hover:border-ink/40 transition-colors"
             >
               <div className="mt-1 text-ink/50">
@@ -69,7 +69,7 @@ export default function ContactPage() {
               </div>
               <div>
                 <p className="text-[10px] uppercase tracking-[0.2em] text-ink/40 mb-1">Call Us</p>
-                <p className="font-serif text-xl text-ink mb-1">+91 98765 43210</p>
+                <p className="font-serif text-xl text-ink mb-1">+91 79840 62415</p>
                 <p className="text-sm text-ink/60">Mon – Sat · 10 AM – 7 PM IST</p>
               </div>
             </a>

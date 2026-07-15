@@ -84,7 +84,7 @@ export default async function CheckoutSuccessPage({
         </div>
 
         <p className="mt-8 text-[10px] text-ink/30 uppercase tracking-wider">
-          Questions? WhatsApp us at +91 98765 43210
+          Questions? WhatsApp us at +91 79840 62415
         </p>
       </div>
     </div>

@@ -16,7 +16,7 @@ export function OrganizationJsonLd({
       "Radha Rani Heritage Collection - Exquisite diamonds, emeralds and bespoke masterpieces. The Culture of Craft. Based in India.",
     logo: `${url}/logo.png`,
     image: `${url}/logo.png`,
-    telephone: "+91-99999-99999",
+    telephone: "+91-79840-62415",
     email: "concierge@radharani-jewelry.com",
     address: {
       "@type": "PostalAddress",

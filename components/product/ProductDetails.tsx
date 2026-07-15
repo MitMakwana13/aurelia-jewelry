@@ -46,7 +46,7 @@ export function ProductDetails({ product }: { product: Product }) {
   const whatsappMessage = encodeURIComponent(
     `Hello, I'm interested in the *${product.title}*. Could you please share more details and pricing?`
   );
-  const whatsappUrl = `https://wa.me/919876543210?text=${whatsappMessage}`;
+  const whatsappUrl = `https://wa.me/917984062415?text=${whatsappMessage}`;
 
   const inferType = () => {
     const cat = product.categorySlug?.toLowerCase() ?? "";
