@@ -38,32 +38,6 @@ export const mainNav: NavItem[] = [
     ],
   },
   {
-    label: "Diamonds",
-    href: "/shop/diamonds",
-    columns: [
-      {
-        heading: "Shop by Shape",
-        links: [
-          { label: "All Diamonds", href: "/shop/diamonds" },
-          { label: "Round Brilliant", href: "/shop/diamonds?shape=round" },
-          { label: "Princess Cut", href: "/shop/diamonds?shape=princess" },
-          { label: "Cushion Cut", href: "/shop/diamonds?shape=cushion" },
-          { label: "Marquise", href: "/shop/diamonds?shape=marquise" },
-          { label: "Pear Shape", href: "/shop/diamonds?shape=pear" },
-        ],
-      },
-      {
-        heading: "By Quality",
-        links: [
-          { label: "IF / FL (Flawless)", href: "/shop/diamonds?clarity=fl" },
-          { label: "VVS1 / VVS2", href: "/shop/diamonds?clarity=vvs" },
-          { label: "VS1 / VS2", href: "/shop/diamonds?clarity=vs" },
-          { label: "Solitaires", href: "/shop/diamonds?type=solitaire" },
-        ],
-      },
-    ],
-  },
-  {
     label: "Jewelry",
     href: "/shop/jewelry",
     columns: [
@@ -76,15 +50,6 @@ export const mainNav: NavItem[] = [
           { label: "Earrings", href: "/shop/jewelry/earrings" },
           { label: "Bracelets", href: "/shop/jewelry/bracelets" },
           { label: "Bangles", href: "/shop/jewelry/bangles" },
-        ],
-      },
-      {
-        heading: "By Metal",
-        links: [
-          { label: "Gold", href: "/shop/jewelry?metal=gold" },
-          { label: "Rose Gold", href: "/shop/jewelry?metal=rose-gold" },
-          { label: "Silver", href: "/shop/jewelry?metal=silver" },
-          { label: "Platinum", href: "/shop/jewelry?metal=platinum" },
         ],
       },
       {
