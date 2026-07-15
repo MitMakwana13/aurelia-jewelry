@@ -11,26 +11,14 @@ export const mainNav: NavItem[] = [
         heading: "Shop by Type",
         links: [
           { label: "All Gemstones", href: "/shop/gemstones" },
-          { label: "Ruby (Manik)", href: "/shop/gemstones?type=ruby" },
-          { label: "Emerald (Panna)", href: "/shop/gemstones?type=emerald" },
-          { label: "Blue Sapphire (Neelam)", href: "/shop/gemstones?type=blue-sapphire" },
-          { label: "Yellow Sapphire (Pukhraj)", href: "/shop/gemstones?type=yellow-sapphire" },
-          { label: "Pearl (Moti)", href: "/shop/gemstones?type=pearl" },
-        ],
-      },
-      {
-        heading: "More Navratna Stones",
-        links: [
-          { label: "Red Coral (Moonga)", href: "/shop/gemstones?type=red-coral" },
-          { label: "Diamond (Heera)", href: "/shop/gemstones?type=diamond-gem" },
-          { label: "Hessonite (Gomed)", href: "/shop/gemstones?type=hessonite" },
-          { label: "Cat's Eye (Lehsunia)", href: "/shop/gemstones?type=cats-eye" },
+          { label: "Rare Rubies", href: "/shop/gemstones?type=ruby" },
+          { label: "Yellow Sapphires", href: "/shop/gemstones?type=yellow-sapphire" },
+          { label: "Red Coral", href: "/shop/gemstones?type=red-coral" },
         ],
       },
       {
         heading: "Collections",
         links: [
-          { label: "Birthstones", href: "/collections/birthstones" },
           { label: "Rare & Precious", href: "/collections/rare" },
           { label: "New Arrivals", href: "/shop?filter=new" },
         ],
@@ -38,7 +26,7 @@ export const mainNav: NavItem[] = [
     ],
   },
   {
-    label: "Jewelry",
+    label: "Bespoke Jewelry",
     href: "/shop/jewelry",
     columns: [
       {
@@ -47,22 +35,23 @@ export const mainNav: NavItem[] = [
           { label: "All Jewelry", href: "/shop/jewelry" },
           { label: "Rings", href: "/shop/jewelry/rings" },
           { label: "Necklaces", href: "/shop/jewelry/necklaces" },
-          { label: "Earrings", href: "/shop/jewelry/earrings" },
           { label: "Bracelets", href: "/shop/jewelry/bracelets" },
           { label: "Bangles", href: "/shop/jewelry/bangles" },
         ],
       },
       {
-        heading: "Coming Soon",
+        heading: "Collections",
         links: [
-          { label: "Bridal Collection", href: "/shop/jewelry" },
-          { label: "Festive Specials", href: "/shop/jewelry" },
+          { label: "Bespoke Rings", href: "/collections/bespoke-rings" },
+          { label: "Bespoke Necklaces", href: "/collections/bespoke-necklaces" },
+          { label: "Bespoke Bracelets", href: "/collections/bespoke-bracelets" },
+          { label: "Bespoke Bangles", href: "/collections/bespoke-bangles" },
         ],
       },
     ],
   },
   {
-    label: "Custom",
+    label: "Custom Inquiry",
     href: "/custom",
   },
   {
@@ -72,17 +61,16 @@ export const mainNav: NavItem[] = [
       {
         heading: "Featured",
         links: [
-          { label: "Birthstones", href: "/collections/birthstones" },
-          { label: "Solitaires", href: "/collections/solitaire" },
-          { label: "Wedding", href: "/collections/wedding" },
-          { label: "Everyday Wear", href: "/collections/everyday" },
+          { label: "Rare & Precious", href: "/collections/rare" },
+          { label: "Bespoke Rings", href: "/collections/bespoke-rings" },
+          { label: "Bespoke Necklaces", href: "/collections/bespoke-necklaces" },
         ],
       },
       {
-        heading: "By Occasion",
+        heading: "More Bespoke",
         links: [
-          { label: "Gifting", href: "/collections/gifting" },
-          { label: "Festivals", href: "/collections/festivals" },
+          { label: "Bespoke Bangles", href: "/collections/bespoke-bangles" },
+          { label: "Bespoke Bracelets", href: "/collections/bespoke-bracelets" },
         ],
       },
     ],
