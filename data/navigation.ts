@@ -13,7 +13,12 @@ export const mainNav: NavItem[] = [
           { label: "All Gemstones", href: "/shop/gemstones" },
           { label: "Rare Rubies", href: "/shop/gemstones?type=ruby" },
           { label: "Yellow Sapphires", href: "/shop/gemstones?type=yellow-sapphire" },
+          { label: "Blue Sapphires", href: "/shop/gemstones?type=blue-sapphire" },
+          { label: "Emeralds", href: "/shop/gemstones?type=emerald" },
+          { label: "Hessonite (Gomed)", href: "/shop/gemstones?type=hessonite" },
           { label: "Red Coral", href: "/shop/gemstones?type=red-coral" },
+          { label: "Pearl", href: "/shop/gemstones?type=pearl" },
+          { label: "Cat's Eye", href: "/shop/gemstones?type=cats-eye" },
         ],
       },
       {
@@ -102,7 +107,6 @@ export const footerNav = {
     links: [
       { label: "Our Story", href: "/about" },
       { label: "Sustainability", href: "/sustainability" },
-      { label: "Craftsmanship", href: "/about" },
     ],
   },
 };

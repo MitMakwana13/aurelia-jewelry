@@ -17,7 +17,7 @@ export default function ContactPage() {
       <section className="relative aspect-[16/6] w-full bg-ink overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-[#053624]/80 to-ink" />
         <div className="container-x relative flex h-full items-center">
-          <div className="text-cream max-w-2xl">
+          <div className="text-cream max-w-2xl px-4 md:px-0">
             <p className="eyebrow text-cream/60 tracking-[0.3em] mb-4">Get in Touch</p>
             <h1 className="font-serif text-5xl md:text-7xl font-light leading-tight">
               Contact Us
