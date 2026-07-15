@@ -255,12 +255,6 @@ export default function AuthClient() {
           </form>
         )}
 
-        {/* Quick Links */}
-        <div className="mt-12 grid grid-cols-3 gap-4 border-t border-border pt-8 text-center">
-          <Link href="/account/inquiries" className="block text-xs uppercase tracking-[0.18em] hover:underline underline-offset-4 text-ink/60 hover:text-ink">Inquiries</Link>
-          <Link href="/account/wishlist" className="block text-xs uppercase tracking-[0.18em] hover:underline underline-offset-4 text-ink/60 hover:text-ink">Wishlist</Link>
-          <Link href="/account/profile" className="block text-xs uppercase tracking-[0.18em] hover:underline underline-offset-4 text-ink/60 hover:text-ink">Profile</Link>
-        </div>
       </div>
     </div>
   );
