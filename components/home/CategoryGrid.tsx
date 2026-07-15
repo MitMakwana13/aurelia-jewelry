@@ -43,7 +43,7 @@ export function CategoryGrid() {
   const yInner = useTransform(scrollYProgress, [0, 1], ["0%", "-25%"]);
 
   return (
-    <section ref={containerRef} className="container-x py-32 lg:py-48 overflow-hidden bg-cream">
+    <section ref={containerRef} className="container-x py-16 lg:py-24 overflow-hidden bg-cream">
       <div className="mb-32 text-center">
         <h2 className="font-serif text-4xl md:text-6xl text-ink font-light tracking-tight">The Exhibition</h2>
         <p className="mt-6 text-[10px] tracking-[0.3em] uppercase text-ink/40">Curated Masterpieces</p>

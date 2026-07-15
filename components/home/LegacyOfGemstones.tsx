@@ -39,7 +39,7 @@ export function LegacyOfGemstones() {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section ref={sectionRef} className="py-24 lg:py-40 bg-cream">
+    <section ref={sectionRef} className="py-12 lg:py-20 bg-cream">
       <div className="container-x mb-20 md:mb-32 max-w-4xl mx-auto text-center">
         <motion.p
           initial={{ opacity: 0, y: 10 }}
