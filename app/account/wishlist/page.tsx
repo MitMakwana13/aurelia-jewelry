@@ -6,8 +6,8 @@ import { AccountNav } from "@/components/account/AccountNav";
 
 export default async function WishlistPage() {
   const all = await commerce.getProducts();
-  // Demo: pick 4 as example saved items.
-  const items = all.filter((p) => p.featured).slice(0, 4);
+  // The wishlist database model is not built yet, so default to empty.
+  const items: any[] = [];
 
   return (
     <div className="container-x py-10">
