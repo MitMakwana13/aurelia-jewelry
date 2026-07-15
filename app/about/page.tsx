@@ -12,7 +12,7 @@ export default function AboutPage() {
     <>
       <section className="relative aspect-[16/8] w-full bg-cream-warm">
         <img
-          src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=1800&q=85"
+          src="/products/bangles/IMG_7649.JPG"
           alt="Radha Rani Gemstones Craftsmanship"
           className="absolute inset-0 h-full w-full object-cover"
         />
@@ -71,7 +71,7 @@ export default function AboutPage() {
           <Link href="/shop/gemstones" className="group block">
             <div className="aspect-[4/3] overflow-hidden bg-cream-warm">
               <img
-                src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1200&q=80"
+                src="/products/rubies/IMG_7489.JPG"
                 alt="Navratna Gemstones Collection"
                 className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
               />
@@ -82,7 +82,7 @@ export default function AboutPage() {
           <Link href="/custom" className="group block">
             <div className="aspect-[4/3] overflow-hidden bg-cream-warm">
               <img
-                src="https://images.unsplash.com/photo-1559563458-527698bf5295?auto=format&fit=crop&w=1200&q=80"
+                src="/products/necklaces/IMG_7368.JPG"
                 alt="Bespoke Jewelry Customization"
                 className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
               />

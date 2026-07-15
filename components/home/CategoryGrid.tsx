@@ -9,7 +9,7 @@ const CATEGORIES = [
     title: "Heritage Collection Rings",
     href: "/shop/rings",
     image:
-      "https://images.unsplash.com/photo-1605100804763-247f67b6548e?auto=format&fit=crop&w=800&q=80",
+      "/products/rings/IMG_7580.JPG",
     color: "bg-ink",
     textColor: "text-cream",
   },
@@ -17,7 +17,7 @@ const CATEGORIES = [
     title: "Bespoke Necklaces",
     href: "/shop/necklaces",
     image:
-      "https://images.unsplash.com/photo-1599643477877-530e5d3e8d69?auto=format&fit=crop&w=800&q=80",
+      "/products/necklaces/IMG_7616.JPG",
     color: "bg-cream-warm",
     textColor: "text-ink",
   },
@@ -25,7 +25,7 @@ const CATEGORIES = [
     title: "Masterpiece Earrings",
     href: "/shop/earrings",
     image:
-      "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=800&q=80",
+      "/products/rubies/IMG_7494.JPG",
     color: "bg-cream-light",
     textColor: "text-ink",
   },

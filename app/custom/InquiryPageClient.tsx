@@ -50,7 +50,7 @@ export function InquiryPageClient() {
       {/* Cinematic Hero */}
       <section className="relative w-full h-[60vh] min-h-[500px] overflow-hidden bg-ink flex items-center justify-center">
         <img
-          src="https://images.unsplash.com/photo-1603974372039-adc49044b6bd?auto=format&fit=crop&w=2800&q=80"
+          src="/products/bracelets/IMG_7632.JPG"
           alt="Bespoke Jewelry Craftsmanship"
           className="absolute inset-0 h-full w-full object-cover opacity-50 scale-105 animate-[slow-zoom_20s_ease-in-out_infinite_alternate]"
         />
