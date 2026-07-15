@@ -121,7 +121,7 @@ export function InquiryPageClient() {
                   </div>
                   <div className="space-y-1">
                     <label className="text-xs uppercase tracking-[0.16em] text-ink/60">Phone Number *</label>
-                    <input name="phone" required type="tel" value={form.phone} onChange={handleChange} className="input-base text-lg" placeholder="+91 98765 43210" />
+                    <input name="phone" required type="tel" value={form.phone} onChange={handleChange} className="input-base text-lg" placeholder="+91 79840 62415" />
                   </div>
                   <div className="space-y-1">
                     <label className="text-xs uppercase tracking-[0.16em] text-ink/60">Email Address *</label>
@@ -186,7 +186,7 @@ export function InquiryPageClient() {
               <div className="space-y-5 text-sm text-ink/70">
                 <div>
                   <p className="text-[10px] uppercase tracking-[0.2em] text-ink/40 mb-1">WhatsApp / Phone</p>
-                  <a href="tel:+919999999999" className="text-lg hover:text-gold-dark transition">+91 99999 99999</a>
+                  <a href="tel:+917984062415" className="text-lg hover:text-gold-dark transition">+91 79840 62415</a>
                 </div>
                 <div>
                   <p className="text-[10px] uppercase tracking-[0.2em] text-ink/40 mb-1">Email</p>

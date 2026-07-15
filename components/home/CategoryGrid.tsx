@@ -25,7 +25,7 @@ const CATEGORIES = [
     title: "Bespoke Bangles",
     href: "/shop/bangles",
     image:
-      "/products/rubies/IMG_7494.JPG",
+      "/products/bangles/IMG_7649.JPG",
     color: "bg-cream-light",
     textColor: "text-ink",
   },

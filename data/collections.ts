@@ -7,8 +7,8 @@ export const collections: Collection[] = [
     tagline: "The finest gemstones",
     description: "Exceptional unheated rubies, yellow sapphires, and red coral sourced from around the world.",
     heroImage: {
-      url: "/hero-clean.png",
-      alt: "Rare gemstones",
+      url: "/products/rubies/IMG_7489.JPG",
+      alt: "Rare vivid pigeon blood ruby",
     },
     productHandles: ["ruby-gem-7489", "yellow-sapphire-7524"],
   },
@@ -18,8 +18,8 @@ export const collections: Collection[] = [
     tagline: "Exclusive custom designs",
     description: "Commanding solitaires, vintage halos, and architectural masterpieces crafted specifically for our clients.",
     heroImage: {
-      url: "/hero-clean.png",
-      alt: "Bespoke rings",
+      url: "/products/rings/IMG_7583.JPG",
+      alt: "Bespoke heritage ring",
     },
     productHandles: ["ring-bespoke-7580", "ring-bespoke-7581", "ring-bespoke-7582"],
   },
@@ -29,8 +29,8 @@ export const collections: Collection[] = [
     tagline: "Unparalleled elegance",
     description: "From delicate celestial chains to dramatic imperial collars, each necklace is an exhibition of bespoke luxury.",
     heroImage: {
-      url: "/hero-clean.png",
-      alt: "Bespoke necklaces",
+      url: "/products/necklaces/IMG_7607.JPG",
+      alt: "Bespoke heritage necklace",
     },
     productHandles: ["necklace-bespoke-7368", "necklace-bespoke-7600"],
   },
@@ -40,8 +40,8 @@ export const collections: Collection[] = [
     tagline: "Woven brilliance",
     description: "Tactile marvels ranging from supple royal mesh to solid sovereign links.",
     heroImage: {
-      url: "/hero-clean.png",
-      alt: "Bespoke bracelets",
+      url: "/products/bracelets/IMG_7636.JPG",
+      alt: "Bespoke heritage bracelet",
     },
     productHandles: ["bracelet-bespoke-7632", "bracelet-bespoke-7633"],
   },
@@ -51,9 +51,10 @@ export const collections: Collection[] = [
     tagline: "Heritage meets modern",
     description: "Intricate filigree bangles and timeless kadas that celebrate historical craftsmanship and regal elegance.",
     heroImage: {
-      url: "/hero-clean.png",
-      alt: "Bespoke bangles",
+      url: "/products/bangles/IMG_7652.JPG",
+      alt: "Bespoke heritage bangle",
     },
     productHandles: ["bangle-bespoke-7649", "bangle-bespoke-7650"],
   },
 ];
+

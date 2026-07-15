@@ -183,7 +183,7 @@ export default function AuthClient() {
               <input
                 name="phone"
                 type="tel"
-                placeholder="+91 98765 43210"
+                placeholder="+91 79840 62415"
                 className="w-full border border-border px-4 py-3 text-sm outline-none focus:border-ink bg-transparent transition"
               />
             </div>

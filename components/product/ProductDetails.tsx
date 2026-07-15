@@ -136,7 +136,7 @@ export function ProductDetails({ product }: { product: Product }) {
 
             <div className="flex items-center gap-2">
               <a
-                href="tel:+919876543210"
+                href="tel:+917984062415"
                 className="flex-1 flex items-center justify-center gap-2 border border-ink/20 py-3.5 text-[10px] uppercase tracking-[0.2em] text-ink hover:border-ink transition-colors"
               >
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
