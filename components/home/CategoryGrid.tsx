@@ -22,8 +22,8 @@ const CATEGORIES = [
     textColor: "text-ink",
   },
   {
-    title: "Masterpiece Earrings",
-    href: "/shop/earrings",
+    title: "Bespoke Bangles",
+    href: "/shop/bangles",
     image:
       "/products/rubies/IMG_7494.JPG",
     color: "bg-cream-light",
@@ -58,26 +58,22 @@ export function CategoryGrid() {
 
           return (
             <motion.div key={cat.title} style={{ y: yTransform }} className={marginTop}>
-              <Link
-                href={cat.href}
-                className="group relative block overflow-hidden bg-cream-warm aspect-[3/4] md:aspect-[4/5]"
-              >
-                {/* Cartier-style minimalist inner frame on hover */}
-                <div className="absolute inset-4 md:inset-6 border border-[#053624]/0 transition-colors duration-1000 ease-out-smooth group-hover:border-[#053624]/30 z-20 pointer-events-none" />
-
-                {/* Image Scale on Hover */}
-                <img
-                  src={cat.image}
-                  alt={cat.title}
-                  className="absolute inset-0 h-full w-full object-cover opacity-90 mix-blend-multiply transition-transform duration-[3s] ease-out-smooth group-hover:scale-[1.03]"
-                />
-
-                {/* Content Fade In */}
-                <div className="absolute inset-0 flex flex-col items-center justify-end p-10 text-center opacity-0 translate-y-4 transition-all duration-1000 ease-out-smooth group-hover:opacity-100 group-hover:translate-y-0 z-30">
-                  <h3 className="font-serif text-3xl text-[#053624]">
+              <Link href={cat.href} className="group block">
+                {/* Image container */}
+                <div className="relative overflow-hidden bg-cream-warm aspect-[3/4] md:aspect-[4/5]">
+                  <div className="absolute inset-4 md:inset-6 border border-[#053624]/0 transition-colors duration-1000 ease-out-smooth group-hover:border-[#053624]/30 z-20 pointer-events-none" />
+                  <img
+                    src={cat.image}
+                    alt={cat.title}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-[3s] ease-out-smooth group-hover:scale-[1.03]"
+                  />
+                </div>
+                {/* Always-visible label below image */}
+                <div className="mt-5 text-center px-2">
+                  <h3 className="font-serif text-2xl text-ink group-hover:text-[#053624] transition-colors duration-500">
                     {cat.title}
                   </h3>
-                  <span className="mt-4 inline-block border-b border-[#053624]/40 pb-1 text-[9px] uppercase tracking-[0.25em] text-[#053624]/80 transition-colors hover:text-[#053624] hover:border-[#053624]">
+                  <span className="mt-2 inline-block border-b border-ink/20 pb-1 text-[9px] uppercase tracking-[0.25em] text-ink/50 group-hover:text-[#053624] group-hover:border-[#053624]/40 transition-colors duration-500">
                     Discover
                   </span>
                 </div>
