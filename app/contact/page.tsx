@@ -14,15 +14,14 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative aspect-[16/6] w-full bg-ink overflow-hidden">
-        <div className="absolute inset-0 bg-ink-light/20" />
-        <div className="container-x relative flex h-full items-center">
-          <div className="text-cream max-w-2xl px-4 md:px-0">
-            <p className="eyebrow text-cream/60 tracking-[0.3em] mb-4">Get in Touch</p>
-            <h1 className="font-serif text-5xl md:text-7xl font-light leading-tight">
+      <section className="relative w-full pt-12 md:pt-20 bg-cream">
+        <div className="container-x">
+          <div className="max-w-2xl">
+            <p className="eyebrow text-ink/60 tracking-[0.3em] mb-4">Get in Touch</p>
+            <h1 className="font-serif text-5xl md:text-7xl text-ink font-light leading-tight">
               Contact Us
             </h1>
-            <p className="mt-4 text-cream/70 max-w-lg leading-relaxed">
+            <p className="mt-4 text-ink-soft max-w-lg leading-relaxed">
               Our master gemologists and concierge team are available six days a week to assist with gemstone selection, custom jewelry, and bespoke consultations.
             </p>
           </div>
