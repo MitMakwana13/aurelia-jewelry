@@ -8,7 +8,7 @@ import { products } from "@/data/products";
 import { CloseIcon, SearchIcon } from "@/components/ui/Icons";
 import type { Product } from "@/lib/commerce/types";
 
-const POPULAR = ["Hoops", "Dôme Ring", "Birthstones", "Solid Gold", "Tennis Bracelet"];
+const POPULAR = ["Rings", "Necklaces", "Bangles", "Bespoke", "Diamonds"];
 
 export function SearchOverlay() {
   const { searchOpen, closeSearch } = useUI();
@@ -72,7 +72,7 @@ export function SearchOverlay() {
                 <div>
                   <p className="eyebrow mb-4">Bestsellers</p>
                   <ul className="grid grid-cols-3 gap-3">
-                    {products.filter((p) => p.bestseller).slice(0, 3).map((p) => (
+                    {products.filter((p) => p.featured || p.trending).slice(0, 3).map((p) => (
                       <li key={p.handle}>
                         <Link href={`/products/${p.handle}`} onClick={closeSearch} className="block">
                           <div className="aspect-square overflow-hidden bg-cream-warm">
