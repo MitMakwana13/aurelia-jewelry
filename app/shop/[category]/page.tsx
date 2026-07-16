@@ -130,7 +130,7 @@ export default async function CategoryPage({
           alt={heroImage.alt}
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/40 to-transparent" />
+        <div className="absolute inset-0 bg-ink/40" />
         <div className="container-x relative flex h-full items-end pb-10">
           <div className="text-cream">
             <p className="eyebrow text-cream/80">{heroSubtitle}</p>
