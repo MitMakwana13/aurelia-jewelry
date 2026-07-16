@@ -43,18 +43,6 @@ export default async function ProfilePage() {
               </p>
             </div>
 
-            <div className="pt-4">
-              <h3 className="text-xs uppercase tracking-[0.15em] text-ink/60 mb-4">Security</h3>
-              <p className="text-sm text-ink-muted mb-4">
-                If you need to change your password, please use the password reset workflow.
-              </p>
-              <a 
-                href="/account/forgot-password" 
-                className="inline-block border border-ink text-ink px-6 py-2 text-[11px] uppercase tracking-[0.2em] hover:bg-ink hover:text-cream transition"
-              >
-                Reset Password
-              </a>
-            </div>
           </div>
         </div>
       </div>
