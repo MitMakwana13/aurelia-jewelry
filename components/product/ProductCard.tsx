@@ -13,7 +13,7 @@ import { useWishlistStore } from "@/lib/stores/wishlist";
 export function ProductCard({ product }: { product: Product }) {
   const [hovered, setHovered] = useState(false);
   const [inquiryOpen, setInquiryOpen] = useState(false);
-  const [wishlistMsg, setWishlistMsg] = useState(false);
+  const [wishlistMsg, setWishlistMsg] = useState("");
   const { data: session } = useSession();
   const router = useRouter();
   const second = product.images[1] ?? product.images[0];
@@ -76,14 +76,17 @@ export function ProductCard({ product }: { product: Product }) {
               onClick={async (e) => {
                 e.preventDefault();
                 if (!session) {
-                  setWishlistMsg(true);
-                  setTimeout(() => setWishlistMsg(false), 2500);
+                  setWishlistMsg("Please sign in to save");
+                  setTimeout(() => setWishlistMsg(""), 2500);
                   setTimeout(() => router.push("/account"), 1000);
                   return;
                 }
                 
+                const isAdding = !useWishlistStore.getState().items.has(product.id);
                 // Optimistic UI update
                 useWishlistStore.getState().toggleItem(product.id);
+                setWishlistMsg(isAdding ? "Added to wishlist" : "Removed from wishlist");
+                setTimeout(() => setWishlistMsg(""), 2500);
                 
                 try {
                   await fetch("/api/wishlist", {
@@ -108,10 +111,10 @@ export function ProductCard({ product }: { product: Product }) {
               )}
             </button>
 
-            {/* Login-to-wishlist toast */}
+            {/* Login/Success toast */}
             {wishlistMsg && (
               <div className="absolute right-4 top-14 z-20 bg-ink text-cream text-[9px] uppercase tracking-[0.18em] px-3 py-2 shadow-lg whitespace-nowrap">
-                Please sign in to save
+                {wishlistMsg}
               </div>
             )}
 

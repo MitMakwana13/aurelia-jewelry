@@ -37,6 +37,7 @@ export function ProductDetails({ product }: { product: Product }) {
   const [size, setSize] = useState(product.sizes?.[0]);
   const [open, setOpen] = useState<string | null>("Description");
   const [inquiryOpen, setInquiryOpen] = useState(false);
+  const [wishlistMsg, setWishlistMsg] = useState("");
   const { formatPrice } = useCurrency();
   const router = useRouter();
   const { status } = useSession();
@@ -158,7 +159,11 @@ export function ProductDetails({ product }: { product: Product }) {
                     return;
                   }
                   
+                  const isAdding = !useWishlistStore.getState().items.has(product.id);
                   useWishlistStore.getState().toggleItem(product.id);
+                  setWishlistMsg(isAdding ? "Added to wishlist" : "Removed from wishlist");
+                  setTimeout(() => setWishlistMsg(""), 2500);
+
                   try {
                     await fetch("/api/wishlist", {
                       method: "POST",
@@ -170,7 +175,7 @@ export function ProductDetails({ product }: { product: Product }) {
                     console.error("Failed to toggle wishlist", err);
                   }
                 }}
-                className="border border-ink/20 w-14 flex items-center justify-center h-[46px] hover:border-ink transition-colors"
+                className="border border-ink/20 w-14 flex items-center justify-center h-[46px] hover:border-ink transition-colors relative"
               >
                 {useWishlistStore(s => s.items.has(product.id)) ? (
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="text-red-500">
@@ -178,6 +183,13 @@ export function ProductDetails({ product }: { product: Product }) {
                   </svg>
                 ) : (
                   <HeartIcon width={18} height={18} />
+                )}
+                
+                {/* Toast */}
+                {wishlistMsg && (
+                  <div className="absolute right-0 bottom-[110%] z-20 bg-ink text-cream text-[9px] uppercase tracking-[0.18em] px-3 py-2 shadow-lg whitespace-nowrap">
+                    {wishlistMsg}
+                  </div>
                 )}
               </button>
             </div>
