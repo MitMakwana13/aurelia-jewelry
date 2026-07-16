@@ -7,12 +7,19 @@ import { authOptions } from "@/lib/auth";
 export async function GET(request: Request) {
   try {
     const session = await getServerSession(authOptions);
-    if (!session?.user || !(session.user as any).id) {
+    if (!session?.user?.email) {
       return NextResponse.json({ items: [] });
     }
 
+    const dbUser = await prisma.user.findUnique({
+      where: { email: session.user.email },
+      select: { id: true },
+    });
+
+    if (!dbUser) return NextResponse.json({ items: [] });
+
     const items = await prisma.wishlistItem.findMany({
-      where: { userId: (session.user as any).id },
+      where: { userId: dbUser.id },
       select: { productId: true },
     });
 
@@ -27,7 +34,7 @@ export async function GET(request: Request) {
 export async function POST(request: Request) {
   try {
     const session = await getServerSession(authOptions);
-    if (!session?.user || !(session.user as any).id) {
+    if (!session?.user?.email) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
     }
 
@@ -36,11 +43,20 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Product ID is required" }, { status: 400 });
     }
 
+    const dbUser = await prisma.user.findUnique({
+      where: { email: session.user.email },
+      select: { id: true },
+    });
+
+    if (!dbUser) {
+      return NextResponse.json({ error: "User not found" }, { status: 404 });
+    }
+
     // Check if it already exists
     const existing = await prisma.wishlistItem.findUnique({
       where: {
         userId_productId: {
-          userId: (session.user as any).id,
+          userId: dbUser.id,
           productId,
         }
       }
@@ -56,7 +72,7 @@ export async function POST(request: Request) {
       // Add it
       await prisma.wishlistItem.create({
         data: {
-          userId: (session.user as any).id,
+          userId: dbUser.id,
           productId,
         }
       });
