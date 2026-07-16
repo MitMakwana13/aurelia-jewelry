@@ -30,8 +30,8 @@ model WishlistItem {
   createdAt DateTime @default(now())
 
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
-
+  // Removed product relation to support mock/external product IDs
+  
   @@unique([userId, productId])
 }
 
@@ -66,7 +66,6 @@ model Product {
   gemstoneDetail  GemstoneDetail?
   inquiries       Inquiry[]
   variants        Variant[]
-  wishlistItems   WishlistItem[]
 }
 
 model Variant {
