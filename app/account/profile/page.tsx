@@ -5,6 +5,8 @@ import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { requireOnboarding } from "@/lib/utils/onboarding";
 
+import { ProfileForm } from "@/components/account/ProfileForm";
+
 export default async function ProfilePage() {
   const session = await getServerSession(authOptions);
   
@@ -26,30 +28,18 @@ export default async function ProfilePage() {
 
           <div className="space-y-8">
             <div className="border-b border-border pb-8">
-              <h3 className="text-xs uppercase tracking-[0.15em] text-ink/60 mb-4">Personal Information</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-[10px] uppercase tracking-[0.18em] text-ink/50 mb-2">Name</label>
-                  <div className="w-full border border-border px-4 py-3 text-sm bg-transparent">
-                    {user.fullName || "Not provided"}
-                  </div>
+              <h3 className="text-xs uppercase tracking-[0.15em] text-ink/60 mb-6">Personal Information</h3>
+              <ProfileForm user={{ fullName: user.fullName, phone: user.phone }} />
+              
+              <div className="mt-8 pt-8 border-t border-border">
+                <h3 className="text-xs uppercase tracking-[0.15em] text-ink/60 mb-4">Email Address</h3>
+                <div className="w-full border border-border px-4 py-3 text-sm bg-transparent text-ink/70">
+                  {session.user?.email}
                 </div>
-                <div>
-                  <label className="block text-[10px] uppercase tracking-[0.18em] text-ink/50 mb-2">Phone</label>
-                  <div className="w-full border border-border px-4 py-3 text-sm bg-transparent">
-                    {user.phone || "Not provided"}
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-[10px] uppercase tracking-[0.18em] text-ink/50 mb-2">Email Address</label>
-                  <div className="w-full border border-border px-4 py-3 text-sm bg-transparent text-ink/70">
-                    {session.user?.email}
-                  </div>
-                </div>
+                <p className="mt-4 text-[11px] text-ink/50 leading-relaxed">
+                  To update your email address, please contact our concierge service as it is linked to your Google Account.
+                </p>
               </div>
-              <p className="mt-4 text-[11px] text-ink/50">
-                To update your personal information, please contact our concierge service.
-              </p>
             </div>
 
           </div>

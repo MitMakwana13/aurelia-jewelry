@@ -1,10 +1,13 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import type { Product, ProductVariant } from "@/lib/commerce/types";
 import { InquiryModal } from "@/components/inquiry/InquiryModal";
 import { useCurrency } from "@/context/CurrencyContext";
 import { HeartIcon, ChevronDownIcon } from "@/components/ui/Icons";
+import { useWishlistStore } from "@/lib/stores/wishlist";
 
 const ACCORDION = [
   { title: "Description", field: "description" as const },
@@ -35,6 +38,8 @@ export function ProductDetails({ product }: { product: Product }) {
   const [open, setOpen] = useState<string | null>("Description");
   const [inquiryOpen, setInquiryOpen] = useState(false);
   const { formatPrice } = useCurrency();
+  const router = useRouter();
+  const { status } = useSession();
 
   const variant = useMemo<ProductVariant | undefined>(
     () => product.variants.find((v) => v.metal === metal && (!size || v.size === size)),
@@ -145,10 +150,35 @@ export function ProductDetails({ product }: { product: Product }) {
                 Call Us
               </a>
               <button
-                aria-label="Save to wishlist"
+                aria-label="Toggle wishlist"
+                onClick={async (e) => {
+                  e.preventDefault();
+                  if (status === "unauthenticated") {
+                    router.push("/account");
+                    return;
+                  }
+                  
+                  useWishlistStore.getState().toggleItem(product.id);
+                  try {
+                    await fetch("/api/wishlist", {
+                      method: "POST",
+                      headers: { "Content-Type": "application/json" },
+                      body: JSON.stringify({ productId: product.id }),
+                    });
+                  } catch (err) {
+                    useWishlistStore.getState().toggleItem(product.id);
+                    console.error("Failed to toggle wishlist", err);
+                  }
+                }}
                 className="border border-ink/20 w-14 flex items-center justify-center h-[46px] hover:border-ink transition-colors"
               >
-                <HeartIcon />
+                {useWishlistStore(s => s.items.has(product.id)) ? (
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="text-red-500">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                  </svg>
+                ) : (
+                  <HeartIcon width={18} height={18} />
+                )}
               </button>
             </div>
           </div>

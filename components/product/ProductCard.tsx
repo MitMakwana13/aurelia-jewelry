@@ -8,6 +8,7 @@ import type { Product } from "@/lib/commerce/types";
 import { useCurrency } from "@/context/CurrencyContext";
 import { HeartIcon } from "@/components/ui/Icons";
 import { InquiryModal } from "@/components/inquiry/InquiryModal";
+import { useWishlistStore } from "@/lib/stores/wishlist";
 
 export function ProductCard({ product }: { product: Product }) {
   const [hovered, setHovered] = useState(false);
@@ -71,18 +72,40 @@ export function ProductCard({ product }: { product: Product }) {
 
             {/* Wishlist */}
             <button
-              aria-label="Add to wishlist"
-              onClick={(e) => {
+              aria-label="Toggle wishlist"
+              onClick={async (e) => {
                 e.preventDefault();
                 if (!session) {
                   setWishlistMsg(true);
                   setTimeout(() => setWishlistMsg(false), 2500);
                   setTimeout(() => router.push("/account"), 1000);
+                  return;
+                }
+                
+                // Optimistic UI update
+                useWishlistStore.getState().toggleItem(product.id);
+                
+                try {
+                  await fetch("/api/wishlist", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ productId: product.id }),
+                  });
+                } catch (err) {
+                  // Revert if failed
+                  useWishlistStore.getState().toggleItem(product.id);
+                  console.error("Failed to toggle wishlist", err);
                 }
               }}
-              className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-white/50 backdrop-blur-md opacity-0 transition-all duration-500 hover:bg-white group-hover:opacity-100"
+              className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-white/50 backdrop-blur-md opacity-100 transition-all duration-500 hover:bg-white group-hover:opacity-100"
             >
-              <HeartIcon width={14} height={14} />
+              {useWishlistStore(s => s.items.has(product.id)) ? (
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-red-500">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                </svg>
+              ) : (
+                <HeartIcon width={14} height={14} />
+              )}
             </button>
 
             {/* Login-to-wishlist toast */}

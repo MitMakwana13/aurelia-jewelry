@@ -11,11 +11,16 @@ import { requireOnboarding } from "@/lib/utils/onboarding";
 export default async function WishlistPage() {
   const session = await getServerSession(authOptions);
   if (!session?.user?.email) redirect("/account");
-  await requireOnboarding(session.user.email);
+  const user = await requireOnboarding(session.user.email);
+  const { prisma } = await import("@/lib/prisma");
+  const savedItems = await prisma.wishlistItem.findMany({
+    where: { userId: user.id },
+    select: { productId: true }
+  });
+  
+  const savedProductIds = new Set(savedItems.map(i => i.productId));
   const all = await commerce.getProducts();
-  // The wishlist database model is not built yet, so default to empty.
-  const items: any[] = [];
-
+  const items = all.filter(p => savedProductIds.has(p.id));
   return (
     <div className="container-x py-10">
       <Breadcrumbs items={[{ label: "Home", href: "/" }, { label: "Account", href: "/account" }, { label: "Wishlist" }]} />
