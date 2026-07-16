@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { footerNav } from "@/data/navigation";
-import { ArrowRightIcon, InstagramIcon, TiktokIcon, PinterestIcon } from "@/components/ui/Icons";
+import { ArrowRightIcon, InstagramIcon, TiktokIcon, PinterestIcon, MailIcon, PhoneIcon } from "@/components/ui/Icons";
 import { Logo } from "@/components/ui/Logo";
 
 export function Footer() {
@@ -84,6 +84,8 @@ export function Footer() {
         <div className="mt-24 flex flex-col items-start justify-between gap-8 border-t border-cream/10 pt-8 md:flex-row md:items-center">
           <div className="flex items-center gap-6 text-cream/50">
             <a href="https://www.instagram.com/radharanigemstone?igsh=MWNscnBqN21tNXRoag==" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-cream transition-colors"><InstagramIcon width={16} height={16} /></a>
+            <a href="mailto:radharanigemstone@gmail.com" aria-label="Email" className="hover:text-cream transition-colors"><MailIcon width={16} height={16} /></a>
+            <a href="tel:+917984062415" aria-label="Phone" className="hover:text-cream transition-colors"><PhoneIcon width={16} height={16} /></a>
           </div>
           <div className="flex flex-wrap items-center gap-x-8 gap-y-4 text-[9px] uppercase tracking-[0.2em] text-cream/40">
             <Link href="/help/privacy" className="hover:text-cream transition-colors">Privacy</Link>
