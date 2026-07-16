@@ -1,6 +1,34 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/plp/Breadcrumbs";
+import { Timeline, TimelineItem } from "@/components/ui/Timeline";
+
+const timelineData: TimelineItem[] = [
+  {
+    year: "1990",
+    title: "The Inception",
+    description: "Our journey began with a profound dedication to sourcing the finest natural gemstones from the heart of legendary mining regions. Armed with generational knowledge, we established our first trading house.",
+    image: "/products/rings/IMG_7587.JPG"
+  },
+  {
+    year: "2005",
+    title: "Master Craftsmanship",
+    description: "We expanded our vision from loose gemstones to bespoke jewelry. We partnered with master artisans who utilize traditional techniques passed down through centuries to create pieces of unparalleled beauty.",
+    image: "/products/bangles/IMG_7653.jpg"
+  },
+  {
+    year: "2015",
+    title: "Astrological Precision",
+    description: "Recognizing the deep cultural and astrological significance of Navratna gemstones, we integrated certified Vedic gemology into our consultation services, ensuring every stone perfectly aligns with its wearer.",
+    image: "/gemstones/ruby-new.jpg"
+  },
+  {
+    year: "Present",
+    title: "The Heritage Collection",
+    description: "Today, Radha Rani stands as a pinnacle of trust and luxury. From rare unheated sapphires to flawless bespoke diamond pieces, our Maison continues to craft heirlooms for the modern era.",
+    image: "/products/necklaces/IMG_7616.JPG"
+  }
+];
 
 export const metadata: Metadata = {
   title: "Our Story | Radha Rani Gemstones",
@@ -67,7 +95,15 @@ export default function AboutPage() {
           ))}
         </div>
 
-        <div className="mt-24 grid gap-8 lg:grid-cols-2">
+        <div className="mt-32">
+          <div className="text-center mb-16">
+            <p className="eyebrow text-ink/60 mb-4">Our Legacy</p>
+            <h2 className="font-serif text-4xl md:text-5xl text-ink">A Journey of Craftsmanship</h2>
+          </div>
+          <Timeline items={timelineData} />
+        </div>
+
+        <div className="mt-32 grid gap-8 lg:grid-cols-2">
           <Link href="/shop/gemstones" className="group block">
             <div className="aspect-[4/3] overflow-hidden bg-cream-warm">
               <img
