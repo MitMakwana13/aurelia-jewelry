@@ -7,12 +7,12 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { requireOnboarding } from "@/lib/utils/onboarding";
+import { prisma } from "@/lib/prisma";
 
 export default async function WishlistPage() {
   const session = await getServerSession(authOptions);
   if (!session?.user?.email) redirect("/account");
   const user = await requireOnboarding(session.user.email);
-  const { prisma } = await import("@/lib/prisma");
   const savedItems = await prisma.wishlistItem.findMany({
     where: { userId: user.id },
     select: { productId: true }
