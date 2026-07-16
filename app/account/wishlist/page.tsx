@@ -3,8 +3,15 @@ import { commerce } from "@/lib/commerce";
 import { ProductGrid } from "@/components/plp/ProductGrid";
 import { Breadcrumbs } from "@/components/plp/Breadcrumbs";
 import { AccountNav } from "@/components/account/AccountNav";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
+import { redirect } from "next/navigation";
+import { requireOnboarding } from "@/lib/utils/onboarding";
 
 export default async function WishlistPage() {
+  const session = await getServerSession(authOptions);
+  if (!session?.user?.email) redirect("/account");
+  await requireOnboarding(session.user.email);
   const all = await commerce.getProducts();
   // The wishlist database model is not built yet, so default to empty.
   const items: any[] = [];

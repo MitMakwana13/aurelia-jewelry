@@ -4,6 +4,7 @@ import { AccountNav } from "@/components/account/AccountNav";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
+import { requireOnboarding } from "@/lib/utils/onboarding";
 
 export default async function DashboardPage() {
   const session = await getServerSession(authOptions);
@@ -12,8 +13,10 @@ export default async function DashboardPage() {
     redirect("/account");
   }
 
+  const user = await requireOnboarding(session.user?.email);
+
   // Extract first name for a friendly greeting
-  const firstName = session.user?.name?.split(" ")[0] || "there";
+  const firstName = user.fullName?.split(" ")[0] || "there";
 
   return (
     <div className="container-x py-10">

@@ -5,6 +5,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
+import { requireOnboarding } from "@/lib/utils/onboarding";
 
 export default async function InquiriesPage() {
   const session = await getServerSession(authOptions);
@@ -12,6 +13,8 @@ export default async function InquiriesPage() {
   if (!session?.user?.email) {
     redirect("/account");
   }
+
+  await requireOnboarding(session.user.email);
 
   // Fetch from Prisma: 
   const inquiries = await prisma.inquiry.findMany({ 

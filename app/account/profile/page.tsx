@@ -3,6 +3,7 @@ import { AccountNav } from "@/components/account/AccountNav";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
+import { requireOnboarding } from "@/lib/utils/onboarding";
 
 export default async function ProfilePage() {
   const session = await getServerSession(authOptions);
@@ -10,6 +11,8 @@ export default async function ProfilePage() {
   if (!session) {
     redirect("/account");
   }
+
+  const user = await requireOnboarding(session.user?.email);
 
   return (
     <div className="container-x py-10">
@@ -28,7 +31,13 @@ export default async function ProfilePage() {
                 <div>
                   <label className="block text-[10px] uppercase tracking-[0.18em] text-ink/50 mb-2">Name</label>
                   <div className="w-full border border-border px-4 py-3 text-sm bg-transparent">
-                    {session.user?.name || "Not provided"}
+                    {user.fullName || "Not provided"}
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-[10px] uppercase tracking-[0.18em] text-ink/50 mb-2">Phone</label>
+                  <div className="w-full border border-border px-4 py-3 text-sm bg-transparent">
+                    {user.phone || "Not provided"}
                   </div>
                 </div>
                 <div>
