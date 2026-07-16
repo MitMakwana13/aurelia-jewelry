@@ -33,14 +33,16 @@ export default async function CollectionPage({
 
   return (
     <>
-      <section className="relative aspect-[16/8] w-full bg-cream-warm">
-        <img src={collection.heroImage.url} alt={collection.heroImage.alt} className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-ink/40" />
-        <div className="container-x relative flex h-full items-end pb-12">
-          <div className="text-cream max-w-2xl">
-            <p className="eyebrow text-cream/80">Collection</p>
-            <h1 className="mt-2 font-serif text-5xl md:text-7xl">{collection.name}</h1>
-            <p className="mt-4 text-base">{collection.tagline}</p>
+      <section className="relative w-full pt-12 md:pt-20 bg-cream">
+        <div className="container-x">
+          <div className="max-w-2xl">
+            <p className="eyebrow text-ink/60 tracking-[0.3em] mb-4">Collection</p>
+            <h1 className="font-serif text-5xl md:text-7xl text-ink font-light leading-tight">
+              {collection.name}
+            </h1>
+            <p className="mt-4 text-ink-soft max-w-lg leading-relaxed">
+              {collection.tagline}
+            </p>
           </div>
         </div>
       </section>
