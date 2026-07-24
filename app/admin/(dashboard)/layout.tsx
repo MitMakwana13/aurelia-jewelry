@@ -8,9 +8,11 @@ import { Logo } from "@/components/ui/Logo";
 
 const navItems = [
   { label: "Dashboard", href: "/admin", icon: "⊞" },
-  { label: "Products", href: "/admin/products", icon: "◈" },
+  { label: "Customers & Users", href: "/admin/customers", icon: "👥" },
   { label: "Inquiries", href: "/admin/inquiries", icon: "✉" },
-  { label: "Orders", href: "/admin/orders", icon: "◉" },
+  { label: "Products", href: "/admin/products", icon: "◈" },
+  { label: "Collections", href: "/admin/collections", icon: "⬡" },
+  { label: "Orders", href: "/admin/orders", icon: "📦" },
   { label: "Settings", href: "/admin/settings", icon: "⚙" },
   { label: "View Site", href: "/", icon: "↗", external: true },
 ];

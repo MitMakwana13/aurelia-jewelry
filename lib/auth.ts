@@ -61,21 +61,27 @@ export const authOptions: NextAuthOptions = {
   session: { strategy: "jwt" },
   callbacks: {
     async signIn({ user, account }) {
-      if (account?.provider === "google" && user.email) {
+      if (user.email) {
         try {
           const existing = await prisma.user.findUnique({ where: { email: user.email } });
-          if (!existing) {
+          if (!existing && account?.provider === "google") {
             await prisma.user.create({
               data: {
                 email: user.email,
                 fullName: user.name ?? "",
                 password: "",
                 role: "CUSTOMER",
+                lastLogin: new Date(),
               },
+            });
+          } else if (existing) {
+            await prisma.user.update({
+              where: { email: user.email },
+              data: { lastLogin: new Date() },
             });
           }
         } catch (e) {
-          console.error("Google sign-in DB error:", e);
+          console.error("Sign-in DB error:", e);
           return false;
         }
       }
