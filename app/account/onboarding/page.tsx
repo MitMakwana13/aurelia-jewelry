@@ -34,8 +34,12 @@ export default function OnboardingPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!fullName.trim()) {
+      setError("Full Name is required.");
+      return;
+    }
     if (!phone.trim()) {
-      setError("Phone number is required.");
+      setError("Phone number is mandatory.");
       return;
     }
     setLoading(true);

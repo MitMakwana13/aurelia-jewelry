@@ -11,7 +11,10 @@ export async function requireOnboarding(email: string | null | undefined) {
 
   if (!user) redirect("/account");
 
-  if (!user.onboardingCompleted) {
+  const hasName = Boolean(user.fullName && user.fullName.trim().length > 0);
+  const hasPhone = Boolean(user.phone && user.phone.trim().length > 0);
+
+  if (!user.onboardingCompleted || !hasName || !hasPhone) {
     redirect("/account/onboarding");
   }
 

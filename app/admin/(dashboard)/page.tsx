@@ -1,6 +1,9 @@
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 const STATUS_COLORS: Record<string, string> = {
   NEW: "bg-red-100 text-red-700",
   IN_PROGRESS: "bg-yellow-100 text-yellow-700",
@@ -14,25 +17,55 @@ export default async function AdminDashboard() {
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  const [
-    userCount,
-    subscriberCount,
-    productCount,
-    totalInquiries,
-    newInquiries,
-    recentInquiries,
-    recentUsers,
-  ] = await Promise.all([
-    prisma.user.count(),
-    prisma.newsletterSubscriber.count(),
-    prisma.product.count({ where: { isActive: true } }),
-    prisma.inquiry.count(),
-    prisma.inquiry.count({ where: { status: "NEW" } }),
-    prisma.inquiry.findMany({
+  let userCount = 0;
+  let subscriberCount = 0;
+  let productCount = 0;
+  let totalInquiries = 0;
+  let newInquiries = 0;
+  let recentInquiries: any[] = [];
+  let recentUsers: any[] = [];
+
+  try {
+    userCount = await prisma.user.count();
+  } catch (e) {
+    console.error("Error fetching user count:", e);
+  }
+
+  try {
+    subscriberCount = await prisma.newsletterSubscriber.count();
+  } catch (e) {
+    console.error("Error fetching subscriber count:", e);
+  }
+
+  try {
+    productCount = await prisma.product.count({ where: { isActive: true } });
+  } catch (e) {
+    console.error("Error fetching product count:", e);
+  }
+
+  try {
+    totalInquiries = await prisma.inquiry.count();
+  } catch (e) {
+    console.error("Error fetching total inquiries:", e);
+  }
+
+  try {
+    newInquiries = await prisma.inquiry.count({ where: { status: "NEW" } });
+  } catch (e) {
+    console.error("Error fetching new inquiries count:", e);
+  }
+
+  try {
+    recentInquiries = await prisma.inquiry.findMany({
       orderBy: { createdAt: "desc" },
       take: 6,
-    }),
-    prisma.user.findMany({
+    });
+  } catch (e) {
+    console.error("Error fetching recent inquiries:", e);
+  }
+
+  try {
+    recentUsers = await prisma.user.findMany({
       orderBy: { createdAt: "desc" },
       take: 6,
       select: {
@@ -44,8 +77,10 @@ export default async function AdminDashboard() {
         createdAt: true,
         lastLogin: true,
       },
-    }),
-  ]);
+    });
+  } catch (e) {
+    console.error("Error fetching recent users:", e);
+  }
 
   const kpis = [
     { label: "Registered Accounts", value: userCount, icon: "👥", color: "text-blue-600", bg: "bg-blue-50", href: "/admin/customers" },
