@@ -51,7 +51,10 @@ export const metadata: Metadata = {
     description: "Certified natural gemstones & bespoke luxury fine jewelry by Radha Rani Gemstone.",
   },
   verification: {
-    google: "R3UrqYhF250O2pvX_ITufJ2JRBE9bktmDUN-I_zVCOU",
+    google: [
+      "f1QlccW8yLJqzKH3186pgAxrOBLPOx2a3dEaXFm3sRc",
+      "R3UrqYhF250O2pvX_ITufJ2JRBE9bktmDUN-I_zVCOU",
+    ],
   },
   robots: {
     index: true,
