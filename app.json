@@ -1,0 +1,46 @@
+{
+  "name": "Radha Rani Gemstone",
+  "description": "Radha Rani Gemstone offers certified natural gemstones — Ruby, Emerald, Blue Sapphire, Yellow Sapphire — and bespoke luxury jewelry, ethically sourced and lab-tested in India.",
+  "repository": "https://github.com/MitMakwana13/aurelia-jewelry",
+  "website": "https://www.radharanigemstone.com",
+  "logo": "https://www.radharanigemstone.com/logo.png",
+  "keywords": [
+    "gemstones",
+    "jewelry",
+    "astrology",
+    "nextjs",
+    "prisma",
+    "ecommerce"
+  ],
+  "scripts": {
+    "postdeploy": "npx prisma db push && npx tsx prisma/seed.ts"
+  },
+  "env": {
+    "DATABASE_URL": {
+      "description": "PostgreSQL database connection string (Supabase / Direct Postgres)",
+      "required": true
+    },
+    "DIRECT_URL": {
+      "description": "Direct PostgreSQL connection string for Prisma migrations",
+      "required": false
+    },
+    "NEXTAUTH_SECRET": {
+      "description": "Secret key used to encrypt NextAuth session tokens",
+      "generator": "secret",
+      "required": true
+    },
+    "NEXTAUTH_URL": {
+      "description": "Canonical base URL for NextAuth authentication",
+      "value": "https://www.radharanigemstone.com"
+    },
+    "NEXT_PUBLIC_SITE_URL": {
+      "description": "Public domain URL for site metadata, canonical tags, and OpenGraph images",
+      "value": "https://www.radharanigemstone.com"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
