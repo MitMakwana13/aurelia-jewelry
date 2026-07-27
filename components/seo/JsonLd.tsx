@@ -4,16 +4,17 @@ interface OrganizationJsonLdProps {
 }
 
 export function OrganizationJsonLd({
-  name = "Radharani Gemstone",
-  url = "https://radharanigemstone.com",
+  name = "Radha Rani Gemstone",
+  url = "https://www.radharanigemstone.com",
 }: OrganizationJsonLdProps) {
   const storeData = {
     "@context": "https://schema.org",
     "@type": "JewelryStore",
     name,
+    alternateName: "Radha Rani Heritage Collection",
     url,
     description:
-      "Radha Rani Heritage Collection - Exquisite diamonds, emeralds and bespoke masterpieces. The Culture of Craft. Based in India.",
+      "Radha Rani Gemstone offers certified natural gemstones (Ruby, Emerald, Blue Sapphire, Yellow Sapphire) and bespoke luxury jewelry, ethically sourced and lab-tested in India.",
     logo: `${url}/logo.png`,
     image: `${url}/logo.png`,
     telephone: "+91-79840-62415",
@@ -34,8 +35,8 @@ export function OrganizationJsonLd({
   const websiteData = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    name: "Radharani Gemstone",
-    url: "https://radharanigemstone.com/",
+    name: "Radha Rani Gemstone",
+    url: "https://www.radharanigemstone.com/",
   };
 
   return (

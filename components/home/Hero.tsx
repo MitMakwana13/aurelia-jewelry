@@ -43,15 +43,19 @@ export function Hero() {
         
         {/* Theatrical Masked Headline */}
         <div className="overflow-hidden">
-          <motion.h1 
+          <motion.div 
             initial={{ y: "110%", rotate: 2 }}
             animate={{ y: 0, rotate: 0 }}
             transition={{ duration: 1.5, ease: [0.76, 0, 0.24, 1], delay: 0.4 }}
-            className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[7.5rem] leading-[0.9] text-ink tracking-tight"
           >
-            The Culture of <br />
-            <em className="italic text-ink/70 font-light pr-4">Craft.</em>
-          </motion.h1>
+            <span className="block text-xs sm:text-sm font-sans uppercase tracking-[0.35em] text-ink/70 mb-4 font-medium">
+              Radha Rani Gemstone
+            </span>
+            <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-[7.5rem] leading-[0.9] text-ink tracking-tight">
+              The Culture of <br />
+              <em className="italic text-ink/70 font-light pr-4">Craft.</em>
+            </h1>
+          </motion.div>
         </div>
 
         {/* Subtitle */}
@@ -61,7 +65,7 @@ export function Hero() {
           transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: 1 }}
           className="mt-12 max-w-lg text-xs md:text-[13px] text-ink/70 leading-loose tracking-[0.05em]"
         >
-          Discover ethically sourced gemstones and brilliant diamonds.
+          Radha Rani Gemstone offers certified natural gemstones and brilliant diamonds.
           Bespoke jewelry tailored to your vision, crafted with centuries of heritage.
         </motion.p>
 

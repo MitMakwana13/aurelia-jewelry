@@ -21,31 +21,34 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: {
-    default: "Radha Rani Heritage Collection: The Culture of Craft",
-    template: "%s · Radha Rani",
+    default: "Radha Rani Gemstone | Certified Natural Gemstones & Bespoke Jewelry India",
+    template: "%s | Radha Rani Gemstone",
   },
   description:
-    "Radha Rani Heritage Collection: Exquisite, ethically sourced diamonds, emeralds, and bespoke masterpieces crafted in India. A heritage of pure intention and timeless luxury.",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://radharanigemstone.com"),
+    "Radha Rani Gemstone offers certified natural gemstones — Ruby, Emerald, Blue Sapphire, Yellow Sapphire — and bespoke fine jewelry, ethically sourced and lab-tested in India.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.radharanigemstone.com"),
+  alternates: {
+    canonical: "https://www.radharanigemstone.com",
+  },
   keywords: [
-    "Buy Natural Gemstones Online India", "Astrological Gemstones India", "Vedic Astrology Gemstones",
+    "Radha Rani Gemstone", "Radharani Gemstone", "Buy Natural Gemstones Online India", "Astrological Gemstones India", "Vedic Astrology Gemstones",
     "Certified Neelam Stone", "Certified Pukhraj Stone", "Natural Unheated Gemstones",
     "Bespoke Jewelry India", "Luxury Custom Jewelry Design", "Ethically Sourced Diamonds",
-    "Radharani Gemstone", "Premium Gemstone Maison India", "Custom Diamond Rings",
+    "Premium Gemstone Maison India", "Custom Diamond Rings",
     "Bridal Jewelry", "High-End Gemstones", "Heritage Jewelry India"
   ],
-  authors: [{ name: "Radharani Gemstone" }],
+  authors: [{ name: "Radha Rani Gemstone" }],
   openGraph: {
-    title: "Radharani Gemstone | Heritage Collection",
-    description: "Exquisite diamonds and bespoke masterpieces crafted in India.",
+    title: "Radha Rani Gemstone | Certified Natural Gemstones & Bespoke Jewelry",
+    description: "Ethically sourced certified natural gemstones and bespoke high-end luxury jewelry by Radha Rani Gemstone.",
     type: "website",
     locale: "en_IN",
-    siteName: "Radharani Gemstone",
+    siteName: "Radha Rani Gemstone",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Radha Rani Heritage Collection",
-    description: "The Culture of Craft. Heritage Collection Masterpieces.",
+    title: "Radha Rani Gemstone | Certified Natural Gemstones & Bespoke Jewelry",
+    description: "Certified natural gemstones & bespoke luxury fine jewelry by Radha Rani Gemstone.",
   },
   verification: {
     google: "R3UrqYhF250O2pvX_ITufJ2JRBE9bktmDUN-I_zVCOU",

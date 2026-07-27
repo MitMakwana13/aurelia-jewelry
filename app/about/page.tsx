@@ -31,8 +31,8 @@ const timelineData: TimelineItem[] = [
 ];
 
 export const metadata: Metadata = {
-  title: "Our Story | Radha Rani Gemstones",
-  description: "The story behind Radha Rani Gemstones: natural certified gemstones & custom jewelry.",
+  title: "About Us | Radha Rani Gemstone",
+  description: "Radha Rani Gemstone was founded to bring ethically sourced, certified natural gemstones and bespoke jewelry to collectors and believers in Vedic astrology across India.",
 };
 
 export default function AboutPage() {
@@ -41,7 +41,7 @@ export default function AboutPage() {
       <section className="relative aspect-[16/8] w-full bg-cream-warm">
         <img
           src="/products/bangles/IMG_7649.JPG"
-          alt="Radha Rani Gemstones Craftsmanship"
+          alt="Radha Rani Gemstone Craftsmanship"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-ink/30" />
@@ -67,7 +67,7 @@ export default function AboutPage() {
           </div>
           <div className="lg:col-span-7 space-y-6 text-base leading-relaxed text-ink-soft">
             <p>
-              At Radha Rani Gemstones, we believe that every gemstone and every piece of jewelry carries a personal meaning.
+              Radha Rani Gemstone was founded to bring ethically sourced, certified natural gemstones and bespoke jewelry to collectors and believers in Vedic astrology across India.
             </p>
             <p>
               We offer natural, certified gemstones along with astrology-based guidance to help individuals find the gemstone that best suits their needs. Every gemstone is accompanied by trusted certifications such as IGI and GIA, ensuring authenticity and transparency.

@@ -32,7 +32,7 @@ export function Footer() {
                 <Logo variant="dark" />
               </div>
               <p className="max-w-xs text-[11px] leading-relaxed tracking-wider text-cream/60 uppercase">
-                Ethically sourced gemstones and diamonds crafted into timeless bespoke pieces.
+                Radha Rani Gemstone — Ethically sourced certified gemstones and diamonds crafted into timeless bespoke pieces.
               </p>
             </div>
             
@@ -91,7 +91,7 @@ export function Footer() {
             <Link href="/help/privacy" className="hover:text-cream transition-colors">Privacy</Link>
             <Link href="/help/terms" className="hover:text-cream transition-colors">Terms</Link>
             <Link href="/help/accessibility" className="hover:text-cream transition-colors">Accessibility</Link>
-            <span>{new Date().getFullYear()} RADHA RANI HERITAGE COLLECTION</span>
+            <span>© {new Date().getFullYear()} RADHA RANI GEMSTONE · HERITAGE COLLECTION</span>
           </div>
         </div>
       </div>
