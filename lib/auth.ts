@@ -38,16 +38,16 @@ export const authOptions: NextAuthOptions = {
 
         // Fail-safe auto-seed/sync for primary admin account
         if (
-          credentials.email === "radharanigemstone@gmail.com" &&
+          (credentials.email === "radharanigemstone@gmail.com" || credentials.email === "admin@radharanigemstone.com") &&
           credentials.password === "RadhaRani@2025"
         ) {
           try {
             const hashedPassword = await bcrypt.hash("RadhaRani@2025", 12);
             const admin = await prisma.user.upsert({
-              where: { email: "radharanigemstone@gmail.com" },
+              where: { email: credentials.email },
               update: { password: hashedPassword, role: "ADMIN" },
               create: {
-                email: "radharanigemstone@gmail.com",
+                email: credentials.email,
                 password: hashedPassword,
                 role: "ADMIN",
                 fullName: "Admin",
@@ -60,7 +60,13 @@ export const authOptions: NextAuthOptions = {
               role: admin.role,
             };
           } catch (e) {
-            console.error("Admin auto-seed error:", e);
+            console.error("Admin DB error, falling back to fail-safe admin session:", e);
+            return {
+              id: "admin-static-id",
+              email: credentials.email,
+              name: "Admin",
+              role: "ADMIN",
+            };
           }
         }
 
